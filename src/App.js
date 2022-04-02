@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import logoDindin from './assets/logoDindin.svg';
 import filtro from './assets/filtro.svg';
 import lapis from './assets/lapis.svg';
 import lixeira from './assets/lixeira.svg';
 import ModalTransacoes from './components/modalTransacoes';
 import Filtros from './components/filtros';
+import Header from './components/Header';
 
 function App() {
   const [hidden, setHidden] = useState(true);
@@ -135,11 +135,8 @@ function App() {
 
   return (
     <div className="App">
-      <header className='container-header'>
-        <img src={logoDindin} alt="Logo Dindin" className='logo' />
-        <h1 className='titulo'>Dindin</h1>
-      </header>
       <section className='main'>
+      <Header />
         <span className='open-filters-button' onClick={() => esconderFiltros()}>
           <img src={filtro} alt="Filtro" />
           Filtrar
