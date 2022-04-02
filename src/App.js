@@ -5,7 +5,7 @@ import lapis from './assets/lapis.svg';
 import lixeira from './assets/lixeira.svg';
 import ModalTransacoes from './components/modalTransacoes';
 import Filtros from './components/filtros';
-import Header from './components/Header';
+import Header from './components/header';
 
 function App() {
   const [hidden, setHidden] = useState(true);
@@ -135,8 +135,8 @@ function App() {
 
   return (
     <div className="App">
-      <section className='main'>
       <Header />
+      <section className='main'>
         <span className='open-filters-button' onClick={() => esconderFiltros()}>
           <img src={filtro} alt="Filtro" />
           Filtrar
