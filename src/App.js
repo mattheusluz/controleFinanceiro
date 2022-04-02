@@ -3,9 +3,10 @@ import './App.css';
 import filtro from './assets/filtro.svg';
 import lapis from './assets/lapis.svg';
 import lixeira from './assets/lixeira.svg';
-import ModalTransacoes from './components/modalTransacoes';
-import Filtros from './components/filtros';
-import Header from './components/header';
+import ModalTransacoes from './components/ModalTransacoes';
+import Filtros from './components/Filtros';
+import Header from './components/Header';
+import Resumo from './components/Resumo';
 
 function App() {
   const [hidden, setHidden] = useState(true);
@@ -70,63 +71,6 @@ function App() {
     } catch (error) {
       console.log(error);
     }
-  }
-
-  const calcularEntradas = () => {
-    let soma = 0;
-
-    (filtrando ? filtrados : transacoes).map(transacao => {
-      if (transacao.type === 'credit') soma += transacao.value;
-    });
-
-    const valorEmReais = `${soma / 100}`;
-    let valorComPonto = '';
-
-    if (valorEmReais.indexOf(".") === -1) {
-      valorComPonto = valorEmReais + ',00';
-      const valorComVirgula = valorComPonto.replace('.', ',');
-      return `${valorComVirgula}`;
-    }
-
-    return `${valorEmReais.replace('.', ',')}`;
-  }
-
-  const calcularSaidas = () => {
-    let soma = 0;
-
-    (filtrando ? filtrados : transacoes).map(transacao => {
-      if (transacao.type === 'debit') {
-        soma += transacao.value;
-      }
-    });
-
-    const valorEmReais = `${soma / 100}`;
-    let valorComPonto = '';
-
-    if (valorEmReais.indexOf(".") === -1) {
-      valorComPonto = valorEmReais + '.00';
-      const valorComVirgula = valorComPonto.replace('.', ',');
-      return `${valorComVirgula}`;
-    }
-
-    return `${valorEmReais.replace(".", ",")}`;
-  }
-
-  const calcularValorTotal = () => {
-    const entradas = Number(calcularEntradas().replace(',', '.'));
-    const saidas = Number(calcularSaidas().replace(',', '.'));
-
-    const total = `${entradas - saidas}`;
-
-    let valorComPonto = '';
-
-    if (total.indexOf(".") === -1) {
-      valorComPonto = total + '.00';
-      const valorComVirgula = valorComPonto.replace('.', ',');
-      return `${valorComVirgula}`;
-    }
-
-    return `${total.replace('.', ',')}`;
   }
 
   const handlePopUp = () => {
@@ -209,31 +153,10 @@ function App() {
                   </div>
                 </ul>
               ))}
-
+              </div>
             </div>
+            <Resumo />
           </div>
-          <div className="container-resume">
-            <h3>Resumo</h3>
-            <div >
-              <span>Entradas</span>
-              <strong className="entradas">R$ {calcularEntradas()}</strong>
-            </div>
-            <div >
-              <span>Saídas</span>
-              <strong className="saidas">R$ {calcularSaidas()}</strong>
-            </div>
-            <div>
-              <strong>Saldo</strong>
-              <strong className="saldo">R$ {calcularValorTotal()}</strong>
-            </div>
-            <button
-              className="btn-add"
-              onClick={handleModal}
-            >
-              Adicionar Registro
-            </button>
-          </div>
-        </div>
       </section>
       <ModalTransacoes
         openModal={openModal}
