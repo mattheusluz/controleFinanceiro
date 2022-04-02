@@ -5,27 +5,6 @@
   list-style: none;
 }
 
-.container-header {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-
-  padding-top: 45px;
-  padding-left: 100px;
-  height: 225px;
-  
-  background: linear-gradient(90deg, #05EDE3, #645FFB);
-}
-
-.titulo {
-  font-family: 'Rubik', sans-serif;
-  font-weight: bold;
-  font-size: 36px;
-  line-height: 43px;
-  
-  color: #FFFFFF;
-}
-
 .main {
   min-height: 100vh;
   margin-top: -100px;
