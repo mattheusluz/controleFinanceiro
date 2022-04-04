@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import './style.css';
-import filtro from './assets/filtro.svg';
-import lapis from './assets/lapis.svg';
-import lixeira from './assets/lixeira.svg';
-import ModalTransacoes from './components/ModalTransacoes';
-import Filtros from './components/Filtros';
-import Header from './components/Header';
-import Resumo from './components/Resumo';
-import ConfirmarEscolha from './components/ConfirmarEscolha';
+import filtro from '../../assets/filtro.svg';
+import lapis from '../../assets/lapis.svg';
+import lixeira from '../../assets/lixeira.svg';
+import ModalTransacoes from '../../components/ModalTransacoes';
+import Filtros from '../../components/Filtros';
+import Header from '../../components/Header';
+import Resumo from '../../components/Resumo';
+import ConfirmarEscolha from '../../components/ConfirmarEscolha';
 
 function Main() {
   const [hidden, setHidden] = useState(true);

@@ -12,6 +12,7 @@ import ConfirmarEscolha from './components/ConfirmarEscolha';
 import Login from './Pages/Login';
 import Cadastro from './Pages/Cadastro';
 import CadastroConcluido from './Pages/Cadastro/CadastroConcluido';
+import Main from './Pages/Main';
 
 function App() {
   // const [hidden, setHidden] = useState(true);
@@ -75,6 +76,7 @@ function App() {
       <Login />
       <Cadastro />
       <CadastroConcluido />
+      <Main />
       {/* <Header />
       <section className='main'>
         <span className='open-filters-button' onClick={() => esconderFiltros()}>
