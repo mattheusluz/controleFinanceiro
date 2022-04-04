@@ -1,0 +1,11 @@
+.pageLog{
+    background: linear-gradient(90deg, #05EDE3, #645FFB);
+    width: 100vw;
+    height: 100vh;
+}
+
+.containerLogin{
+    background-color: antiquewhite;
+    width: 40%;
+    height: 50%;
+}

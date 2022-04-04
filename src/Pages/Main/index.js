@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-import './App.css';
-import './globalStyles/styles.css';
+import './style.css';
 import filtro from './assets/filtro.svg';
 import lapis from './assets/lapis.svg';
 import lixeira from './assets/lixeira.svg';
@@ -9,73 +8,67 @@ import Filtros from './components/Filtros';
 import Header from './components/Header';
 import Resumo from './components/Resumo';
 import ConfirmarEscolha from './components/ConfirmarEscolha';
-import Login from './Pages/Login';
-import Cadastro from './Pages/Cadastro';
-import CadastroConcluido from './Pages/Cadastro/CadastroConcluido';
 
-function App() {
-  // const [hidden, setHidden] = useState(true);
-  // const [openModal, setOpenModal] = useState(false);
-  // const [transacoes, setTransacoes] = useState([]);
-  // const [filtrados, setFiltrados] = useState([]);
-  // const [filtrando, setFiltrando] = useState(false);
-  // const [editar, setEditar] = useState(false);
-  // const [transacaoEditada, setTransacaoEditada] = useState(false);
-  // const [idTransacao, setIdTransacao] = useState();
-  // const [popup, setPopup] = useState(false);
+function Main() {
+  const [hidden, setHidden] = useState(true);
+  const [openModal, setOpenModal] = useState(false);
+  const [transacoes, setTransacoes] = useState([]);
+  const [filtrados, setFiltrados] = useState([]);
+  const [filtrando, setFiltrando] = useState(false);
+  const [editar, setEditar] = useState(false);
+  const [transacaoEditada, setTransacaoEditada] = useState(false);
+  const [idTransacao, setIdTransacao] = useState();
+  const [popup, setPopup] = useState(false);
 
 
-  // const esconderFiltros = () => {
-  //   return hidden ? setHidden(false) : setHidden(true);
-  // }
+  const esconderFiltros = () => {
+    return hidden ? setHidden(false) : setHidden(true);
+  }
 
-  // const handleModal = () => {
-  //   setEditar(false);
-  //   setTransacaoEditada(false);
-  //   openModal ? setOpenModal(false) : setOpenModal(true);
-  // }
+  const handleModal = () => {
+    setEditar(false);
+    setTransacaoEditada(false);
+    openModal ? setOpenModal(false) : setOpenModal(true);
+  }
 
-  // const editarTransacao = (transacao) => {
-  //   handleModal();
-  //   setEditar(true);
-  //   setIdTransacao(transacao.id);
-  //   todasTransacoes();
-  //   setTransacaoEditada(transacao);
-  // }
+  const editarTransacao = (transacao) => {
+    handleModal();
+    setEditar(true);
+    setIdTransacao(transacao.id);
+    todasTransacoes();
+    setTransacaoEditada(transacao);
+  }
 
-  // const handleClose = () => {
-  //   openModal ? setOpenModal(false) : setOpenModal(true);
-  //   setEditar(false);
-  // }
+  const handleClose = () => {
+    openModal ? setOpenModal(false) : setOpenModal(true);
+    setEditar(false);
+  }
 
-  // useEffect(() => {
-  //   todasTransacoes();
-  // }, []);
+  useEffect(() => {
+    todasTransacoes();
+  }, []);
 
-  // const todasTransacoes = async () => {
-  //   try {
-  //     const resposta = await fetch('http://localhost:3333/transactions', {
-  //       method: 'GET'
-  //     });
+  const todasTransacoes = async () => {
+    try {
+      const resposta = await fetch('http://localhost:3333/transactions', {
+        method: 'GET'
+      });
 
-  //     const data = await resposta.json();
+      const data = await resposta.json();
 
-  //     setTransacoes(data);
-  //     setFiltrados(data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
+      setTransacoes(data);
+      setFiltrados(data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
-  // const handlePopUp = () => {
-  //   setPopup(!popup);
-  // }
+  const handlePopUp = () => {
+    setPopup(!popup);
+  }
   return (
-    <div className="App">
-      <Login />
-      <Cadastro />
-      <CadastroConcluido />
-      {/* <Header />
+    <div className="Main">
+      <Header />
       <section className='main'>
         <span className='open-filters-button' onClick={() => esconderFiltros()}>
           <img src={filtro} alt="Filtro" />
@@ -145,9 +138,9 @@ function App() {
         idTransacao={idTransacao}
         transacao={transacoes}
         transacaoEditada={transacaoEditada}
-      />*/}
-    </div> 
+      />
+    </div>
   );
 }
 
-export default App;
+export default Main;
