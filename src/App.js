@@ -1,18 +1,18 @@
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 import './App.css';
 import './globalStyles/styles.css';
-import filtro from './assets/filtro.svg';
-import lapis from './assets/lapis.svg';
-import lixeira from './assets/lixeira.svg';
-import ModalTransacoes from './components/ModalTransacoes';
-import Filtros from './components/Filtros';
-import Header from './components/Header';
-import Resumo from './components/Resumo';
-import ConfirmarEscolha from './components/ConfirmarEscolha';
-import Login from './Pages/Login';
-import Cadastro from './Pages/Cadastro';
-import CadastroConcluido from './Pages/Cadastro/CadastroConcluido';
-import Main from './Pages/Main';
+// import filtro from './assets/filtro.svg';
+// import lapis from './assets/lapis.svg';
+// import lixeira from './assets/lixeira.svg';
+// import ModalTransacoes from './components/ModalTransacoes';
+// import Filtros from './components/Filtros';
+// import Header from './components/Header';
+// import Resumo from './components/Resumo';
+// import ConfirmarEscolha from './components/ConfirmarEscolha';
+// import Login from './Pages/Login';
+// import Cadastro from './Pages/Cadastro';
+// import CadastroConcluido from './Pages/Cadastro/CadastroConcluido';
+// import Main from './Pages/Main';
 import Rotas from './roteador/Rotas'
 
 function App() {
