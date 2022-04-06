@@ -13,6 +13,7 @@ import Login from './Pages/Login';
 import Cadastro from './Pages/Cadastro';
 import CadastroConcluido from './Pages/Cadastro/CadastroConcluido';
 import Main from './Pages/Main';
+import Rotas from './roteador/Rotas'
 
 function App() {
   // const [hidden, setHidden] = useState(true);
@@ -73,10 +74,11 @@ function App() {
   // }
   return (
     <div className="App">
-      <Login />
+      <Rotas />
+      {/* <Login />
       <Cadastro />
       <CadastroConcluido />
-      <Main />
+      <Main /> */}
       {/* <Header />
       <section className='main'>
         <span className='open-filters-button' onClick={() => esconderFiltros()}>
@@ -148,7 +150,7 @@ function App() {
         transacao={transacoes}
         transacaoEditada={transacaoEditada}
       />*/}
-    </div> 
+    </div>
   );
 }
 

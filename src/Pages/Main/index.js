@@ -74,58 +74,58 @@ function Main() {
           <img src={filtro} alt="Filtro" />
           Filtrar
         </span>
-      <div className="filters-table-resume">
-        <div className="filters-table">
-          <Filtros
-            setFiltrando={setFiltrando}
-            transacoes={transacoes}
-            setFiltrados={setFiltrados}
-            hidden={hidden}
-          />
-          <div className='table'>
-            <div className='table-head'>
-              <div id='date' className='column-title'>
-                <span>Data</span>
+        <div className="filters-table-resume">
+          <div className="filters-table">
+            <Filtros
+              setFiltrando={setFiltrando}
+              transacoes={transacoes}
+              setFiltrados={setFiltrados}
+              hidden={hidden}
+            />
+            <div className='table'>
+              <div className='table-head'>
+                <div id='date' className='column-title'>
+                  <span>Data</span>
+                </div>
+                <div id='week-day' className='column-title'>
+                  <span>Dia da semana</span>
+                </div>
+                <div className='column-title'>
+                  <span>Descrição</span>
+                </div>
+                <div className='column-title'>
+                  <span>Categoria</span>
+                </div>
+                <div id='value' className='column-title'>
+                  <span>Valor</span>
+                </div>
               </div>
-              <div id='week-day' className='column-title'>
-                <span>Dia da semana</span>
-              </div>
-              <div className='column-title'>
-                <span>Descrição</span>
-              </div>
-              <div className='column-title'>
-                <span>Categoria</span>
-              </div>
-              <div id='value' className='column-title'>
-                <span>Valor</span>
-              </div>
-            </div>
-            {(filtrando ? filtrados : transacoes).map((transacao) => (
-              <ul className='table-body' key={transacao.id}>
-                <li className='table-line'>
-                  <span className='line-items'>{transacao.date}</span>
-                  <span className='line-items'>{transacao.week_day}</span>
-                  <span className='line-items'>{transacao.description}</span>
-                  <span className='line-items'>{transacao.category}</span>
-                  <span
-                    className='line-items'
-                    style={{ color: transacao.type === 'credit' ? '#7B61FF' : '#FA8C10' }}
-                  >
-                    {transacao.type === 'debit' && '-'} R$ {transacao.value / 100}
-                  </span>
-                  <img src={lapis} alt="Editar" className='edit-icon' onClick={() => editarTransacao(transacao)} />
-                  <img src={lixeira}
-                    alt="Deletar"
-                    className='delete-icon'
-                    onClick={() => {
-                      handlePopUp()
-                      setIdTransacao(transacao.id)
-                    }}
-                  />
-                </li>
-                <ConfirmarEscolha />
-              </ul>
-            ))}
+              {(filtrando ? filtrados : transacoes).map((transacao) => (
+                <ul className='table-body' key={transacao.id}>
+                  <li className='table-line'>
+                    <span className='line-items'>{transacao.date}</span>
+                    <span className='line-items'>{transacao.week_day}</span>
+                    <span className='line-items'>{transacao.description}</span>
+                    <span className='line-items'>{transacao.category}</span>
+                    <span
+                      className='line-items'
+                      style={{ color: transacao.type === 'credit' ? '#7B61FF' : '#FA8C10' }}
+                    >
+                      {transacao.type === 'debit' && '-'} R$ {transacao.value / 100}
+                    </span>
+                    <img src={lapis} alt="Editar" className='edit-icon' onClick={() => editarTransacao(transacao)} />
+                    <img src={lixeira}
+                      alt="Deletar"
+                      className='delete-icon'
+                      onClick={() => {
+                        handlePopUp()
+                        setIdTransacao(transacao.id)
+                      }}
+                    />
+                  </li>
+                  <ConfirmarEscolha />
+                </ul>
+              ))}
             </div>
           </div>
           <Resumo />
