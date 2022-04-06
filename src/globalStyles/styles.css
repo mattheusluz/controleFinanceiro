@@ -1,7 +1,8 @@
 .page{
     background: linear-gradient(90deg, #05EDE3, #645FFB);
-    height: 100vh;
+    min-height: calc(100vh - 225px);
     display: flex;
     justify-content: center;
     align-items: center;
+    top:-50px;
 }
