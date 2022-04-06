@@ -1,6 +1,7 @@
 import './style.css';
 import '../../globalStyles/styles.css';
 import Header from '../../components/Header';
+import {NavLink} from 'react-router-dom';
 
 function Cadastro(){
   return(
@@ -28,7 +29,7 @@ function Cadastro(){
             </label>
             <input type="password" className='inputSenha' placeHolder='Digite novamente sua senha' />
           </div>
-          <button type='submit' className='buttonEntrar'>Cadastrar</button>
+          <NavLink to={'/cadastroConcluido'} className='buttonEntrar'>Cadastrar</NavLink>
         </form>
       </div>
     </div>

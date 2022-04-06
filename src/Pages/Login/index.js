@@ -19,11 +19,11 @@ function Login(){
             Senha:
           </label>
           <input type="password" className='inputLogin' placeHolder='Digite sua senha cadastrada' />
-          <button type='submit' className='buttonEntrar'>Entrar</button>
+          <NavLink to={'/main'} type='submit' className='buttonEntrar'>Entrar</NavLink>
         </form>
         <div className="fazerCadastro">
           <span className='conta'>Ainda não tem uma conta?</span> 
-          <button className='buttonConta'>Criar uma conta</button>
+          <NavLink to={'/cadastro'} className='buttonConta'>Criar uma conta</NavLink>
         </div>
       </div>
     </div>
