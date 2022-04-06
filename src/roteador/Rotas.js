@@ -12,7 +12,7 @@ const Rotas = () => {
       <Route component={Login} exact path="/login" />
       <Route component={Cadastro} path="/cadastro" />
       <Route component={CadastroConcluido} path="/cadastroConcluido" />
-      <Route component={Main} path="/" />
+      <Route component={Main} path="/" exact />
     </Router>
   )
 }
