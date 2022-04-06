@@ -1,0 +1,13 @@
+.navBar{
+    position: fixed;
+    margin-left: 70rem;
+    margin-top: 0.5rem;
+}
+
+.navLink{
+    text-decoration: none;
+    color: #FFF;
+    font-family: 'Rubik', sans-serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+}

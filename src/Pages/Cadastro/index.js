@@ -1,12 +1,12 @@
 import './style.css';
 import '../../globalStyles/styles.css';
-import Header from '../../components/Header';
+import HeaderLogin from '../../components/HeaderLogin';
 import {NavLink} from 'react-router-dom';
 
 function Cadastro(){
   return(
     <>
-    <Header className='header'/>
+    <HeaderLogin className='header'/>
     <div className='page'>
       <div className="container">
         <form type='submit' className='form'>
@@ -23,13 +23,16 @@ function Cadastro(){
             <label htmlFor="" className='labelSenhas'>
               Senha:
             </label>
-            <input type="password" className='inputSenha' placeHolder='Digite sua senha' />
+            <input type="password" className='inputSenha' placeHolder='Digite uma senha' />
             <label htmlFor="" className='labelSenhas'>
               Confirmar Senha:
             </label>
-            <input type="password" className='inputSenha' placeHolder='Digite novamente sua senha' />
+            <input type="password" className='inputSenha' placeHolder='Digite novamente' />
           </div>
-          <NavLink to={'/cadastroConcluido'} className='buttonEntrar'>Cadastrar</NavLink>
+          <div className="buttons">
+            <NavLink to={'/'} className='buttonVoltar'>Voltar</NavLink>
+            <NavLink to={'/cadastroConcluido'} className='buttonCadastrar'>Cadastrar</NavLink>
+          </div>
         </form>
       </div>
     </div>

@@ -1,24 +1,24 @@
 import './style.css';
 import '../../globalStyles/styles.css';
 import {NavLink} from 'react-router-dom';
-import Header from '../../components/Header';
+import HeaderLogin from '../../components/HeaderLogin';
 
 function Login(){
   return(
     <>
-    <Header className='header'/>
+    <HeaderLogin className='header'/>
     <div className='pageLogin'>
       <div className="containerLogin">
         <form type='submit' className='formLogin'>
           <h1 className='titleLogin'>Login</h1>
           <label htmlFor="" className='labelLogin'>
-            Nome ou E-mail:
+            E-mail:
           </label>
-          <input type="text" className='inputLogin' placeHolder='Digite o nome ou e-mail do usuário' />
+          <input type="text" className='inputLogin' placeHolder='Digite o e-mail do usuário' />
           <label htmlFor="" className='labelLogin'>
             Senha:
           </label>
-          <input type="password" className='inputLogin' placeHolder='Digite sua senha cadastrada' />
+          <input type="password" className='inputLogin' placeHolder='Digite a senha cadastrada' />
           <NavLink to={'/main'} type='submit' className='buttonEntrar'>Entrar</NavLink>
         </form>
         <div className="fazerCadastro">

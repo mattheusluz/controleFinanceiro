@@ -1,13 +1,13 @@
 import './style.css';
 import '../../../globalStyles/styles.css';
-import Header from '../../../components/Header';
+import HeaderLogin from '../../../components/HeaderLogin';
 import cadastroConcluido from '../../../assets/icone-cadastro-concluido.svg';
 import {NavLink} from 'react-router-dom';
 
 function CadastroConcluido(){
   return(
     <>
-    <Header className='header'/>
+    <HeaderLogin className='header'/>
     <div className='page'>
       <div className="containerConcluido">
         <img src={cadastroConcluido} className='imgConcluido' alt="icone cadastro concluido" />
