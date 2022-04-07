@@ -1,0 +1,20 @@
+.navBar{
+    position: fixed;
+    margin-left: 71vw;
+    margin-top: 0.5rem;
+    display: flex;
+}
+
+.nome{
+    text-decoration: none;
+    color: #FFF;
+    font-family: 'Rubik', sans-serif;
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+.imgModal{    
+    filter: invert(90%) sepia(77%) saturate(50%) hue-rotate(197deg) brightness(121%) contrast(200%);
+    margin-left: 1rem;
+    cursor: pointer;
+}
