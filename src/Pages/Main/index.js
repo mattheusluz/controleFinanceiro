@@ -118,8 +118,8 @@ function Main() {
                       alt="Deletar"
                       className='delete-icon'
                       onClick={() => {
-                        handlePopUp()
-                        setIdTransacao(transacao.id)
+                      handlePopUp()
+                      setIdTransacao(transacao.id)
                       }}
                     />
                   </li>

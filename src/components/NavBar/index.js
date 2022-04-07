@@ -1,10 +1,13 @@
 import './style.css';
-import { NavLink } from "react-router-dom";
+import ModalUsuario from '../NavBar/ModalUsuario'; 
+import arrowDown from '../../assets/arrowDown.svg';
 
 function navBar(){
   return(
     <div className='navBar'>
-      <NavLink to={'/'} className='navLink'>Sair</NavLink>
+      <h1 className='nome'>Olá, Pessoa!</h1>
+      <img className='imgModal' src={arrowDown} alt='Flexa para baixo' />
+      <ModalUsuario />
     </div>
   )
 }
