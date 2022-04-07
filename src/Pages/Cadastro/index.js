@@ -10,7 +10,7 @@ function Cadastro(){
     <div className='page'>
       <div className="container">
         <form type='submit' className='form'>
-          <h1 className='titleLogin'>Cadastrar usuário</h1>
+          <h1 className='title'>Cadastrar usuário</h1>
           <label htmlFor="" className='label'>
             Nome Completo:
           </label>

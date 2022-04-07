@@ -2,7 +2,7 @@
     background-color: antiquewhite;
     width: 40vw;
     height: 72vh;
-    border-radius: 20px;
+    border-radius: 2rem;
     margin-top: -27vh;
     display: flex;
     flex-direction: column;
@@ -19,18 +19,17 @@
     margin-left: 1vw;
 }
 
-.titleLogin{
+.title{
     font-family: 'Rubik', sans-serif;
-    font-weight: bolder;
-    font-size: 2.5rem;
-    color: #0b0b0ed2;
+    font-size: 3rem;
+    font-weight: 600;
+    color: #0b0b0ea8;
     text-align: center;
-    margin-top: 1rem;
 }
 
 .label{
     font-family: 'Rubik', sans-serif;
-    font-size: 1rem;
+    font-size: 1.6rem;
     font-weight: 500;
     color: #000;
     margin-top: 1rem;
@@ -39,10 +38,10 @@
 .input{
     font-family: 'Rubik', sans-serif;
     font-weight: 400;
-    font-size: 1rem;
+    font-size: 1.5rem;
     color: rgba(0, 0, 0, 0.685);
-    height: 2.5rem;
-    border-radius: 5px;
+    height: 3.5rem;
+    border-radius: .5rem;
     border: none;
     padding-left: .5rem;
 }
@@ -56,19 +55,20 @@
 
 .labelSenhas{
     font-family: 'Rubik', sans-serif;
-    font-size: 1rem;
+    font-size: 1.6rem;
     font-weight: 500;
     color: #000;
     margin-top: .5rem;
+    padding-bottom: .5rem;
 }
 
 .inputSenha{
     font-family: 'Rubik', sans-serif;
     font-weight: 400;
-    font-size: 1rem;
+    font-size: 1.6rem;
     color: rgba(0, 0, 0, 0.685);
-    height: 2.5rem;
-    border-radius: 5px;
+    height: 3.5rem;
+    border-radius: .5rem;
     border: none;
     padding-left: .5rem;
     width: 50%;
@@ -76,16 +76,14 @@
 
 .input::placeholder{
     font-family: 'Rubik', sans-serif;
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: 300;
 }
 
-.title{
+.inputSenha::placeholder{
     font-family: 'Rubik', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    color: #0b0b0ea8;
-    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 300;
 }
 
 .buttonCadastrar{
@@ -96,11 +94,12 @@
     cursor: pointer;
     width: 15vw;
     height: 8vh;
-    color: #FFF;   
-    font-size: 1.8rem;
+    color: #FFF; 
+    font-family: 'Rubik', sans-serif;  
+    font-size: 2rem;
     font-weight: 600;
     background-color: #645FFB;
-    border-radius: 20px;
+    border-radius: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -117,10 +116,11 @@
     width: 15vw;
     height: 8vh;
     color: #FFF;
-    font-size: 1.8rem;
+    font-family: 'Rubik', sans-serif;
+    font-size: 2rem;
     font-weight: 600;
     background-color: #FA8C10;
-    border-radius: 20px;
+    border-radius: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
