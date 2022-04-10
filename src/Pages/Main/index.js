@@ -1,20 +1,28 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import './style.css';
 import filtro from '../../assets/filtro.svg';
 import lapis from '../../assets/lapis.svg';
 import lixeira from '../../assets/lixeira.svg';
 import ModalTransacoes from '../../components/ModalTransacoes';
+import ListaTransacoes from '../../components/ListaTransacoes';
 import Filtros from '../../components/Filtros';
 import Header from '../../components/Header';
 import Resumo from '../../components/Resumo';
+import UserContext from '../../contexts/userContext';
 import ConfirmarEscolha from '../../components/ConfirmarEscolha';
+import { format } from 'date-fns';
 
 function Main() {
-  const [hidden, setHidden] = useState(true);
+  const {
+    transacoes,
+    setTransacoes,
+    setFiltrados,
+    setFiltrando,
+    hidden,
+    setHidden
+  } = useContext(UserContext);
+
   const [openModal, setOpenModal] = useState(false);
-  const [transacoes, setTransacoes] = useState([]);
-  const [filtrados, setFiltrados] = useState([]);
-  const [filtrando, setFiltrando] = useState(false);
   const [editar, setEditar] = useState(false);
   const [transacaoEditada, setTransacaoEditada] = useState(false);
   const [idTransacao, setIdTransacao] = useState();
@@ -35,32 +43,13 @@ function Main() {
     handleModal();
     setEditar(true);
     setIdTransacao(transacao.id);
-    todasTransacoes();
+    // todasTransacoes();
     setTransacaoEditada(transacao);
   }
 
   const handleClose = () => {
     openModal ? setOpenModal(false) : setOpenModal(true);
     setEditar(false);
-  }
-
-  useEffect(() => {
-    todasTransacoes();
-  }, []);
-
-  const todasTransacoes = async () => {
-    try {
-      const resposta = await fetch('http://localhost:3333/transactions', {
-        method: 'GET'
-      });
-
-      const data = await resposta.json();
-
-      setTransacoes(data);
-      setFiltrados(data);
-    } catch (error) {
-      console.log(error);
-    }
   }
 
   const handlePopUp = () => {
@@ -82,57 +71,17 @@ function Main() {
               setFiltrados={setFiltrados}
               hidden={hidden}
             />
-            <div className='table'>
-              <div className='table-head'>
-                <div id='date' className='column-title'>
-                  <span>Data</span>
-                </div>
-                <div id='week-day' className='column-title'>
-                  <span>Dia da semana</span>
-                </div>
-                <div className='column-title'>
-                  <span>Descrição</span>
-                </div>
-                <div className='column-title'>
-                  <span>Categoria</span>
-                </div>
-                <div id='value' className='column-title'>
-                  <span>Valor</span>
-                </div>
-              </div>
-              {(filtrando ? filtrados : transacoes).map((transacao) => (
-                <ul className='table-body' key={transacao.id}>
-                  <li className='table-line'>
-                    <span className='line-items'>{transacao.date}</span>
-                    <span className='line-items'>{transacao.week_day}</span>
-                    <span className='line-items'>{transacao.description}</span>
-                    <span className='line-items'>{transacao.category}</span>
-                    <span
-                      className='line-items'
-                      style={{ color: transacao.type === 'credit' ? '#7B61FF' : '#FA8C10' }}
-                    >
-                      {transacao.type === 'debit' && '-'} R$ {transacao.value / 100}
-                    </span>
-                    <img src={lapis} alt="Editar" className='edit-icon' onClick={() => editarTransacao(transacao)} />
-                    <img src={lixeira}
-                      alt="Deletar"
-                      className='delete-icon'
-                      onClick={() => {
-                      handlePopUp()
-                      setIdTransacao(transacao.id)
-                      }}
-                    />
-                  </li>
-                  <ConfirmarEscolha />
-                </ul>
-              ))}
-            </div>
+            <ListaTransacoes />
           </div>
-          <Resumo />
+          <Resumo
+            openModal={openModal}
+            setOpenModal={setOpenModal}
+          />
         </div>
       </section>
       <ModalTransacoes
         openModal={openModal}
+        setOpenModal={setOpenModal}
         handleClose={handleClose}
         editando={editar}
         idTransacao={idTransacao}
