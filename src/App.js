@@ -17,14 +17,14 @@ import Rotas from './roteador/Rotas'
 
 function App() {
   const [hidden, setHidden] = useState(true);
-  // const [openModal, setOpenModal] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
   const [transacoes, setTransacoes] = useState([]);
   const [filtrados, setFiltrados] = useState([]);
   const [filtrando, setFiltrando] = useState(false);
-  // const [editar, setEditar] = useState(false);
-  // const [transacaoEditada, setTransacaoEditada] = useState(false);
-  // const [idTransacao, setIdTransacao] = useState();
-  // const [popup, setPopup] = useState(false);
+  const [editar, setEditar] = useState(false);
+  const [transacaoEditada, setTransacaoEditada] = useState(false);
+  const [idTransacao, setIdTransacao] = useState();
+  const [popup, setPopup] = useState(true);
 
 
   // const esconderFiltros = () => {
@@ -66,7 +66,17 @@ function App() {
         filtrados,
         setFiltrados,
         hidden,
-        setHidden
+        setHidden,
+        openModal,
+        setOpenModal,
+        popup,
+        setPopup,
+        editar,
+        setEditar,
+        transacaoEditada,
+        setTransacaoEditada,
+        idTransacao,
+        setIdTransacao
       }}>
         <Rotas />
       </UserContext.Provider>

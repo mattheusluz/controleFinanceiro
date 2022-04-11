@@ -6,3 +6,11 @@
     align-items: center;
     top:-50px;
 }
+
+html{
+    font-size: 62.5%;
+}
+
+#root{
+    min-height: 100vh;
+}

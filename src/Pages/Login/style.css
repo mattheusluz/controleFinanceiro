@@ -1,6 +1,6 @@
 .pageLogin {
     background: linear-gradient(90deg, #05EDE3, #645FFB);
-    height: 64vh;
+    min-height: calc(100vh - 225px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,16 +13,15 @@
 .containerLogin {
     background-color: antiquewhite;
     width: 36vw;
-    height: 72vh;
-    border-radius: 1rem;
-    margin-top: -27vh;
+    border-radius: 2rem;
+    margin-top: -17vh;
 }
 
 .formLogin {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 50vh;
+    min-height: 30vh;
     width: 30vw;
     margin-left: 3vw;
 }
@@ -33,7 +32,7 @@
     font-size: 4rem;
     color: #0b0b0ed2;
     text-align: center;
-    margin-top: 1rem;
+    margin-top: 3rem;
     line-height: 5rem;
 }
 
@@ -64,12 +63,11 @@
 
 .buttonEntrar {
     all: unset;
-    margin: 0;
     padding: 0;
     box-sizing: border-box;
     cursor: pointer;
     width: 15vw;
-    height: 8vh;
+    height: 6vh;
     color: #FFF;
     text-align: center;
     background-color: #645FFB;
@@ -78,7 +76,7 @@
     justify-content: center;
     align-items: center;
     align-self: center;
-    margin-top: 1.5rem;
+    margin-top: 5rem;
     font-family: 'Rubik', sans-serif;
     font-size: 2.5rem;
     font-weight: 500;
@@ -111,7 +109,7 @@
     box-sizing: border-box;
     cursor: pointer;
     width: 20vw;
-    height: 8vh;
+    height: 6vh;
     color: #FFF;
     font-family: 'Rubik', sans-serif;
     font-size: 2.4rem;
@@ -124,6 +122,7 @@
     align-items: center;
     align-self: center;
     margin-top: 1rem;
+    margin-bottom: 2rem;
 }
 
 .buttonConta:hover {

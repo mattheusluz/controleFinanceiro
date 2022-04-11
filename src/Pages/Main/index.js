@@ -1,8 +1,7 @@
 import { useEffect, useState, useContext } from 'react';
 import './style.css';
+import '../../globalStyles/styles.css';
 import filtro from '../../assets/filtro.svg';
-import lapis from '../../assets/lapis.svg';
-import lixeira from '../../assets/lixeira.svg';
 import ModalTransacoes from '../../components/ModalTransacoes';
 import ListaTransacoes from '../../components/ListaTransacoes';
 import Filtros from '../../components/Filtros';
@@ -19,7 +18,7 @@ function Main() {
     setFiltrados,
     setFiltrando,
     hidden,
-    setHidden
+    setHidden,
   } = useContext(UserContext);
 
   const [openModal, setOpenModal] = useState(false);
@@ -72,6 +71,7 @@ function Main() {
               hidden={hidden}
             />
             <ListaTransacoes />
+            <ConfirmarEscolha />
           </div>
           <Resumo
             openModal={openModal}

@@ -1,12 +1,19 @@
 import './style.css';
-import {useState } from 'react';
+import {useContext } from 'react';
 import {NavLink} from 'react-router-dom'; 
 import editar from '../../../assets/editarUsuario.svg';
 import buttonSair from '../../../assets/buttonSair.svg';
+import UserContext from '../../../contexts/userContext';
 
 
-function Resumo(){
-  const [popup, setPopup] = useState(true);
+function ModalUsuario(){
+
+  const { popup, setPopup } = useContext(UserContext);
+
+  const handleabrirMenu = () => {
+    popup ? setPopup(false) : setPopup(true);
+  }
+  
   return(
     <div className='modalSair' style={{ display: !popup && 'none' }}>
       <div className="arrow-up">
@@ -25,4 +32,4 @@ function Resumo(){
   )
 }
 
-export default Resumo;
+export default ModalUsuario;
