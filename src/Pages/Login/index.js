@@ -14,11 +14,11 @@ function Login(){
           <label htmlFor="" className='labelLogin'>
             E-mail:
           </label>
-          <input type="text" className='inputLogin' placeHolder='Digite o e-mail do usuário' />
+          <input type="text" className='inputLogin' placeHolder='Digite um e-mail válido' />
           <label htmlFor="" className='labelLogin'>
             Senha:
           </label>
-          <input type="password" className='inputLogin' placeHolder='Digite a senha cadastrada' />
+          <input type="password" className='inputLogin' placeHolder='Digite a senha' />
           <NavLink to={'/main'} type='submit' className='buttonEntrar'>Entrar</NavLink>
         </form>
         <div className="fazerCadastro">

@@ -29,11 +29,11 @@ function Cadastro(){
             </label>
             <input type="password" className='inputSenha' placeHolder='Digite novamente' />
           </div>
+        </form>
           <div className="buttons">
             <NavLink to={'/'} className='buttonVoltar'>Voltar</NavLink>
             <NavLink to={'/cadastroConcluido'} className='buttonCadastrar'>Cadastrar</NavLink>
           </div>
-        </form>
       </div>
     </div>
     </>

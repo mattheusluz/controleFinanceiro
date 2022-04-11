@@ -1,24 +1,24 @@
-.container{
+.container {
     background-color: antiquewhite;
-    width: 40vw;
+    min-width: 35vw;
     border-radius: 2rem;
     margin-top: -17vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    align-items: center;
+    box-shadow: 5px 8px 9px rgba(0, 0, 0, 0.397);
 }
 
-.form{
+.form {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     min-height: 50vh;
-    width: 35vw;
-    margin-left: 1vw;
+    width: 30vw;
+    align-self: center;
 }
 
-.title{
+.title {
     font-family: 'Rubik', sans-serif;
     font-size: 3rem;
     font-weight: 600;
@@ -27,7 +27,7 @@
     margin-top: 4rem;
 }
 
-.label{
+.label {
     font-family: 'Rubik', sans-serif;
     font-size: 1.6rem;
     font-weight: 500;
@@ -35,7 +35,7 @@
     margin-top: 1rem;
 }
 
-.input{
+.input {
     font-family: 'Rubik', sans-serif;
     font-weight: 400;
     font-size: 1.5rem;
@@ -46,14 +46,17 @@
     padding-left: .5rem;
 }
 
-.senhas{
+.senhas {
     display: flex;
     flex-direction: column;
-    width: 35vw;
-    margin-left: 8.5vw;
+    justify-content: space-between;
+    align-items: center;
+    width: 30vw;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
-.labelSenhas{
+.labelSenhas {
     font-family: 'Rubik', sans-serif;
     font-size: 1.6rem;
     font-weight: 500;
@@ -62,7 +65,7 @@
     padding-bottom: .5rem;
 }
 
-.inputSenha{
+.inputSenha {
     font-family: 'Rubik', sans-serif;
     font-weight: 400;
     font-size: 1.6rem;
@@ -71,38 +74,40 @@
     border-radius: .5rem;
     border: none;
     padding-left: .5rem;
-    width: 50%;
+    width: 70%;
 }
 
-.input::placeholder{
+.input::placeholder {
     font-family: 'Rubik', sans-serif;
     font-size: 1.5rem;
     font-weight: 300;
 }
 
-.inputSenha::placeholder{
+.inputSenha::placeholder {
     font-family: 'Rubik', sans-serif;
     font-size: 1.5rem;
     font-weight: 300;
 }
 
-.buttons{
-    margin-bottom: 4rem;
-    margin-top: 3rem;
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+    /* align-items: center; */
+    align-self: center; 
+    padding-bottom: 2rem;
+    width: 20vw;
 }
 
-.buttonCadastrar{
+.buttonCadastrar {
     all: unset;
     margin: 0;
-    padding: 0;
+    padding: 1rem 2rem;
     box-sizing: border-box;
     cursor: pointer;
-    width: 15vw;
-    height: 8vh;
-    color: #FFF; 
-    font-family: 'Rubik', sans-serif;  
-    font-size: 2rem;
-    font-weight: 600;
+    color: #FFF;
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 500;
     background-color: #645FFB;
     border-radius: 2rem;
     display: flex;
@@ -111,18 +116,16 @@
     align-self: center;
 }
 
-.buttonVoltar{
+.buttonVoltar {
     all: unset;
     margin: 0;
-    padding: 0;
+    padding: 1rem 2rem;
     box-sizing: border-box;
     cursor: pointer;
-    width: 15vw;
-    height: 8vh;
     color: #FFF;
     font-family: 'Rubik', sans-serif;
-    font-size: 2rem;
-    font-weight: 600;
+    font-size: 1.7rem;
+    font-weight: 500;
     background-color: #FA8C10;
     border-radius: 2rem;
     display: flex;
@@ -131,10 +134,29 @@
     align-self: center;
 }
 
-.buttonCadastrar:hover{
+.buttonCadastrar:hover {
     box-shadow: 5px 8px 3px rgba(0, 0, 0, 0.397);
 }
 
-.buttonVoltar:hover{
+.buttonVoltar:hover {
     box-shadow: 5px 8px 3px rgba(0, 0, 0, 0.397);
+}
+
+@media (max-width: 768px) {
+    .buttons {
+        display: flex;
+        justify-content: center;
+        flex-direction: column-reverse;
+        padding-bottom: 2rem;
+        max-width: 31vw;
+    }
+
+    .buttonVoltar {
+        border-radius: 2rem;
+        margin-top: 1rem;
+    }
+
+    .buttonCadastrar {
+        border-radius: 2rem;
+    }
 }
