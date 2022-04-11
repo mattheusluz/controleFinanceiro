@@ -1,0 +1,131 @@
+.pageLogin {
+    background: linear-gradient(90deg, #05EDE3, #645FFB);
+    height: 64vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    width: 100vw;
+}
+
+.containerLogin {
+    background-color: antiquewhite;
+    width: 36vw;
+    height: 72vh;
+    border-radius: 1rem;
+    margin-top: -27vh;
+}
+
+.formLogin {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 50vh;
+    width: 30vw;
+    margin-left: 3vw;
+}
+
+.titleLogin {
+    font-family: 'Rubik', sans-serif;
+    font-weight: bolder;
+    font-size: 4rem;
+    color: #0b0b0ed2;
+    text-align: center;
+    margin-top: 1rem;
+    line-height: 5rem;
+}
+
+.labelLogin {
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #000;
+    margin-top: 1rem;
+}
+
+.inputLogin {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: rgba(0, 0, 0, 0.685);
+    height: 3.5rem;
+    border-radius: .5rem;
+    border: none;
+    padding-left: .5rem;
+}
+
+.input::placeholder {
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.buttonEntrar {
+    all: unset;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    width: 15vw;
+    height: 8vh;
+    color: #FFF;
+    text-align: center;
+    background-color: #645FFB;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    margin-top: 1.5rem;
+    font-family: 'Rubik', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+
+.buttonEntrar:hover {
+    box-shadow: 5px 8px 4px rgba(0, 0, 0, 0.397);
+}
+
+.fazerCadastro {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.conta {
+    font-family: 'lato', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.781);
+    margin-top: 1rem;
+}
+
+.buttonConta {
+    all: unset;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    width: 20vw;
+    height: 8vh;
+    color: #FFF;
+    font-family: 'Rubik', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 500;
+    text-align: center;
+    background-color: #FA8C10;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    margin-top: 1rem;
+}
+
+.buttonConta:hover {
+    box-shadow: 5px 8px 4px rgba(0, 0, 0, 0.397);
+}

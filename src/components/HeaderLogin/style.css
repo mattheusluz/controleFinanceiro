@@ -1,11 +1,11 @@
 .container-header {
     display: flex;
     align-items: flex-start;
-    gap: 2rem;
+    gap: 12px;
   
-    padding-top: 7vh;
-    padding-left: 8vw;
-    height: 22.3rem;
+    padding-top: 45px;
+    padding-left: 100px;
+    height: 225px;
     
     background: linear-gradient(90deg, #05EDE3, #645FFB);
   }
@@ -13,8 +13,8 @@
   .titulo {
     font-family: 'Rubik', sans-serif;
     font-weight: bolder;
-    font-size: 3.5rem;
-    line-height: 4.3rem;
+    font-size: 2rem;
+    line-height: 43px;
     
     color: #FFFFFF;
   }

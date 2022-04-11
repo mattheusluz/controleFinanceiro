@@ -3,7 +3,7 @@ import CloseIcon from '../../assets/closeBtn.svg';
 import InputMask from 'react-input-mask';
 import './style.css';
 
-export default function ModalTransacoes({ openModal, handleClose, editando, idTransacao, transacao, transacaoEditada }) {
+export default function ModalTransacoes({ openModal, setOpenModal, handleClose, editando, idTransacao, transacao, transacaoEditada }) {
 
   const [credito, setCredito] = useState(false);
   const [debito, setDebito] = useState(true);
@@ -31,11 +31,11 @@ export default function ModalTransacoes({ openModal, handleClose, editando, idTr
 
   useEffect(() => {
     if (transacaoEditada) {
-      setData(transacaoEditada.date);
-      setValor(transacaoEditada.value / 100);
-      setCategoria(transacaoEditada.category);
-      setDescricao(transacaoEditada.description);
-      if (transacaoEditada.type === 'credit') {
+      setData(transacaoEditada.data);
+      setValor(transacaoEditada.valor / 100);
+      setCategoria(transacaoEditada.categoria);
+      setDescricao(transacaoEditada.descricao);
+      if (transacaoEditada.type) {
         setCredito(true);
         setDebito(false);
       } else {
@@ -48,35 +48,38 @@ export default function ModalTransacoes({ openModal, handleClose, editando, idTr
   const inserirTransacao = async (id) => {
     try {
       const dadosBody = {
-        date: data,
-        week_day: diaSemana,
-        description: descricao,
-        value: valor * 100,
-        category: categoria,
-        type: credito ? 'credit' : 'debit'
+        data,
+        dia_semana: diaSemana,
+        descricao,
+        valor: valor * 100,
+        categoria,
+        tipo: credito ? true : false
       };
 
       if (!editando) {
-        const resposta = await fetch('http://localhost:3333/transactions', {
+        const resposta = await fetch('https://sistemacontrolefinanceiro.herokuapp.com/transacoes', {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json'
+            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQ5NTEyNDAyfQ.vKMxjFCSoC3NEvQrJ4Pge6TQcIt-dtPBjgTRe5v-OLs`,
+            'Content-Type': 'application/json',
           },
           body: JSON.stringify(dadosBody),
         });
 
         const dados = await resposta.json();
       } else {
-        const resposta = await fetch(`http://localhost:3333/transactions/${id}`, {
+        const resposta = await fetch(`https://sistemacontrolefinanceiro.herokuapp.com/transacoes/${id}`, {
           method: 'PUT',
           headers: {
-            'Content-Type': 'application/json'
+            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQ5NTEyNDAyfQ.vKMxjFCSoC3NEvQrJ4Pge6TQcIt-dtPBjgTRe5v-OLs`,
+            'Content-Type': 'application/json',
           },
           body: JSON.stringify(dadosBody),
         });
 
         const dados = await resposta.json();
       }
+      setOpenModal(false);
     } catch (error) {
       console.log(error);
     }
@@ -97,8 +100,8 @@ export default function ModalTransacoes({ openModal, handleClose, editando, idTr
   if (transacao) {
     const transacaoEditando = transacao.filter(item => item.id === idTransacao);
     if (transacaoEditando.length > 0) {
-      debitoAtivo = transacaoEditando[0].type === 'debit' ? 'debito' : '';
-      creditoAtivo = transacaoEditando[0].type === 'credit' ? 'credito' : '';
+      debitoAtivo = !transacaoEditando[0].tipo ? 'debito' : '';
+      creditoAtivo = transacaoEditando[0].tipo ? 'credito' : '';
     }
   }
 
@@ -129,7 +132,11 @@ export default function ModalTransacoes({ openModal, handleClose, editando, idTr
           </button>
         </div>
 
-        <form>
+        <form onSubmit={(e) => {
+          e.preventDefault()
+          inserirTransacao(idTransacao)
+        }
+        }>
           <div>
             <label htmlFor='value'>Valor
               <input
@@ -184,10 +191,10 @@ export default function ModalTransacoes({ openModal, handleClose, editando, idTr
             </label>
           </div>
           <div className="container-btn-insert">
-            <button className='btn-insert' onClick={() => inserirTransacao(idTransacao)}>Confirmar</button>
+            <button className='btn-insert' type='submit'>Confirmar</button>
           </div>
         </form>
       </div>
-    </div>
+    </div >
   )
 }

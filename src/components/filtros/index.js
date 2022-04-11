@@ -1,6 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import UserContext from '../../contexts/userContext';
 
-export default function Filtros({ setFiltrando, transacoes, setFiltrados, hidden }) {
+export default function Filtros() {
+  const { transacoes, setFiltrados, setFiltrando, hidden } = useContext(UserContext);
+
   const [categorias, setCategorias] = useState([]);
   const [max, setMax] = useState();
   const [min, setMin] = useState();
@@ -15,17 +18,17 @@ export default function Filtros({ setFiltrando, transacoes, setFiltrados, hidden
   const arrayCategorias = [];
 
   const aplicarFiltros = () => {
-    const arrayFiltrado = transacoes.filter(item => {
-      return (item.value / 100) >= min && (item.value / 100) <= max;
+    const arrayFiltrado = transacoes.filter(transacao => {
+      return (transacao.valor / 100) >= min && (transacao.valor / 100) <= max;
     })
     setFiltrados(arrayFiltrado);
     setFiltrando(true);
   }
 
   useEffect(() => {
-    transacoes.map(item => {
-      if (!arrayCategorias.includes(item.category)) {
-        arrayCategorias.push(item.category);
+    transacoes.map(transacao => {
+      if (!arrayCategorias.includes(transacao.categoria)) {
+        arrayCategorias.push(transacao.categoria);
       }
     });
     setCategorias(arrayCategorias);

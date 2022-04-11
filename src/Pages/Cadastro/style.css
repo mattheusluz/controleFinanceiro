@@ -1,0 +1,137 @@
+.container{
+    background-color: antiquewhite;
+    width: 40vw;
+    height: 72vh;
+    border-radius: 2rem;
+    margin-top: -27vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 67vh;
+    width: 35vw;
+    margin-left: 1vw;
+}
+
+.title{
+    font-family: 'Rubik', sans-serif;
+    font-size: 3rem;
+    font-weight: 600;
+    color: #0b0b0ea8;
+    text-align: center;
+}
+
+.label{
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #000;
+    margin-top: 1rem;
+}
+
+.input{
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: rgba(0, 0, 0, 0.685);
+    height: 3.5rem;
+    border-radius: .5rem;
+    border: none;
+    padding-left: .5rem;
+}
+
+.senhas{
+    display: flex;
+    flex-direction: column;
+    width: 35vw;
+    margin-left: 8.5vw;
+}
+
+.labelSenhas{
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #000;
+    margin-top: .5rem;
+    padding-bottom: .5rem;
+}
+
+.inputSenha{
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+    color: rgba(0, 0, 0, 0.685);
+    height: 3.5rem;
+    border-radius: .5rem;
+    border: none;
+    padding-left: .5rem;
+    width: 50%;
+}
+
+.input::placeholder{
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.inputSenha::placeholder{
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.buttonCadastrar{
+    all: unset;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    width: 15vw;
+    height: 8vh;
+    color: #FFF; 
+    font-family: 'Rubik', sans-serif;  
+    font-size: 2rem;
+    font-weight: 600;
+    background-color: #645FFB;
+    border-radius: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    margin-top: 1.5rem;
+}
+
+.buttonVoltar{
+    all: unset;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    width: 15vw;
+    height: 8vh;
+    color: #FFF;
+    font-family: 'Rubik', sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    background-color: #FA8C10;
+    border-radius: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    margin-top: 1.5rem;
+}
+
+.buttonCadastrar:hover{
+    box-shadow: 5px 8px 3px rgba(0, 0, 0, 0.397);
+}
+
+.buttonVoltar:hover{
+    box-shadow: 5px 8px 3px rgba(0, 0, 0, 0.397);
+}
