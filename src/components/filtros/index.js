@@ -1,5 +1,6 @@
 import { useEffect, useState, useContext } from 'react';
 import UserContext from '../../contexts/userContext';
+import './styles.css';
 
 export default function Filtros() {
   const { transacoes, setFiltrados, setFiltrando, hidden } = useContext(UserContext);
@@ -40,7 +41,7 @@ export default function Filtros() {
     <div className='container-filters' style={{ display: hidden && 'none' }}>
       <div className="filtro-diasemana">
         <h3 className=' filtro-titulo'>Dia da semana</h3>
-        <ul className='lista-filtro'>
+        <ul className='lista-filtroPrimeira'>
           {arrayDias.map((dia, id) => (
             <li className='container-chip font-normal' key={id}>
               <span>{dia}</span> <span>+</span>
