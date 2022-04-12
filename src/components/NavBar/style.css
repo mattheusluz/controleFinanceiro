@@ -1,7 +1,11 @@
 .navBar{
-    position: fixed;
-    margin-left: 71vw;
-    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    margin-right: 4rem; 
+    padding-top: 2rem;
+}
+
+.tituloMenu{
     display: flex;
 }
 
@@ -9,12 +13,21 @@
     text-decoration: none;
     color: #FFF;
     font-family: 'Rubik', sans-serif;
-    font-weight: bold;
-    font-size: 3rem;
+    font-weight: 500;
+    font-size: 2rem;
 }
 
 .imgModal{    
     filter: invert(90%) sepia(77%) saturate(50%) hue-rotate(197deg) brightness(121%) contrast(200%);
-    margin-left: 1rem;
     cursor: pointer;
+    height: 1.2rem;
+    display: flex;
+    align-self: center;
+    margin-left: 2rem;
+}
+
+@media (max-width:450px){
+    .navBar{
+        align-self: flex-end;
+    }
 }

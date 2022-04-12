@@ -1,9 +1,9 @@
-// import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './App.css';
+// import UserContext from './contexts/userContext';
+import UserContext from './contexts/userContext';
 import './globalStyles/styles.css';
 // import filtro from './assets/filtro.svg';
-// import lapis from './assets/lapis.svg';
-// import lixeira from './assets/lixeira.svg';
 // import ModalTransacoes from './components/ModalTransacoes';
 // import Filtros from './components/Filtros';
 // import Header from './components/Header';
@@ -16,15 +16,15 @@ import './globalStyles/styles.css';
 import Rotas from './roteador/Rotas'
 
 function App() {
-  // const [hidden, setHidden] = useState(true);
-  // const [openModal, setOpenModal] = useState(false);
-  // const [transacoes, setTransacoes] = useState([]);
-  // const [filtrados, setFiltrados] = useState([]);
-  // const [filtrando, setFiltrando] = useState(false);
-  // const [editar, setEditar] = useState(false);
-  // const [transacaoEditada, setTransacaoEditada] = useState(false);
-  // const [idTransacao, setIdTransacao] = useState();
-  // const [popup, setPopup] = useState(false);
+  const [hidden, setHidden] = useState(true);
+  const [openModal, setOpenModal] = useState(false);
+  const [transacoes, setTransacoes] = useState([]);
+  const [filtrados, setFiltrados] = useState([]);
+  const [filtrando, setFiltrando] = useState(false);
+  const [editar, setEditar] = useState(false);
+  const [transacaoEditada, setTransacaoEditada] = useState(false);
+  const [idTransacao, setIdTransacao] = useState();
+  const [popup, setPopup] = useState(false);
 
 
   // const esconderFiltros = () => {
@@ -50,32 +50,37 @@ function App() {
   //   setEditar(false);
   // }
 
-  // useEffect(() => {
-  //   todasTransacoes();
-  // }, []);
-
-  // const todasTransacoes = async () => {
-  //   try {
-  //     const resposta = await fetch('http://localhost:3333/transactions', {
-  //       method: 'GET'
-  //     });
-
-  //     const data = await resposta.json();
-
-  //     setTransacoes(data);
-  //     setFiltrados(data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
+  // eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQ5NTEyNDAyfQ.vKMxjFCSoC3NEvQrJ4Pge6TQcIt-dtPBjgTRe5v-OLs
 
   // const handlePopUp = () => {
   //   setPopup(!popup);
   // }
+
   return (
     <div className="App">
+      <UserContext.Provider value={{
+        transacoes,
+        setTransacoes,
+        filtrando,
+        setFiltrando,
+        filtrados,
+        setFiltrados,
+        hidden,
+        setHidden,
+        openModal,
+        setOpenModal,
+        popup,
+        setPopup,
+        editar,
+        setEditar,
+        transacaoEditada,
+        setTransacaoEditada,
+        idTransacao,
+        setIdTransacao
+      }}>
+        <Rotas />
+      </UserContext.Provider>
 
-      <Rotas />
       {/* <Login />
       <Cadastro />
       <CadastroConcluido />

@@ -1,30 +1,20 @@
-.pageLogin {
-    background: linear-gradient(90deg, #05EDE3, #645FFB);
-    height: 64vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.header {
-    width: 100vw;
-}
-
 .containerLogin {
     background-color: antiquewhite;
     width: 36vw;
-    height: 72vh;
-    border-radius: 1rem;
-    margin-top: -27vh;
+    border-radius: 2rem;
+    margin-top: -17vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 5px 8px 9px rgba(0, 0, 0, 0.397);
 }
 
 .formLogin {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 50vh;
+    min-height: 30vh;
     width: 30vw;
-    margin-left: 3vw;
 }
 
 .titleLogin {
@@ -33,7 +23,7 @@
     font-size: 4rem;
     color: #0b0b0ed2;
     text-align: center;
-    margin-top: 1rem;
+    margin-top: 3rem;
     line-height: 5rem;
 }
 
@@ -58,18 +48,15 @@
 
 .input::placeholder {
     font-family: 'Rubik', sans-serif;
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: 300;
 }
 
 .buttonEntrar {
     all: unset;
-    margin: 0;
-    padding: 0;
+    padding: 1rem;
     box-sizing: border-box;
     cursor: pointer;
-    width: 15vw;
-    height: 8vh;
     color: #FFF;
     text-align: center;
     background-color: #645FFB;
@@ -78,7 +65,7 @@
     justify-content: center;
     align-items: center;
     align-self: center;
-    margin-top: 1.5rem;
+    margin-top: 2rem;
     font-family: 'Rubik', sans-serif;
     font-size: 2.5rem;
     font-weight: 500;
@@ -107,11 +94,9 @@
 .buttonConta {
     all: unset;
     margin: 0;
-    padding: 0;
+    padding: 1rem;
     box-sizing: border-box;
     cursor: pointer;
-    width: 20vw;
-    height: 8vh;
     color: #FFF;
     font-family: 'Rubik', sans-serif;
     font-size: 2.4rem;
@@ -123,9 +108,19 @@
     justify-content: center;
     align-items: center;
     align-self: center;
-    margin-top: 1rem;
+    margin: 2rem 1rem;
 }
 
 .buttonConta:hover {
     box-shadow: 5px 8px 4px rgba(0, 0, 0, 0.397);
+}
+
+@media (max-width: 768px) {
+    .formLogin {
+        width: 60vw;
+    }
+
+    .containerLogin{
+        width: 70vw;
+    }
 }

@@ -1,24 +1,44 @@
+.pageDone {
+    background: linear-gradient(90deg, #05EDE3, #645FFB);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .imgConcluido{
-    width: 50%;
-    height: 50%;
+    width: 15vw;
+    height: 15vw;
 }
 
 .titleConcluido{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 2rem;
-    font-weight: 600;
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 500;
     color: #0b0b0ea8;
     text-align: center;
+    margin-top: 2rem;
 }
 
 .containerConcluido{
     background-color: antiquewhite;
-    width: 40vw;
-    height: 72vh;
     border-radius: 2rem;
-    margin-top: -27vh;
+    margin-top: -22vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    padding: 4rem;
+    box-shadow: 5px 8px 9px rgba(0, 0, 0, 0.397);
+}
+
+@media (max-width: 768px){
+    .containerConcluido{
+        margin: 0 2rem;
+    }
+
+    .pageDone{
+        align-items: baseline;
+        padding-top: 10vh;
+    }
 }

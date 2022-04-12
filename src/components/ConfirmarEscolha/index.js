@@ -1,5 +1,5 @@
 import './style.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 function Resumo(){
   const [popup, setPopup] = useState(false);

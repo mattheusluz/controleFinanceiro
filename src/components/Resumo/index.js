@@ -1,17 +1,13 @@
 import './style.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import UserContext from '../../contexts/userContext';
 
-function TabelaTransacoes(){
-  const [openModal, setOpenModal] = useState(false);
-  const [editar, setEditar] = useState(false);
-  const [transacaoEditada, setTransacaoEditada] = useState(false);
-  const [filtrados, setFiltrados] = useState([]);
-  const [filtrando, setFiltrando] = useState(false);
-  const [transacoes, setTransacoes] = useState([]);
+function Resumo({ openModal, setOpenModal }) {
+  const { transacoes, filtrando, filtrados } = useContext(UserContext);
 
   const handleModal = () => {
-    setEditar(false);
-    setTransacaoEditada(false);
+    // setEditar(false);
+    // setTransacaoEditada(false);
     openModal ? setOpenModal(false) : setOpenModal(true);
   }
 
@@ -19,7 +15,7 @@ function TabelaTransacoes(){
     let soma = 0;
 
     (filtrando ? filtrados : transacoes).map(transacao => {
-      if (transacao.type === 'credit') soma += transacao.value;
+      if (transacao.tipo) soma += transacao.valor;
     });
 
     const valorEmReais = `${soma / 100}`;
@@ -38,8 +34,8 @@ function TabelaTransacoes(){
     let soma = 0;
 
     (filtrando ? filtrados : transacoes).map(transacao => {
-      if (transacao.type === 'debit') {
-        soma += transacao.value;
+      if (!transacao.tipo) {
+        soma += transacao.valor;
       }
     });
 
@@ -71,7 +67,7 @@ function TabelaTransacoes(){
 
     return `${total.replace('.', ',')}`;
   }
-  return(
+  return (
     <div className="container-resume">
       <h3>Resumo</h3>
       <div >
@@ -96,4 +92,4 @@ function TabelaTransacoes(){
   )
 }
 
-export default TabelaTransacoes;
+export default Resumo;

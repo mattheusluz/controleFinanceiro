@@ -3,7 +3,7 @@ import logoDindin from '../../assets/logoDindin.svg';
 
 function Header(){
   return(
-    <header className='container-header'>
+    <header className='container-headerLogin'>
       <img src={logoDindin} alt="Logo Dindin" className='logo' />
       <h1 className='titulo'>Dindin</h1>
     </header>
