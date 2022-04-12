@@ -8,8 +8,8 @@ import UserContext from '../../../contexts/userContext';
 
 function ModalUsuario(){
 
-  const { popup, setPopup } = useContext(UserContext);
-  
+  const { popup } = useContext(UserContext);
+
   return(
     <div className='modalSair' style={{ display: !popup && 'none' }}>
       <div className="arrow-up">

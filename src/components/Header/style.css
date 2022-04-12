@@ -1,13 +1,17 @@
 .container-header {
     display: flex;
     align-items: flex-start;
-    gap: 2rem;
-  
+    justify-content: space-between;
     padding-top: 7vh;
-    padding-left: 8vw;
+    padding-left: 5vw;
     height: 22.3rem;
     
     background: linear-gradient(90deg, #05EDE3, #645FFB);
+  }
+
+  .logo{
+    display: flex;
+    gap:1.5rem;
   }
   
   .titulo {
@@ -17,4 +21,18 @@
     line-height: 4.3rem;
     
     color: #FFFFFF;
+  }
+
+  @media (max-width:450px){
+    .container-header{
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding-top: 4vh;
+      padding-left: 0;
+    }
+    .logo{
+      align-self: center;
+      padding-left: 0;
+    }
   }

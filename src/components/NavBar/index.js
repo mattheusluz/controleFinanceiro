@@ -10,23 +10,24 @@ function NavBar(){
 
   return(
     <div className={'navBar'}>
-      <h1 className='nome'>Olá, Pessoa!</h1>
-      {popup 
-      ?<img className='imgModal' 
-        src={arrowDown} 
-        alt='Flexa para baixo' 
-        onClick={()=> setPopup(false)} 
-      /> 
-      :<img className='imgModal' 
-        src={arrowUp} 
-        alt='Flexa para cima' 
-        onClick={()=> setPopup(true)} 
-        />
-      }
-      
+      <div className="tituloMenu">
+        <h1 className='nome'>Olá, Pessoa!</h1>
+        { popup 
+        ?<img className='imgModal' 
+          src={arrowUp} 
+          alt='Menu fechado'
+          onClick={()=> setPopup(false)} 
+        /> 
+        :<img className='imgModal' 
+          src={arrowDown} 
+          alt='Menu Aberto' 
+          onClick={()=> setPopup(true)} 
+          />
+        }
+      </div>
       <ModalUsuario 
-      popup={popup}
-      setPopup={setPopup}
+        popup={popup}
+        setPopup={setPopup}
       />
     </div>
   )

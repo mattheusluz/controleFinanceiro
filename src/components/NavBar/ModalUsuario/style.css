@@ -2,16 +2,13 @@
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
   border-bottom: 10px solid #E4F2FD;
-  margin-left: 40%;
+  margin-left: 65%;
 }
 
 .modalSair {
-    position: fixed;
-    top: 15vh;
-    left: 83vw;
-    width: 12vw;
+    position: relative;
     padding: .7rem;
-    margin: .5rem;
+    margin: 2rem 0 0 4rem;
     background: #E4F2FD;
     border-radius: .5rem;
     z-index: 1;
@@ -57,6 +54,7 @@
     font-size: 1.5rem;
     font-weight: 400;
     color: #000000a8;
+    padding-left: 1.5rem;
   }
 
   .spanSair{

@@ -5,8 +5,10 @@ import NavBar from '../NavBar';
 function Header(){
   return(
     <header className='container-header'>
-      <img src={logoDindin} alt="Logo Dindin" className='logo' />
-      <h1 className='titulo'>Dindin</h1>
+      <div className="logo">
+        <img src={logoDindin} alt="Logo Dindin" className='logo' />
+        <h1 className='titulo'>Dindin</h1>
+      </div>
       <NavBar />
     </header>
   )

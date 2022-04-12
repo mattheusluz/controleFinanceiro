@@ -6,12 +6,10 @@
   }
   
   .main {
-    min-height: calc(100vh - 225px);
+    height: 100vh;
     margin-top: -100px;
     padding: 55px 60px 0 60px;
-  
     border-radius: 60px 60px 0 0;
-  
     background-color: #FFFFFF;
   }
   
@@ -78,4 +76,10 @@
   
   .hidden {
     display: none;
+  }
+
+  @media (max-width:450px){
+    .main{
+      
+    }
   }
