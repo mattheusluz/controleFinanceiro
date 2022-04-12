@@ -24,7 +24,7 @@ function App() {
   const [editar, setEditar] = useState(false);
   const [transacaoEditada, setTransacaoEditada] = useState(false);
   const [idTransacao, setIdTransacao] = useState();
-  const [popup, setPopup] = useState(true);
+  const [popup, setPopup] = useState(false);
 
 
   // const esconderFiltros = () => {

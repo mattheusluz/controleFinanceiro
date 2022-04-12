@@ -11,23 +11,23 @@ function Cadastro(){
       <div className="container">
         <form type='submit' className='form'>
           <h1 className='title'>Cadastrar usuário</h1>
-          <label htmlFor="" className='label'>
+          <label htmlFor="nome" className='label'>
             Nome Completo:
           </label>
-          <input type="text" className='input' placeHolder='Digite o nome completo' />
-          <label htmlFor="" className='label'>
+          <input id='nome' type="text" className='input' placeHolder='Digite o nome completo' />
+          <label htmlFor="emailCadastro" className='label'>
             E-mail:
           </label>
-          <input type="text" className='input' placeHolder='Digite o e-mail' />
+          <input id='emailCadastro' type="text" className='input' placeHolder='Digite o e-mail' />
           <div className="senhas">
-            <label htmlFor="" className='labelSenhas'>
+            <label htmlFor="senha1" className='labelSenhas'>
               Senha:
             </label>
-            <input type="password" className='inputSenha' placeHolder='Digite uma senha' />
-            <label htmlFor="" className='labelSenhas'>
+            <input id='senha1'type="password" className='inputSenha' placeHolder='Digite uma senha' />
+            <label htmlFor="senha2" className='labelSenhas'>
               Confirmar Senha:
             </label>
-            <input type="password" className='inputSenha' placeHolder='Digite novamente' />
+            <input id='senha2' type="password" className='inputSenha' placeHolder='Digite novamente' />
           </div>
         </form>
           <div className="buttons">

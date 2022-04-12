@@ -1,15 +1,3 @@
-.pageLogin {
-    background: linear-gradient(90deg, #05EDE3, #645FFB);
-    min-height: calc(100vh - 225px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.header {
-    width: 100vw;
-}
-
 .containerLogin {
     background-color: antiquewhite;
     width: 36vw;
@@ -18,6 +6,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-shadow: 5px 8px 9px rgba(0, 0, 0, 0.397);
 }
 
 .formLogin {
@@ -26,7 +15,6 @@
     justify-content: space-between;
     min-height: 30vh;
     width: 30vw;
-    margin-left: 2rem;
 }
 
 .titleLogin {
@@ -129,7 +117,10 @@
 
 @media (max-width: 768px) {
     .formLogin {
-        margin-left: 1rem;
-        margin-right: 1rem;
+        width: 60vw;
+    }
+
+    .containerLogin{
+        width: 70vw;
     }
 }

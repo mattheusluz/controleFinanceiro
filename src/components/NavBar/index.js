@@ -1,17 +1,29 @@
 import './style.css';
 import ModalUsuario from '../NavBar/ModalUsuario'; 
 import arrowDown from '../../assets/arrowDown.svg';
+import arrowUp from '../../assets/arrowUp.png';
+import React, { useContext } from 'react';
+import UserContext from '../../contexts/userContext';
 
-function navBar({popup, setPopup}){
-  const handleabrirMenu = () => {
-    popup ? setPopup(false) : setPopup(true);
-  }
+function NavBar(){
+  const {popup, setPopup} = useContext(UserContext);
+
   return(
-    <div className='navBar'>
+    <div className={`${popup && 'navBar'}`}>
       <h1 className='nome'>Olá, Pessoa!</h1>
-      <img className='imgModal' 
-      src={arrowDown} 
-      alt='Flexa para baixo' onClick={handleabrirMenu} />
+      {popup 
+      ?<img className='imgModal' 
+        src={arrowDown} 
+        alt='Flexa para baixo' 
+        onClick={()=> setPopup(false)} 
+      /> 
+      :<img className='imgModal' 
+        src={arrowUp} 
+        alt='Flexa para cima' 
+        onClick={()=> setPopup(true)} 
+        />
+      }
+      
       <ModalUsuario 
       popup={popup}
       setPopup={setPopup}
@@ -20,4 +32,4 @@ function navBar({popup, setPopup}){
   )
 }
 
-export default navBar;
+export default NavBar;

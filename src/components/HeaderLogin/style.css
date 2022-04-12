@@ -1,11 +1,11 @@
-.container-header {
+.container-headerLogin {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 12px;
-  
-    padding-top: 45px;
-    padding-left: 100px;
-    height: 225px;
+    padding: 5rem 0 0 5rem;
+    /* padding-top: 45px;
+    padding-left: 100px; */
+    height: 10vh;
     
     background: linear-gradient(90deg, #05EDE3, #645FFB);
   }
@@ -17,4 +17,13 @@
     line-height: 43px;
     
     color: #FFFFFF;
+  }
+
+  @media (max-width:768px){
+    .container-headerLogin {
+      align-items: center;
+      justify-content: center;
+      height: 15vh;
+      padding: 0;
+    }
   }

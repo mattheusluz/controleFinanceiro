@@ -9,10 +9,6 @@ import UserContext from '../../../contexts/userContext';
 function ModalUsuario(){
 
   const { popup, setPopup } = useContext(UserContext);
-
-  const handleabrirMenu = () => {
-    popup ? setPopup(false) : setPopup(true);
-  }
   
   return(
     <div className='modalSair' style={{ display: !popup && 'none' }}>
