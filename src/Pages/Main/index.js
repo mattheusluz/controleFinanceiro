@@ -62,6 +62,10 @@ function Main() {
           <img src={filtro} alt="Filtro" />
           Filtrar
         </span>
+            <Resumo
+              openModal={openModal}
+              setOpenModal={setOpenModal}
+            />
         <div className="filters-table-resume">
           <div className="filters-table">
             <Filtros
@@ -73,10 +77,6 @@ function Main() {
             <ListaTransacoes />
             <ConfirmarEscolha />
           </div>
-          <Resumo
-            openModal={openModal}
-            setOpenModal={setOpenModal}
-          />
         </div>
       </section>
       <ModalTransacoes

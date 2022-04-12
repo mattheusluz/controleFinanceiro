@@ -12,6 +12,8 @@
     
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
     background-color: #FAFAFA;
+    position: fixed;
+    margin: -87px 0 0 65vw;
   }
   .container-resume div {
     display: flex;
