@@ -9,7 +9,7 @@ function NavBar(){
   const {popup, setPopup} = useContext(UserContext);
 
   return(
-    <div className={`${popup && 'navBar'}`}>
+    <div className={'navBar'}>
       <h1 className='nome'>Olá, Pessoa!</h1>
       {popup 
       ?<img className='imgModal' 

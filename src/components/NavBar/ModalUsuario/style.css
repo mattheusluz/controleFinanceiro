@@ -1,18 +1,14 @@
 .arrow-up {
-  position: fixed;
-  top: -10px;
-  left: 10vw;
-  width: 0;
-  height: 0;
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
   border-bottom: 10px solid #E4F2FD;
+  margin-left: 40%;
 }
 
 .modalSair {
     position: fixed;
     top: 15vh;
-    left: 82vw;
+    left: 83vw;
     width: 12vw;
     padding: .7rem;
     margin: .5rem;
@@ -35,6 +31,7 @@
     background-color: #FFF;
     display: flex;
     align-items: center;
+    justify-content: space-around;
   }
   
   .editarUsuario:hover {
@@ -49,9 +46,9 @@
     border-radius: .5rem;
     cursor: pointer;
     text-decoration: none;
+    text-align: center;
     background-color: #FFF;
     display: flex;
-    justify-content: space-between;
     align-items: center;
   }
 
@@ -60,7 +57,6 @@
     font-size: 1.5rem;
     font-weight: 400;
     color: #000000a8;
-    padding-left: 2rem;
   }
 
   .spanSair{
@@ -68,5 +64,5 @@
     font-size: 1.5rem;
     font-weight: 400;
     color: #000000a8;
-    padding-right: 5rem;
+    padding-left: 1rem;
   }
