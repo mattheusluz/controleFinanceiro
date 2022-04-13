@@ -68,19 +68,21 @@ function Resumo({ openModal, setOpenModal }) {
     return `${total.replace('.', ',')}`;
   }
   return (
-    <div className="container-resume">
-      <h3>Resumo</h3>
-      <div >
-        <span>Entradas</span>
-        <strong className="entradas">R$ {calcularEntradas()}</strong>
-      </div>
-      <div >
-        <span>Saídas</span>
-        <strong className="saidas">R$ {calcularSaidas()}</strong>
-      </div>
-      <div>
-        <strong>Saldo</strong>
-        <strong className="saldo">R$ {calcularValorTotal()}</strong>
+    <div className="allinside">
+      <div className="container-resume">
+        <h3>Resumo</h3>
+        <div >
+          <span>Entradas</span>
+          <strong className="entradas">R$ {calcularEntradas()}</strong>
+        </div>
+        <div >
+          <span>Saídas</span>
+          <strong className="saidas">R$ {calcularSaidas()}</strong>
+        </div>
+        <div>
+          <strong>Saldo</strong>
+          <strong className="saldo">R$ {calcularValorTotal()}</strong>
+        </div>
       </div>
       <button
         className="btn-add"
