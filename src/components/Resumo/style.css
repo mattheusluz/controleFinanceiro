@@ -2,11 +2,11 @@
   display: flex;
   flex-direction: column;
   align-self: flex-end;
+  width: 18vw;
 }
 
 .container-resume {
-  width: 260px;
-  height: 220px;
+  max-width: 20vw;
   padding: 26px 10px;
   border-radius: 10px;
 
@@ -63,4 +63,11 @@
   cursor: pointer;
 
   background: linear-gradient(91.26deg, #FA8C10 0%, #FF57D3 97.77%);
+}
+
+@media (max-width:1020px){
+  .container-resume div {
+    display: flex;
+    flex-direction: column;
+  }
 }
