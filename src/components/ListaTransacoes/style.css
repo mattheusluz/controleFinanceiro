@@ -1,23 +1,60 @@
 .table {
   position: relative;
-    /* width: 70vw; */
   margin-top: -2rem;
   font-family: 'Lato', sans-serif;
   font-size: 14px;
   line-height: 17px;
 }
+.table-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 73vw;
+}
 
 .table-body {
   display: flex;
   flex-direction: column;
+  width: 73vw;
+}
+.date{
+  width: 8vw;
+}
+
+.day{
+  width: 10vw;
+}
+.category{
+  width: 8vw;
+}
+
+.description{
+  width: 8vw;
+}
+
+.value{
+  width: 8vw;
+}
+
+.editDelete{
+  display: flex;
+  justify-content: space-evenly;
+  width: 10vw;
 }
 
 .table-line {
   position: relative;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   opacity: 0.6;
   border-bottom: 1px solid #E0E0E0;
+}
+
+.elipsis{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .table-line:hover {
@@ -29,17 +66,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
-  width: 150px;
+  width: 13vw;
   min-height: 55px;
-
-  font-family: 'Lato',sans-serif;
+  text-align: start;
+  font-family: 'Lato', sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
   line-height: 17px;
-
   color: #000000;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .edit-icon {
