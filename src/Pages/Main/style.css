@@ -1,85 +1,55 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    list-style: none;
-  }
-  
-  .main {
-    height: 100vh;
-    margin-top: -100px;
-    padding: 55px 60px 0 60px;
-    border-radius: 60px 60px 0 0;
-    background-color: #FFFFFF;
-  }
-  
-  .open-filters-button img {
-    margin-right: 4px;
-  }
-  
-  .table-head {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 70vw;
-    height: 45px;
-    border-radius: 10px;
-    
-    font-family: 'Lato' sans-serif;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 17px;
-    
-    color: #000000;
-    
-    box-shadow: 0px 2px 11px rgba(0, 0, 0, 0.1);
-    background-color: #FAFAFA;
-  }
-  
-  #value {
-    margin-right: 6vw;
-  }
-  
-  .column-title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 45px;
-    width: 150px;
-  }
-  
-  .column-title span {
-    cursor: pointer;
-    
-    margin-right: 5px;
-  }
-  
-  .filters-table-resume {
-    display: flex;
-    gap: 30px;
-  }
-  
-  .btn-add:hover {
-    opacity: 0.8;
-    box-shadow: 0px 2px 11px rgba(0, 0, 0, 0.4);
-  }
-    
-  .arrow-up {
-    position: absolute;
-    top: -10px;
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 10px solid #E4F2FD;
-  }
-  
-  .hidden {
-    display: none;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
 
-  @media (max-width:450px){
-    .main{
-      
-    }
+.main {
+  max-width: 100%;
+  height: calc(100vh - 18rem);
+  margin-top: -50px;
+  padding: 30px 30px 0 20px;
+  border-radius: 60px 60px 0 0;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+}
+
+.asideMain {
+  display: flex;
+  flex-direction: column;
+}
+
+.column-title span {
+  cursor: pointer;
+}
+
+.filters-table-resume {
+  margin-top: 4vh;
+}
+
+.btn-add:hover {
+  opacity: 0.8;
+  box-shadow: 0px 2px 11px rgba(0, 0, 0, 0.4);
+}
+
+.arrow-up {
+  position: absolute;
+  top: -10px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 10px solid #E4F2FD;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width:960px) {
+  .asideMain {
+    width: 90vw;
   }
+}
