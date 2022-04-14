@@ -62,32 +62,32 @@ function Main() {
           <img src={filtro} alt="Filtro" />
           Filtrar
         </span>
-        <div className="filters-table-resume">
-          <div className="filters-table">
-            <Filtros
-              setFiltrando={setFiltrando}
-              transacoes={transacoes}
-              setFiltrados={setFiltrados}
-              hidden={hidden}
-            />
-            <ListaTransacoes />
-            <ConfirmarEscolha />
-          </div>
           <Resumo
             openModal={openModal}
             setOpenModal={setOpenModal}
           />
+        <div className="filters-table-resume">
+          <Filtros
+            setFiltrando={setFiltrando}
+            transacoes={transacoes}
+            setFiltrados={setFiltrados}
+            hidden={hidden}
+          />  
+        </div>
+        <div className="asideMain">
+          <ListaTransacoes />
+          <ConfirmarEscolha />
         </div>
       </section>
-      <ModalTransacoes
-        openModal={openModal}
-        setOpenModal={setOpenModal}
-        handleClose={handleClose}
-        editando={editar}
-        idTransacao={idTransacao}
-        transacao={transacoes}
-        transacaoEditada={transacaoEditada}
-      />
+        <ModalTransacoes
+          openModal={openModal}
+          setOpenModal={setOpenModal}
+          handleClose={handleClose}
+          editando={editar}
+          idTransacao={idTransacao}
+          transacao={transacoes}
+          transacaoEditada={transacaoEditada}
+        />
     </div>
   );
 }
