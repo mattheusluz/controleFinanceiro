@@ -1,12 +1,11 @@
 .container-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    padding-top: 7vh;
-    padding-left: 5vw;
-    height: 22.3rem;
-    
-    background: linear-gradient(90deg, #05EDE3, #645FFB);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-top: 3vh;
+  padding-left: 5vw;
+  height: 18rem;
+  background: linear-gradient(90deg, #05EDE3, #645FFB);
   }
 
   .logo{

@@ -45,9 +45,9 @@ function ListaTransacoes() {
           <span>Data</span>
         </div>
         <div id='week-day' className='column-title day'>
-          <span>Dia da semana</span>
+          <span>Dia da Semana</span>
         </div>
-        <div className='column-title category'>
+        <div className='column-title'>
           <span>Categoria</span>
         </div>
         <div className='column-title description'>
@@ -57,23 +57,31 @@ function ListaTransacoes() {
           <span>Valor</span>
         </div>
         <div id='editDelete' className='editDelete'>
-          <span>editar</span>
+          .
         </div>
       </th>
       {(filtrando ? filtrados : transacoes && transacoes).map((transacao) => (
         <tbody className='table-body' key={transacao.id} >
           <tr className='table-line'>
-            <td className='date line-items'>{format(new Date(transacao.data), 'dd/MM/yyy')}</td>
-            <td className='day line-items'>{transacao.dia_semana}</td>
-            <td className='category line-items '>{transacao.categoria}</td>
-            <td className='elipsis line-items description'>{transacao.descricao}</td>
+            <td className='date line-items'>
+              <span>{format(new Date(transacao.data), 'dd/MM/yyy')}</span>
+            </td>
+            <td className='day line-items'>
+            <span className='day'>{transacao.dia_semana}</span>
+            </td>
+            <td className='line-items category'>
+            <span>{transacao.categoria}</span>
+            </td>
+            <td className='line-items description'>
+            <span>{transacao.descricao}</span>
+            </td>
             <td
               className='line-items'
               style={{ color: transacao.tipo ? '#7B61FF' : '#FA8C10' }}
             >
-              {!transacao.tipo && '-'} R$ {transacao.valor / 100}
+              <span>{!transacao.tipo && '-'} R$ {transacao.valor / 100}</span>
             </td>
-            <td className='editDelete'>
+            <td className='editDele'>
               <img src={lapis} alt="Editar" className='edit-icon'/*  onClick={() => editarTransacao(transacao)} */ />
               <img src={lixeira}
                 alt="Deletar"

@@ -70,7 +70,7 @@ function Resumo({ openModal, setOpenModal }) {
   return (
     <div className="allinside">
       <div className="container-resume">
-        <h3>Resumo</h3>
+        <h3>Resumo:</h3>
         <div >
           <span>Entradas</span>
           <strong className="entradas">R$ {calcularEntradas()}</strong>

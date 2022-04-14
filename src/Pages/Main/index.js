@@ -72,12 +72,12 @@ function Main() {
             transacoes={transacoes}
             setFiltrados={setFiltrados}
             hidden={hidden}
-          />
+          />  
+        </div>
         <div className="asideMain">
           <ListaTransacoes />
           <ConfirmarEscolha />
         </div>
-      </div>
       </section>
         <ModalTransacoes
           openModal={openModal}
