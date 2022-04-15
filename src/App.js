@@ -25,6 +25,7 @@ function App() {
   const [transacaoEditada, setTransacaoEditada] = useState(false);
   const [idTransacao, setIdTransacao] = useState();
   const [popup, setPopup] = useState(false);
+  const [token, setToken] = useState(false);
 
 
   // const esconderFiltros = () => {
@@ -76,7 +77,9 @@ function App() {
         transacaoEditada,
         setTransacaoEditada,
         idTransacao,
-        setIdTransacao
+        setIdTransacao,
+        token,
+        setToken
       }}>
         <Rotas />
       </UserContext.Provider>

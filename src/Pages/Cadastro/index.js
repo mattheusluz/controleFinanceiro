@@ -115,7 +115,7 @@ function Cadastro() {
                   erroCadastro
                     && erroCadastro.includes('senha')
                     ? 'erroInput inputSenha'
-                    : 'input'
+                    : 'inputSenha'
                 }
                 placeholder='Digite uma senha'
                 onChange={(e) => setSenha(e.target.value)}
@@ -139,7 +139,7 @@ function Cadastro() {
                   erroCadastro
                     && erroCadastro.includes('senha')
                     ? 'erroInput inputSenha'
-                    : 'input'
+                    : 'inputSenha'
                 }
                 placeholder='Digite novamente'
                 onChange={(e) => setRepetirSenha(e.target.value)}
