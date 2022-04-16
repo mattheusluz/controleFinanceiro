@@ -11,7 +11,7 @@ function Login() {
   const [senha, setSenha] = useState('');
   const [erroLogin, setErroLogin] = useState(null);
 
-  const { setToken } = useContext(UserContext);
+  const { token, setToken } = useContext(UserContext);
 
   const history = useHistory();
 
@@ -46,7 +46,7 @@ function Login() {
         setToken(token);
       }
 
-      history.push('/main');
+      history.push('/');
     } catch (error) {
       console.log(error);
     }
