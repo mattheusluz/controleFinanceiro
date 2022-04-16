@@ -1,11 +1,8 @@
 import './style.css';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import UserContext from '../../contexts/userContext';
 
 function ConfirmarExclusao() {
-  const [popup, setPopup] = useState(false);
-  const [filtrados, setFiltrados] = useState([]);
-  const [transacoes, setTransacoes] = useState([]);
 
   const {
     todasTransacoes,
@@ -13,13 +10,9 @@ function ConfirmarExclusao() {
     idTransacao
   } = useContext(UserContext);
 
-  // const handlePopUp = () => {
-  //   setPopup(!popup);
-  // }
-
   const deletarTransacao = async (id) => {
     try {
-      const resposta = await fetch(`https://sistemacontrolefinanceiro.herokuapp.com/transacoes/${id}`, {
+      await fetch(`https://sistemacontrolefinanceiro.herokuapp.com/transacoes/${id}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${window.localStorage.getItem('token')}`,
