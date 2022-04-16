@@ -6,29 +6,36 @@ import lixeira from '../../assets/lixeira.svg';
 import { format } from 'date-fns';
 
 function ListaTransacoes() {
-  const { transacoes, setTransacoes, filtrando, filtrados, setFiltrados } = useContext(UserContext);
+  const { transacoes,
+    setTransacoes,
+    filtrando,
+    filtrados,
+    setFiltrados,
+    setExcluir,
+    setIdTransacao
+  } = useContext(UserContext);
 
-  const todasTransacoes = async () => {
-    try {
-      const resposta = await fetch('https://sistemacontrolefinanceiro.herokuapp.com/transacoes', {
-        method: 'GET',
-        headers: {
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQ5NTEyNDAyfQ.vKMxjFCSoC3NEvQrJ4Pge6TQcIt-dtPBjgTRe5v-OLs`,
-          'Content-Type': 'application/json',
-        },
-      });
+  // const todasTransacoes = async () => {
+  //   try {
+  //     const resposta = await fetch('https://sistemacontrolefinanceiro.herokuapp.com/transacoes', {
+  //       method: 'GET',
+  //       headers: {
+  //         Authorization: `Bearer ${window.localStorage.getItem('token')}`,
+  //         'Content-Type': 'application/json',
+  //       },
+  //     });
 
-      const data = await resposta.json();
-      setTransacoes(data);
-      setFiltrados(data);
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  //     const data = await resposta.json();
+  //     setTransacoes(data);
+  //     setFiltrados(data);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 
-  useEffect(() => {
-    todasTransacoes();
-  }, []);
+  // useEffect(() => {
+  //   todasTransacoes();
+  // }, []);
 
   // const editarTransacao = (transacao) => {
   //   handleModal();
@@ -67,13 +74,13 @@ function ListaTransacoes() {
               <span>{format(new Date(transacao.data), 'dd/MM/yyy')}</span>
             </td>
             <td className='day line-items'>
-            <span className='day'>{transacao.dia_semana}</span>
+              <span className='day'>{transacao.dia_semana}</span>
             </td>
             <td className='line-items category'>
-            <span>{transacao.categoria}</span>
+              <span>{transacao.categoria}</span>
             </td>
             <td className='line-items description'>
-            <span>{transacao.descricao}</span>
+              <span>{transacao.descricao}</span>
             </td>
             <td
               className='line-items'
@@ -86,13 +93,13 @@ function ListaTransacoes() {
               <img src={lixeira}
                 alt="Deletar"
                 className='delete-icon'
-              // onClick={() => {
-                //   handlePopUp()
-              //   setIdTransacao(transacao.id)
-              // }}
+                onClick={() => {
+                  setExcluir(true)
+                  setIdTransacao(transacao.id)
+                }}
               />
             </td>
-          {/* <ConfirmarEscolha /> */}
+            {/* <ConfirmarEscolha /> */}
           </tr>
         </tbody>
       ))}

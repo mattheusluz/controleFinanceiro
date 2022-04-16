@@ -8,7 +8,7 @@ import Filtros from '../../components/Filtros';
 import Header from '../../components/Header';
 import Resumo from '../../components/Resumo';
 import UserContext from '../../contexts/userContext';
-import ConfirmarEscolha from '../../components/ConfirmarEscolha';
+import ConfirmarExclusao from '../../components/ConfirmarExclusao';
 import { format } from 'date-fns';
 
 function Main() {
@@ -19,6 +19,7 @@ function Main() {
     setFiltrando,
     hidden,
     setHidden,
+    excluir
   } = useContext(UserContext);
 
   const [openModal, setOpenModal] = useState(false);
@@ -62,32 +63,34 @@ function Main() {
           <img src={filtro} alt="Filtro" />
           Filtrar
         </span>
-          <Resumo
-            openModal={openModal}
-            setOpenModal={setOpenModal}
-          />
+        <Resumo
+          openModal={openModal}
+          setOpenModal={setOpenModal}
+        />
         <div className="filters-table-resume">
           <Filtros
             setFiltrando={setFiltrando}
             transacoes={transacoes}
             setFiltrados={setFiltrados}
             hidden={hidden}
-          />  
+          />
         </div>
         <div className="asideMain">
           <ListaTransacoes />
-          <ConfirmarEscolha />
+          {
+            excluir && <ConfirmarExclusao />
+          }
         </div>
       </section>
-        <ModalTransacoes
-          openModal={openModal}
-          setOpenModal={setOpenModal}
-          handleClose={handleClose}
-          editando={editar}
-          idTransacao={idTransacao}
-          transacao={transacoes}
-          transacaoEditada={transacaoEditada}
-        />
+      <ModalTransacoes
+        openModal={openModal}
+        setOpenModal={setOpenModal}
+        handleClose={handleClose}
+        editando={editar}
+        idTransacao={idTransacao}
+        transacao={transacoes}
+        transacaoEditada={transacaoEditada}
+      />
     </div>
   );
 }

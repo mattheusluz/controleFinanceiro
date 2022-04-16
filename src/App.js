@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 // import UserContext from './contexts/userContext';
 import UserContext from './contexts/userContext';
@@ -26,6 +26,29 @@ function App() {
   const [idTransacao, setIdTransacao] = useState();
   const [popup, setPopup] = useState(false);
   const [token, setToken] = useState(false);
+  const [excluir, setExcluir] = useState(false);
+
+  const todasTransacoes = async () => {
+    try {
+      const resposta = await fetch('https://sistemacontrolefinanceiro.herokuapp.com/transacoes', {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${window.localStorage.getItem('token')}`,
+          'Content-Type': 'application/json',
+        },
+      });
+
+      const data = await resposta.json();
+      setTransacoes(data);
+      setFiltrados(data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    todasTransacoes();
+  }, []);
 
 
   // const esconderFiltros = () => {
@@ -56,10 +79,11 @@ function App() {
   // const handlePopUp = () => {
   //   setPopup(!popup);
   // }
-
+  console.log(idTransacao)
   return (
     <div className="App">
       <UserContext.Provider value={{
+        todasTransacoes,
         transacoes,
         setTransacoes,
         filtrando,
@@ -79,7 +103,9 @@ function App() {
         idTransacao,
         setIdTransacao,
         token,
-        setToken
+        setToken,
+        excluir,
+        setExcluir,
       }}>
         <Rotas />
       </UserContext.Provider>
