@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from 'react';
+import { useState, useContext } from 'react';
 import './style.css';
 import '../../globalStyles/styles.css';
 import filtro from '../../assets/filtro.svg';
@@ -8,25 +8,21 @@ import Filtros from '../../components/Filtros';
 import Header from '../../components/Header';
 import Resumo from '../../components/Resumo';
 import UserContext from '../../contexts/userContext';
-import ConfirmarExclusao from '../../components/ConfirmarExclusao';
-import { format } from 'date-fns';
+// import { format } from 'date-fns';
 
 function Main() {
   const {
     transacoes,
-    setTransacoes,
     setFiltrados,
     setFiltrando,
     hidden,
     setHidden,
-    excluir
   } = useContext(UserContext);
 
   const [openModal, setOpenModal] = useState(false);
   const [editar, setEditar] = useState(false);
   const [transacaoEditada, setTransacaoEditada] = useState(false);
   const [idTransacao, setIdTransacao] = useState();
-  const [popup, setPopup] = useState(false);
 
 
   const esconderFiltros = () => {
@@ -51,10 +47,6 @@ function Main() {
     openModal ? setOpenModal(false) : setOpenModal(true);
     setEditar(false);
   }
-
-  const handlePopUp = () => {
-    setPopup(!popup);
-  }
   return (
     <div className="Main">
       <Header />
@@ -77,9 +69,6 @@ function Main() {
         </div>
         <div className="asideMain">
           <ListaTransacoes />
-          {
-            excluir && <ConfirmarExclusao />
-          }
         </div>
       </section>
       <ModalTransacoes

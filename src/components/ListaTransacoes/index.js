@@ -1,41 +1,22 @@
 import './style.css';
 import UserContext from '../../contexts/userContext';
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import lapis from '../../assets/lapis.svg';
 import lixeira from '../../assets/lixeira.svg';
 import { format } from 'date-fns';
+import ConfirmarExclusao from '../ConfirmarExclusao';
 
 function ListaTransacoes() {
-  const { transacoes,
-    setTransacoes,
+  const {
+    transacoes,
+    // setTransacoes,
     filtrando,
     filtrados,
-    setFiltrados,
+    // setFiltrados,
+    excluir,
     setExcluir,
     setIdTransacao
   } = useContext(UserContext);
-
-  // const todasTransacoes = async () => {
-  //   try {
-  //     const resposta = await fetch('https://sistemacontrolefinanceiro.herokuapp.com/transacoes', {
-  //       method: 'GET',
-  //       headers: {
-  //         Authorization: `Bearer ${window.localStorage.getItem('token')}`,
-  //         'Content-Type': 'application/json',
-  //       },
-  //     });
-
-  //     const data = await resposta.json();
-  //     setTransacoes(data);
-  //     setFiltrados(data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   todasTransacoes();
-  // }, []);
 
   // const editarTransacao = (transacao) => {
   //   handleModal();
@@ -99,7 +80,9 @@ function ListaTransacoes() {
                 }}
               />
             </td>
-            {/* <ConfirmarEscolha /> */}
+            {
+              excluir && <ConfirmarExclusao />
+            }
           </tr>
         </tbody>
       ))}
