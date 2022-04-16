@@ -1,17 +1,16 @@
 import { useContext, useState } from 'react';
-import './style.css';
-import '../../globalStyles/styles.css';
 import { NavLink, useHistory } from 'react-router-dom';
 import HeaderLogin from '../../components/HeaderLogin';
-import '../../globalStyles/styles.css';
 import UserContext from '../../contexts/userContext';
+import '../../globalStyles/styles.css';
+import './style.css';
 
 function Login() {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [erroLogin, setErroLogin] = useState(null);
 
-  const { token, setToken } = useContext(UserContext);
+  const { setToken } = useContext(UserContext);
 
   const history = useHistory();
 

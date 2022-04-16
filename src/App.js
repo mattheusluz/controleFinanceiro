@@ -11,7 +11,7 @@ function App() {
   const [filtrados, setFiltrados] = useState([]);
   const [filtrando, setFiltrando] = useState(false);
   const [editar, setEditar] = useState(false);
-  const [transacaoEditada, setTransacaoEditada] = useState(false);
+  const [transacaoEditada, setTransacaoEditada] = useState(null);
   const [idTransacao, setIdTransacao] = useState();
   const [popup, setPopup] = useState(false);
   const [token, setToken] = useState(false);
@@ -39,25 +39,6 @@ function App() {
     todasTransacoes();
   }, []);
 
-  // const handleModal = () => {
-  //   setEditar(false);
-  //   setTransacaoEditada(false);
-  //   openModal ? setOpenModal(false) : setOpenModal(true);
-  // }
-
-  // const editarTransacao = (transacao) => {
-  //   handleModal();
-  //   setEditar(true);
-  //   setIdTransacao(transacao.id);
-  //   todasTransacoes();
-  //   setTransacaoEditada(transacao);
-  // }
-
-  // const handleClose = () => {
-  //   openModal ? setOpenModal(false) : setOpenModal(true);
-  //   setEditar(false);
-  // }
-  console.log(idTransacao)
   return (
     <div className="App">
       <UserContext.Provider value={{

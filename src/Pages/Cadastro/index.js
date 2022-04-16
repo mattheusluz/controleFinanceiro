@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import './style.css';
-import '../../globalStyles/styles.css';
-import HeaderLogin from '../../components/HeaderLogin';
 import { NavLink, useHistory } from 'react-router-dom';
+import HeaderLogin from '../../components/HeaderLogin';
+import '../../globalStyles/styles.css';
+import './style.css';
 
 function Cadastro() {
   const [nome, setNome] = useState('');

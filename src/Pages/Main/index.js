@@ -1,17 +1,18 @@
-import { useState, useContext } from 'react';
-import './style.css';
-import '../../globalStyles/styles.css';
+import { useContext } from 'react';
 import filtro from '../../assets/filtro.svg';
-import ModalTransacoes from '../../components/ModalTransacoes';
-import ListaTransacoes from '../../components/ListaTransacoes';
 import Filtros from '../../components/Filtros';
 import Header from '../../components/Header';
+import ListaTransacoes from '../../components/ListaTransacoes';
+import ModalTransacoes from '../../components/ModalTransacoes';
 import Resumo from '../../components/Resumo';
 import UserContext from '../../contexts/userContext';
-// import { format } from 'date-fns';
+import '../../globalStyles/styles.css';
+import './style.css';
 
 function Main() {
   const {
+    openModal,
+    setOpenModal,
     transacoes,
     setFiltrados,
     setFiltrando,
@@ -19,34 +20,10 @@ function Main() {
     setHidden,
   } = useContext(UserContext);
 
-  const [openModal, setOpenModal] = useState(false);
-  const [editar, setEditar] = useState(false);
-  const [transacaoEditada, setTransacaoEditada] = useState(false);
-  const [idTransacao, setIdTransacao] = useState();
-
-
   const esconderFiltros = () => {
     return hidden ? setHidden(false) : setHidden(true);
   }
 
-  const handleModal = () => {
-    setEditar(false);
-    setTransacaoEditada(false);
-    openModal ? setOpenModal(false) : setOpenModal(true);
-  }
-
-  const editarTransacao = (transacao) => {
-    handleModal();
-    setEditar(true);
-    setIdTransacao(transacao.id);
-    // todasTransacoes();
-    setTransacaoEditada(transacao);
-  }
-
-  const handleClose = () => {
-    openModal ? setOpenModal(false) : setOpenModal(true);
-    setEditar(false);
-  }
   return (
     <div className="Main">
       <Header />
@@ -71,15 +48,9 @@ function Main() {
           <ListaTransacoes />
         </div>
       </section>
-      <ModalTransacoes
-        openModal={openModal}
-        setOpenModal={setOpenModal}
-        handleClose={handleClose}
-        editando={editar}
-        idTransacao={idTransacao}
-        transacao={transacoes}
-        transacaoEditada={transacaoEditada}
-      />
+      {
+        openModal && <ModalTransacoes />
+      }
     </div>
   );
 }

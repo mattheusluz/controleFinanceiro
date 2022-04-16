@@ -1,30 +1,31 @@
-import './style.css';
-import UserContext from '../../contexts/userContext';
+import { format } from 'date-fns';
 import { useContext } from 'react';
 import lapis from '../../assets/lapis.svg';
 import lixeira from '../../assets/lixeira.svg';
-import { format } from 'date-fns';
+import UserContext from '../../contexts/userContext';
 import ConfirmarExclusao from '../ConfirmarExclusao';
+import './style.css';
 
 function ListaTransacoes() {
   const {
     transacoes,
-    // setTransacoes,
+    setOpenModal,
+    setEditar,
     filtrando,
     filtrados,
-    // setFiltrados,
     excluir,
     setExcluir,
-    setIdTransacao
+    setIdTransacao,
+    setTransacaoEditada
   } = useContext(UserContext);
 
-  // const editarTransacao = (transacao) => {
-  //   handleModal();
-  //   setEditar(true);
-  //   setIdTransacao(transacao.id);
-  //   todasTransacoes();
-  //   setTransacaoEditada(transacao);
-  // }
+  const editarTransacao = (transacao) => {
+    console.log(transacao)
+    setOpenModal(true);
+    setEditar(true);
+    setIdTransacao(transacao.id);
+    setTransacaoEditada(transacao);
+  }
 
   return (
     <table className='table'>
@@ -70,8 +71,13 @@ function ListaTransacoes() {
               <span>{!transacao.tipo && '-'} R$ {transacao.valor / 100}</span>
             </td>
             <td className='editDele'>
-              <img src={lapis} alt="Editar" className='edit-icon'/*  onClick={() => editarTransacao(transacao)} */ />
-              <img src={lixeira}
+              <img
+                src={lapis}
+                alt="Editar"
+                className='edit-icon'
+                onClick={() => editarTransacao(transacao)} />
+              <img
+                src={lixeira}
                 alt="Deletar"
                 className='delete-icon'
                 onClick={() => {
