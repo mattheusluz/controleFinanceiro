@@ -1,126 +1,132 @@
 .containerLogin {
-    background-color: antiquewhite;
-    width: 36vw;
-    border-radius: 2rem;
-    margin-top: -17vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 5px 8px 9px rgba(0, 0, 0, 0.397);
+  background-color: antiquewhite;
+  width: 36vw;
+  border-radius: 2rem;
+  margin-top: -17vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 5px 8px 9px rgba(0, 0, 0, 0.397);
 }
 
 .formLogin {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 30vh;
-    width: 30vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 30vh;
+  width: 30vw;
 }
 
 .titleLogin {
-    font-family: 'Rubik', sans-serif;
-    font-weight: bolder;
-    font-size: 4rem;
-    color: #0b0b0ed2;
-    text-align: center;
-    margin-top: 3rem;
-    line-height: 5rem;
+  font-family: 'Rubik', sans-serif;
+  font-weight: bolder;
+  font-size: 4rem;
+  color: #0b0b0ed2;
+  text-align: center;
+  margin-top: 3rem;
+  line-height: 5rem;
 }
 
 .labelLogin {
-    font-family: 'Rubik', sans-serif;
-    font-size: 1.6rem;
-    font-weight: 500;
-    color: #000;
-    margin-top: 1rem;
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #000;
+  margin-top: 1rem;
 }
 
 .inputLogin {
-    font-family: 'Rubik', sans-serif;
-    font-weight: 400;
-    font-size: 1.5rem;
-    color: rgba(0, 0, 0, 0.685);
-    height: 3.5rem;
-    border-radius: .5rem;
-    border: none;
-    padding-left: .5rem;
+  all: unset;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: rgba(0, 0, 0, 0.685);
+  height: 3.5rem;
+  border-radius: .5rem;
+  border: 1px solid;
+  padding-left: .5rem;
+  background-color: #FFF;
 }
 
 .input::placeholder {
-    font-family: 'Rubik', sans-serif;
-    font-size: 1rem;
-    font-weight: 300;
+  font-family: 'Rubik', sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
 }
 
 .buttonEntrar {
-    all: unset;
-    padding: 1rem;
-    box-sizing: border-box;
-    cursor: pointer;
-    color: #FFF;
-    text-align: center;
-    background-color: #645FFB;
-    border-radius: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-self: center;
-    margin-top: 2rem;
-    font-family: 'Rubik', sans-serif;
-    font-size: 2.5rem;
-    font-weight: 500;
+  all: unset;
+  padding: 1rem;
+  box-sizing: border-box;
+  cursor: pointer;
+  color: #FFF;
+  text-align: center;
+  background-color: #645FFB;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  margin-top: 2rem;
+  font-family: 'Rubik', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 500;
 }
 
 .buttonEntrar:hover {
-    box-shadow: 5px 8px 4px rgba(0, 0, 0, 0.397);
+  box-shadow: 5px 8px 4px rgba(0, 0, 0, 0.397);
 }
 
 .fazerCadastro {
-    margin-top: 1rem;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .conta {
-    font-family: 'lato', sans-serif;
-    font-size: 1.6rem;
-    font-weight: 600;
-    color: rgba(0, 0, 0, 0.781);
-    margin-top: 1rem;
+  font-family: 'lato', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.781);
+  margin-top: 1rem;
 }
 
 .buttonConta {
-    all: unset;
-    margin: 0;
-    padding: 1rem;
-    box-sizing: border-box;
-    cursor: pointer;
-    color: #FFF;
-    font-family: 'Rubik', sans-serif;
-    font-size: 2.4rem;
-    font-weight: 500;
-    text-align: center;
-    background-color: #FA8C10;
-    border-radius: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-self: center;
-    margin: 2rem 1rem;
+  all: unset;
+  margin: 0;
+  padding: 1rem;
+  box-sizing: border-box;
+  cursor: pointer;
+  color: #FFF;
+  font-family: 'Rubik', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 500;
+  text-align: center;
+  background-color: #FA8C10;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  margin: 2rem 1rem;
 }
 
 .buttonConta:hover {
-    box-shadow: 5px 8px 4px rgba(0, 0, 0, 0.397);
+  box-shadow: 5px 8px 4px rgba(0, 0, 0, 0.397);
 }
 
 @media (max-width: 768px) {
-    .formLogin {
-        width: 60vw;
-    }
+  .formLogin {
+    width: 60vw;
+  }
 
-    .containerLogin{
-        width: 70vw;
-    }
+  .containerLogin {
+    width: 70vw;
+  }
+}
+
+.erroInput {
+  border-color: red;
 }
