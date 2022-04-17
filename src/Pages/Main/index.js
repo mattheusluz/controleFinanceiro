@@ -4,6 +4,7 @@ import Filtros from '../../components/Filtros';
 import Header from '../../components/Header';
 import ListaTransacoes from '../../components/ListaTransacoes';
 import ModalTransacoes from '../../components/ModalTransacoes';
+import ModalEditarUsuario from '../../components/ModalEditarUsuario';
 import Resumo from '../../components/Resumo';
 import UserContext from '../../contexts/userContext';
 import '../../globalStyles/styles.css';
@@ -27,6 +28,7 @@ function Main() {
   return (
     <div className="Main">
       <Header />
+      <ModalEditarUsuario />
       <section className='main'>
         <span className='open-filters-button' onClick={() => esconderFiltros()}>
           <img src={filtro} alt="Filtro" />

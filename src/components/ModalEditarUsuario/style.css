@@ -2,16 +2,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
+  
   position: fixed;
-  /* top: 0;
+  top: 0;
   right: 0;
   left: 0;
-  bottom: 0; */
+  bottom: 0;
   z-index: 1;
-
-  width: 100%;
-  height: 100%;
+  
+  width: 100vw;
+  height: 100100vh;
 
   background-color: rgba(61, 61, 61, 0.48);
 }
@@ -19,9 +19,8 @@
 .close-icon {
   position: absolute;
   width: 26px;
-  right: 55px;
-  top: 55px;
-
+  right: 25px;
+  top: 20px;
   cursor: pointer;
 }
 
@@ -29,72 +28,74 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: space-evenly; */
-
+  justify-content: space-between;
   position: absolute;
-  top: 10vh;
-
+  /* top: 0; */
+  /* right: 0; */
+  /* bottom: 0; */
+  /* left: 0; */
+  /* margin: 0 auto; */
   border-radius: 20px;
-
-  padding: 0 15px;
-  width: 30vw;
-  height: 90vh;
-
+  padding: 15px 15px;
+  width: 40vw;
+  height: 85vh;
   background-color: #fefefe;
+}
+
+.modal-container h2 {
+  font-family: 'Rubik', sans-serif;
+  font-size: 2.5rem;
+  text-align: left;
+  margin-top: 1rem;
+  width: 90%;
 }
 
 .modal-container input {
   padding: 10px 15px;
   width: 100%;
-  margin: 5px 0 0 0;
+  margin: 5px 0 15px 0;
 
-  font-family: 'Rubik';
-  font-size: 18px;
-  line-height: 21px;
-
+  font-family: 'Rubik' sans-serif;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  
   color: #000000;
 }
 
 .modal-container form {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-
+  justify-content: center;
+  
   width: 90%;
-  height: 60%;
+  /* height: 60%; */
 }
 
-.modal-container h2 {
-  font-family: 'Rubik', sans-serif;
-  font-size: 30px;
-  text-align: left;
-
-  width: 90%;
-}
 
 .modal-container label {
   width: 90%;
-
+  
   font-family: 'Rubik', sans-serif;
   font-weight: 500;
-  font-size: 20px;
-  line-height: 28px;
+  font-size: 1.7rem;
+  line-height: 2rem;
   text-align: left;
 }
 
 .container-buttons {
   width: 90%;
+  margin-top: 6rem;
+  position: absolute;
 }
 
-.credit-button,
-.debit-button {
+.credit-button, .debit-button {
   cursor: pointer;
 }
 
 .container-btn-insert {
   display: flex;
   justify-content: center;
-
+  
   margin-top: 10px;
 }
 
@@ -103,11 +104,11 @@
   height: 35px;
   border: none;
   border-radius: 5px;
-
+  
   cursor: pointer;
-
+  
   font-family: 'Rubik', sans-serif;
-  font-size: 14px;
+  font-size: 1.6rem;
   color: #fff;
 
   background-color: #645FFB;
@@ -126,11 +127,11 @@
   border: none;
 
   cursor: pointer;
-
-  font-size: 14px;
+  
+  font-size: 1.4rem;
   font-weight: bold;
   color: #ffffff;
-
+  
   background-color: #B9B9B9;
   transition: all 0.2s ease;
 }
@@ -154,4 +155,16 @@
 
 .debito {
   background: linear-gradient(91.66deg, #FA8C10 0%, #FF576B 90.32%);
+}
+
+@media (max-width:920px){
+  .modal-container {
+    width: 50vw;
+  }
+}
+
+@media (max-width:620px){
+  .modal-container {
+    width: 65vw;
+  }
 }

@@ -16,6 +16,7 @@ function App() {
   const [popup, setPopup] = useState(false);
   const [token, setToken] = useState(false);
   const [excluir, setExcluir] = useState(false);
+  const [openEditUserModal, setOpenEditUserModal] = useState(false);
 
   const todasTransacoes = async () => {
     try {
@@ -65,6 +66,8 @@ function App() {
         setToken,
         excluir,
         setExcluir,
+        openEditUserModal, 
+        setOpenEditUserModal
       }}>
         <Rotas />
       </UserContext.Provider>
