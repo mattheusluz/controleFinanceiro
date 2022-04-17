@@ -53,7 +53,11 @@ function ListaTransacoes() {
         <tbody className='table-body' key={transacao.id} >
           <tr className='table-line'>
             <td className='date line-items'>
-              <span>{format(new Date(transacao.data), 'dd/MM/yyy')}</span>
+              <span>{`
+              ${transacao.data.substr(8, 2)}/
+              ${transacao.data.substr(5, 2)}/
+              ${transacao.data.substr(0, 4)}
+              `}</span>
             </td>
             <td className='day line-items'>
               <span className='day'>{transacao.dia_semana}</span>
