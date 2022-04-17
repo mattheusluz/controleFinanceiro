@@ -1,9 +1,21 @@
-import { useEffect, useState } from 'react';
-import CloseIcon from '../../assets/closeBtn.svg';
+import { useContext, useEffect, useState } from 'react';
 import InputMask from 'react-input-mask';
+import CloseIcon from '../../assets/closeBtn.svg';
+import UserContext from '../../contexts/userContext';
 import './style.css';
 
-export default function ModalTransacoes({ openModal, setOpenModal, handleClose, editando, idTransacao, transacao, transacaoEditada }) {
+export default function ModalTransacoes() {
+
+  const {
+    todasTransacoes,
+    idTransacao,
+    openModal,
+    setOpenModal,
+    transacaoEditada,
+    setTransacaoEditada,
+    editar,
+    setEditar
+  } = useContext(UserContext);
 
   const [credito, setCredito] = useState(false);
   const [debito, setDebito] = useState(true);
@@ -12,6 +24,7 @@ export default function ModalTransacoes({ openModal, setOpenModal, handleClose, 
   const [data, setData] = useState('05/12/2021');
   const [descricao, setDescricao] = useState();
   const [diaSemana, setDiaSemana] = useState();
+  const [erroTransacao, setErroTransacao] = useState(null);
 
   const formataDiaSemana = new Date(data.toString().substr(6, 4) + '/' + data.toString().substr(3, 2) + '/' + data.toString().substr(0, 2)).getDay();
 
@@ -27,7 +40,7 @@ export default function ModalTransacoes({ openModal, setOpenModal, handleClose, 
 
   useEffect(() => {
     setDiaSemana(diaFormatado);
-  }, [data])
+  }, [diaFormatado])
 
   useEffect(() => {
     if (transacaoEditada) {
@@ -35,7 +48,7 @@ export default function ModalTransacoes({ openModal, setOpenModal, handleClose, 
       setValor(transacaoEditada.valor / 100);
       setCategoria(transacaoEditada.categoria);
       setDescricao(transacaoEditada.descricao);
-      if (transacaoEditada.type) {
+      if (transacaoEditada.tipo) {
         setCredito(true);
         setDebito(false);
       } else {
@@ -46,6 +59,8 @@ export default function ModalTransacoes({ openModal, setOpenModal, handleClose, 
   }, [transacaoEditada]);
 
   const inserirTransacao = async (id) => {
+    setErroTransacao(null);
+
     try {
       const dadosBody = {
         data,
@@ -56,7 +71,7 @@ export default function ModalTransacoes({ openModal, setOpenModal, handleClose, 
         tipo: credito ? true : false
       };
 
-      if (!editando) {
+      if (!editar) {
         const resposta = await fetch('https://sistemacontrolefinanceiro.herokuapp.com/transacoes', {
           method: 'POST',
           headers: {
@@ -67,6 +82,11 @@ export default function ModalTransacoes({ openModal, setOpenModal, handleClose, 
         });
 
         const dados = await resposta.json();
+
+        if (dados.erro) {
+          setErroTransacao(dados.erro);
+          return;
+        }
       } else {
         const resposta = await fetch(`https://sistemacontrolefinanceiro.herokuapp.com/transacoes/${id}`, {
           method: 'PUT',
@@ -78,8 +98,14 @@ export default function ModalTransacoes({ openModal, setOpenModal, handleClose, 
         });
 
         const dados = await resposta.json();
+
+        if (dados.erro) {
+          setErroTransacao(dados.erro);
+          return;
+        }
       }
       setOpenModal(false);
+      todasTransacoes()
     } catch (error) {
       console.log(error);
     }
@@ -95,18 +121,14 @@ export default function ModalTransacoes({ openModal, setOpenModal, handleClose, 
     setCredito(false);
   }
 
-  let debitoAtivo = '';
-  let creditoAtivo = '';
-  if (transacao) {
-    const transacaoEditando = transacao.filter(item => item.id === idTransacao);
-    if (transacaoEditando.length > 0) {
-      debitoAtivo = !transacaoEditando[0].tipo ? 'debito' : '';
-      creditoAtivo = transacaoEditando[0].tipo ? 'credito' : '';
-    }
+  const handleClose = () => {
+    openModal ? setOpenModal(false) : setOpenModal(true);
+    setEditar(false);
+    setTransacaoEditada(null);
   }
 
   return (
-    <div className="backdrop" style={{ display: !openModal && 'none' }}>
+    <div className="backdrop">
       <div className="modal-container">
         <img
           className="close-icon"
@@ -115,7 +137,7 @@ export default function ModalTransacoes({ openModal, setOpenModal, handleClose, 
           onClick={() => handleClose()}
         />
 
-        <h2>{editando ? 'Editar' : 'Adicionar'} Registro</h2>
+        <h2>{editar ? 'Editar' : 'Adicionar'} Registro</h2>
         <div className="container-buttons">
           <button
             id="credit-button"
@@ -138,7 +160,8 @@ export default function ModalTransacoes({ openModal, setOpenModal, handleClose, 
         }
         }>
           <div>
-            <label htmlFor='value'>Valor
+            <label htmlFor='value'>
+              Valor
               <input
                 onChange={(e) => setValor(e.target.value)}
                 value={valor}
@@ -147,12 +170,24 @@ export default function ModalTransacoes({ openModal, setOpenModal, handleClose, 
                 title='Valor da transação em reais'
                 type='number'
                 placeholder='99,99'
-                required
+                className={
+                  erroTransacao
+                  && erroTransacao.includes('valor')
+                  && 'erroInput'
+                }
               />
+              {
+                erroTransacao
+                && erroTransacao.includes('valor')
+                && <span className='spanErro'>
+                  digite um valor em reais
+                </span>
+              }
             </label>
           </div>
           <div>
-            <label htmlFor='category'>Categoria
+            <label htmlFor='category'>
+              Categoria
               <input
                 onChange={(e) => setCategoria(e.target.value)}
                 value={categoria}
@@ -160,12 +195,23 @@ export default function ModalTransacoes({ openModal, setOpenModal, handleClose, 
                 id='imputCategory'
                 title='Categoria da transação'
                 placeholder='Mercado'
-                required
+                className={
+                  erroTransacao
+                  && erroTransacao.includes('categoria')
+                  && 'erroInput'}
               />
+              {
+                erroTransacao
+                && erroTransacao.includes('categoria')
+                && <span className='spanErro'>
+                  {erroTransacao}
+                </span>
+              }
             </label>
           </div>
           <div>
-            <label htmlFor='date'>Data
+            <label htmlFor='date'>
+              Data
               {<InputMask
                 mask="99/99/9999"
                 onChange={(e) => setData(e.target.value)}
@@ -173,12 +219,23 @@ export default function ModalTransacoes({ openModal, setOpenModal, handleClose, 
                 name="date"
                 id="imputDate"
                 title='Data da transação'
-                required
+                className={
+                  erroTransacao
+                  && erroTransacao.includes('data')
+                  && 'erroInput'}
               />}
+              {
+                erroTransacao
+                && erroTransacao.includes('data')
+                && <span className='spanErro'>
+                  {erroTransacao}
+                </span>
+              }
             </label>
           </div>
           <div>
-            <label htmlFor='description'>Descrição
+            <label htmlFor='description'>
+              Descrição
               <input
                 onChange={(e) => setDescricao(e.target.value)}
                 value={descricao}
@@ -186,12 +243,24 @@ export default function ModalTransacoes({ openModal, setOpenModal, handleClose, 
                 id="imputDescription"
                 title='Descrição da transação'
                 placeholder='Compra de comida'
-                required
+                className={
+                  erroTransacao
+                  && erroTransacao.includes('descricao')
+                  && 'erroInput'}
               />
+              {
+                erroTransacao
+                && erroTransacao.includes('descricao')
+                && <span className='spanErro'>
+                  {erroTransacao}
+                </span>
+              }
             </label>
           </div>
           <div className="container-btn-insert">
-            <button className='btn-insert' type='submit'>Confirmar</button>
+            <button className='btn-insert' type='submit'>
+              Confirmar
+            </button>
           </div>
         </form>
       </div>

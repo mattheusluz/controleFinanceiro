@@ -1,13 +1,11 @@
-import './style.css';
-import { useEffect, useState, useContext } from 'react';
+import { useContext } from 'react';
 import UserContext from '../../contexts/userContext';
+import './style.css';
 
 function Resumo({ openModal, setOpenModal }) {
   const { transacoes, filtrando, filtrados } = useContext(UserContext);
 
   const handleModal = () => {
-    // setEditar(false);
-    // setTransacaoEditada(false);
     openModal ? setOpenModal(false) : setOpenModal(true);
   }
 
