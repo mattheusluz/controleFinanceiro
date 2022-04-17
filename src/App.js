@@ -23,7 +23,7 @@ function App() {
       const resposta = await fetch('https://sistemacontrolefinanceiro.herokuapp.com/transacoes', {
         method: 'GET',
         headers: {
-          Authorization: `Bearer ${window.localStorage.getItem('token')}`,
+          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjUwMjM0MjU2fQ.5qfR5iRSmToVzzPhnr-GvATVGx9uElf6WeE6UrS0Q44`,
           'Content-Type': 'application/json',
         },
       });
@@ -66,7 +66,7 @@ function App() {
         setToken,
         excluir,
         setExcluir,
-        openEditUserModal, 
+        openEditUserModal,
         setOpenEditUserModal
       }}>
         <Rotas />
