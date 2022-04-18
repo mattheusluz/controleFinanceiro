@@ -71,7 +71,7 @@ function ListaTransacoes() {
             <td
               className='line-items'
               style={{ color: transacao.tipo ? '#7B61FF' : '#FA8C10' }}
-            >
+              >
               <span>{!transacao.tipo && '-'} R$ {transacao.valor / 100}</span>
             </td>
             <td className='editDele'>
@@ -88,11 +88,9 @@ function ListaTransacoes() {
                   setExcluir(true)
                   setIdTransacao(transacao.id)
                 }}
-              />
+                />
+                {excluir && <ConfirmarExclusao />}
             </td>
-            {
-              excluir && <ConfirmarExclusao />
-            }
           </tr>
         </tbody>
       ))}

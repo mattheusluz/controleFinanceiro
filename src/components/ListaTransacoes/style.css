@@ -12,7 +12,7 @@
   justify-content: space-evenly;
   height: 45px;
   border-radius: 10px;
-  font-family: 'Lato',sans-serif;
+  font-family: 'Lato', sans-serif;
   font-weight: bold;
   font-size: 14px;
   line-height: 17px;
@@ -42,7 +42,7 @@
    */
 }
 
-.column-title{
+.column-title {
   width: 10vw;
 }
 
@@ -62,18 +62,19 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.description{
+
+.description {
   width: 12vw;
   display: flex;
   justify-content: center;
 }
 
-.line-items span{
+.line-items span {
   min-width: 10vw;
   display: flex;
 }
 
-.date{
+.date {
   display: flex;
   justify-content: center;
 }
@@ -89,19 +90,19 @@
   display: flex;
 }
 */
-.value{
+.value {
   justify-content: center;
   width: 10vw;
-} 
+}
 
-.editDelete{
+.editDelete {
   display: flex;
   justify-content: space-evenly;
   width: 10vw;
   color: #00000000;
 }
 
-.elipsis{
+.elipsis {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -130,5 +131,13 @@
   .table {
     width: 90vw;
     margin-top: 30vh;
+  }
+
+  .table-head {
+    width: 90vw;
+  }
+
+  .table-body {
+    width: 90vw;
   }
 }
