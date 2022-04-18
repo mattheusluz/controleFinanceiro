@@ -23,7 +23,7 @@ function NavBar() {
   async function handleDadosUsuario() {
     try {
       const response = await fetch(
-        'https://sistemacontrolefinanceiro.herokuapp.com/usuario',
+        'https://sistemacontrolefinanceiro.herokuapp.com/usuarios',
         {
           method: 'GET',
           headers: {

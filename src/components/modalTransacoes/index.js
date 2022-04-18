@@ -45,7 +45,12 @@ export default function ModalTransacoes() {
 
   useEffect(() => {
     if (transacaoEditada) {
-      setData(transacaoEditada.data);
+      const dataEdicao = `
+      ${transacaoEditada.data.substr(8, 2)}/
+      ${transacaoEditada.data.substr(5, 2)}/
+      ${transacaoEditada.data.substr(0, 4)}
+      `
+      setData(dataEdicao);
       setValor(transacaoEditada.valor / 100);
       setCategoria(transacaoEditada.categoria);
       setDescricao(transacaoEditada.descricao);

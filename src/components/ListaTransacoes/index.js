@@ -1,4 +1,3 @@
-import { format } from 'date-fns';
 import { useContext } from 'react';
 import lapis from '../../assets/lapis.svg';
 import lixeira from '../../assets/lixeira.svg';
@@ -20,7 +19,6 @@ function ListaTransacoes() {
   } = useContext(UserContext);
 
   const editarTransacao = (transacao) => {
-    console.log(transacao)
     setOpenModal(true);
     setEditar(true);
     setIdTransacao(transacao.id);
@@ -71,7 +69,7 @@ function ListaTransacoes() {
             <td
               className='line-items'
               style={{ color: transacao.tipo ? '#7B61FF' : '#FA8C10' }}
-              >
+            >
               <span>{!transacao.tipo && '-'} R$ {transacao.valor / 100}</span>
             </td>
             <td className='editDele'>
@@ -88,8 +86,8 @@ function ListaTransacoes() {
                   setExcluir(true)
                   setIdTransacao(transacao.id)
                 }}
-                />
-                {excluir && <ConfirmarExclusao />}
+              />
+              {excluir && <ConfirmarExclusao />}
             </td>
           </tr>
         </tbody>
