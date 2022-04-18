@@ -5,6 +5,7 @@ import UserContext from '../../contexts/userContext';
 function ConfirmarExclusao() {
 
   const {
+    token,
     todasTransacoes,
     setExcluir,
     idTransacao
@@ -15,7 +16,7 @@ function ConfirmarExclusao() {
       await fetch(`https://sistemacontrolefinanceiro.herokuapp.com/transacoes/${id}`, {
         method: 'DELETE',
         headers: {
-          Authorization: `Bearer ${window.localStorage.getItem('token')}`,
+          Authorization: `Bearer ${token ? token : window.localStorage.getItem('token')}`,
           'Content-Type': 'application/json',
         },
 

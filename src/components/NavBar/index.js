@@ -1,10 +1,7 @@
 import React from 'react';
 import arrowDown from '../../assets/arrowDown.svg';
 import arrowUp from '../../assets/arrowUp.png';
-import { useContext,
-  useState,
-  useEffect
-} from 'react';
+import { useContext, useState, useEffect } from 'react';
 import UserContext from '../../contexts/userContext';
 import ModalUsuario from '../NavBar/ModalUsuario';
 import './style.css';
@@ -22,7 +19,7 @@ function NavBar() {
   } = useContext(UserContext);
 
   const [dadosUsuario, setDadosUsuario] = useState([]);
-  
+
   async function handleDadosUsuario() {
     try {
       const response = await fetch(
@@ -30,8 +27,7 @@ function NavBar() {
         {
           method: 'GET',
           headers: {
-            Authorization: `Bearer ${token ? token : window.localStorage.getItem("token")
-              }`,
+            Authorization: `Bearer ${token ? token : window.localStorage.getItem("token")}`,
             "Content-Type": "application/json",
           },
         }
@@ -52,8 +48,8 @@ function NavBar() {
       });
     }
     carregarDadosUsuario();
-  },[dadosUsuario.nome, dadosUsuario.email]);
-  
+  }, [dadosUsuario.nome, dadosUsuario.email]);
+
   useEffect(() => {
     handleDadosUsuario();
   }, [])
@@ -67,7 +63,7 @@ function NavBar() {
       <div className="displayMenu">
         {popup
           ? <img className='imgModal'
-          src={arrowUp}
+            src={arrowUp}
             alt='Menu fechado'
             onClick={() => setPopup(false)}
           />
@@ -75,8 +71,8 @@ function NavBar() {
             src={arrowDown}
             alt='Menu Aberto'
             onClick={() => setPopup(true)}
-            />
-          }
+          />
+        }
         <ModalUsuario
           popup={popup}
           setPopup={setPopup}

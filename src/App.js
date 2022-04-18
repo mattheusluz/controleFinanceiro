@@ -23,7 +23,7 @@ function App() {
       const resposta = await fetch('https://sistemacontrolefinanceiro.herokuapp.com/transacoes', {
         method: 'GET',
         headers: {
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjUwMjM0MjU2fQ.5qfR5iRSmToVzzPhnr-GvATVGx9uElf6WeE6UrS0Q44`,
+          Authorization: `Bearer ${token ? token : window.localStorage.getItem('token')}`,
           'Content-Type': 'application/json',
         },
       });
