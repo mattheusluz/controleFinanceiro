@@ -69,19 +69,20 @@ function Resumo({ openModal, setOpenModal }) {
     <div className="allinside">
       <div className="container-resume">
         <h3>Resumo:</h3>
-        
-        <div >
-          <span>Entradas</span>
-          <strong className="entradas">R$ {calcularEntradas()}</strong>
+        <div className="dados">
+          <div >
+            <span className='spanDados'>Entradas</span>
+            <strong className="entradas">R$ {calcularEntradas()}</strong>
+          </div>
+          <div >
+            <span className='spanDados'>Saídas</span>
+            <strong className="saidas">R$ {calcularSaidas()}</strong>
+          </div>
         </div>
-        <div >
-          <span>Saídas</span>
-          <strong className="saidas">R$ {calcularSaidas()}</strong>
-        </div>
-        <div>
-          <strong>Saldo</strong>
-          <strong className="saldo">R$ {calcularValorTotal()}</strong>
-        </div>
+          <div>
+            <span className='spanDados'>Saldo</span>
+            <strong className="saldo">R$ {calcularValorTotal()}</strong>
+          </div>
       </div>
       <button
         className="btn-add"
