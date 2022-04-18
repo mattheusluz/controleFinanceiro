@@ -11,10 +11,10 @@ const Rotas = () => {
   return (
     <Router>
       <Route component={Login} path="/login" exact />
-      <Route component={Cadastro} path="/cadastro" />
-      <Route component={CadastroConcluido} path="/cadastroConcluido" />
+      <Route component={Cadastro} path="/cadastro" exact />
+      <Route component={CadastroConcluido} path="/cadastroConcluido" exact />
       <RotasProtegidas>
-        <Route component={Main} path="/" />
+        <Route component={Main} path="/" exact />
       </RotasProtegidas>
     </Router>
   )

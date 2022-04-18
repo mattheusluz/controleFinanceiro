@@ -27,7 +27,7 @@ function NavBar() {
         {
           method: 'GET',
           headers: {
-            Authorization: `Bearer ${token ? token : window.localStorage.getItem("token")}`,
+            Authorization: `Bearer ${window.localStorage.getItem("token")}`,
             "Content-Type": "application/json",
           },
         }

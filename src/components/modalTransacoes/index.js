@@ -76,7 +76,7 @@ export default function ModalTransacoes() {
         const resposta = await fetch('https://sistemacontrolefinanceiro.herokuapp.com/transacoes', {
           method: 'POST',
           headers: {
-            Authorization: `Bearer ${token ? token : window.localStorage.getItem('token')}`,
+            Authorization: `Bearer ${window.localStorage.getItem('token')}`,
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(dadosBody),
@@ -92,7 +92,7 @@ export default function ModalTransacoes() {
         const resposta = await fetch(`https://sistemacontrolefinanceiro.herokuapp.com/transacoes/${id}`, {
           method: 'PUT',
           headers: {
-            Authorization: `Bearer ${token ? token : window.localStorage.getItem('token')}`,
+            Authorization: `Bearer ${window.localStorage.getItem('token')}`,
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(dadosBody),

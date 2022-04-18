@@ -14,7 +14,7 @@ function App() {
   const [transacaoEditada, setTransacaoEditada] = useState(null);
   const [idTransacao, setIdTransacao] = useState();
   const [popup, setPopup] = useState(false);
-  const [token, setToken] = useState(false);
+  const [token, setToken] = useState(null);
   const [excluir, setExcluir] = useState(false);
   const [openEditUserModal, setOpenEditUserModal] = useState(false);
 
@@ -23,7 +23,7 @@ function App() {
       const resposta = await fetch('https://sistemacontrolefinanceiro.herokuapp.com/transacoes', {
         method: 'GET',
         headers: {
-          Authorization: `Bearer ${token ? token : window.localStorage.getItem('token')}`,
+          Authorization: `Bearer ${window.localStorage.getItem('token')}`,
           'Content-Type': 'application/json',
         },
       });
@@ -39,6 +39,12 @@ function App() {
   useEffect(() => {
     todasTransacoes();
   }, []);
+
+  if (token) {
+    setTimeout(() => {
+      window.location.reload();
+    }, 100);
+  }
 
   return (
     <div className="App">
