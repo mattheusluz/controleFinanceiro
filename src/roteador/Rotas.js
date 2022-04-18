@@ -4,6 +4,7 @@ import Login from '../Pages/Login';
 import Cadastro from '../Pages/Cadastro';
 import CadastroConcluido from '../Pages/Cadastro/CadastroConcluido';
 import Main from '../Pages/Main';
+import RotasProtegidas from '../RotasProtegidas';
 
 const Rotas = () => {
 
@@ -12,7 +13,9 @@ const Rotas = () => {
       <Route component={Login} path="/login" exact />
       <Route component={Cadastro} path="/cadastro" />
       <Route component={CadastroConcluido} path="/cadastroConcluido" />
-      <Route component={Main} path="/" />
+      <RotasProtegidas>
+        <Route component={Main} path="/" />
+      </RotasProtegidas>
     </Router>
   )
 }
