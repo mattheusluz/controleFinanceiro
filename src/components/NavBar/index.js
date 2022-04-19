@@ -26,7 +26,7 @@ function NavBar() {
   async function handleDadosUsuario() {
     try {
       const response = await fetch(
-        'https://sistemacontrolefinanceiro.herokuapp.com/usuario',
+        'https://sistemacontrolefinanceiro.herokuapp.com/usuarios',
         {
           method: 'GET',
           headers: {
@@ -38,21 +38,19 @@ function NavBar() {
       );
       const data = await response.json();
       setDadosUsuario(data);
-      console.log(dadosUsuario);
     } catch (error) {
       console.log(error);
     }
   }
-
+  
   useEffect(() => {
     function carregarDadosUsuario() {
       setDadosUsuario({
-        nome: dadosUsuario.nome,
-        email: dadosUsuario.email
+        nome: dadosUsuario.nome
       });
     }
     carregarDadosUsuario();
-  },[dadosUsuario.nome, dadosUsuario.email]);
+  },[]);
   
   useEffect(() => {
     handleDadosUsuario();
@@ -61,8 +59,8 @@ function NavBar() {
   return (
     <div className='navBar'>
       <div className="tituloMenu">
-        <h1 className='nome'>Olá, Pessoa</h1>
-        {/* {dadosUsuario.name} */}
+        <h1 className='nome'>Olá, {dadosUsuario && dadosUsuario.nome}</h1>
+        
       </div>
       <div className="displayMenu">
         {popup
