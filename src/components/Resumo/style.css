@@ -86,8 +86,8 @@
 
   .container-resume div{
     margin: 0.5rem;
-
   }
+  
   .container-resume h3{
     border-bottom: 1px solid #EAEAEA;
     padding-bottom: 1rem;
@@ -104,7 +104,7 @@
     font-size: 1.4rem;
     width: 100%;
     border-bottom: 1px solid #EAEAEA;
-    /* padding-bottom: 1rem; */
+    padding: 0 10rem 0 10rem;
   }
 
   .dados div{
@@ -140,5 +140,11 @@
 @media (max-width:410px){
   .dados div{
     flex-direction: column;
+  }
+  .container-resume div {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1.5rem;
+    font-size: 1.6rem;
   }
 }

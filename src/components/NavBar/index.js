@@ -38,11 +38,11 @@ function NavBar() {
       );
       const data = await response.json();
       setDadosUsuario(data);
+      console.log(data);
     } catch (error) {
       console.log(error);
     }
   }
-  
   useEffect(() => {
     function carregarDadosUsuario() {
       setDadosUsuario({
@@ -51,7 +51,7 @@ function NavBar() {
     }
     carregarDadosUsuario();
   },[]);
-
+  
   useEffect(() => {
     handleDadosUsuario();
   }, [])
@@ -59,9 +59,9 @@ function NavBar() {
   return (
     <div className='navBar'>
       <div className="tituloMenu">
-        <h1 className='nome'>
-          Olá, {dadosUsuario && dadosUsuario.nome}
-        </h1>
+        <h1 className='nome'>Olá, {dadosUsuario.nome}</h1>
+        {/* <h1 className='nome'>Olá, {dadosUsuario && dadosUsuario.nome.split(" ")[0]}</h1> */}
+        
       </div>
       <div className="displayMenu">
         {popup
