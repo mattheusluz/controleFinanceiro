@@ -51,7 +51,7 @@ function NavBar() {
     }
     carregarDadosUsuario();
   },[]);
-  
+
   useEffect(() => {
     handleDadosUsuario();
   }, [])
@@ -59,8 +59,9 @@ function NavBar() {
   return (
     <div className='navBar'>
       <div className="tituloMenu">
-        <h1 className='nome'>Olá, {dadosUsuario && dadosUsuario.nome}</h1>
-        
+        <h1 className='nome'>
+          Olá, {dadosUsuario && dadosUsuario.nome}
+        </h1>
       </div>
       <div className="displayMenu">
         {popup
