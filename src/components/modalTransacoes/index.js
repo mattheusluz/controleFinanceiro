@@ -7,7 +7,6 @@ import './style.css';
 export default function ModalTransacoes() {
 
   const {
-    token,
     todasTransacoes,
     idTransacao,
     openModal,

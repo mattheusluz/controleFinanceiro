@@ -5,7 +5,6 @@ import UserContext from '../../contexts/userContext';
 function ConfirmarExclusao() {
 
   const {
-    token,
     todasTransacoes,
     setExcluir,
     idTransacao

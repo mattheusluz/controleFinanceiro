@@ -17,6 +17,8 @@ function App() {
   const [token, setToken] = useState(null);
   const [excluir, setExcluir] = useState(false);
   const [openEditUserModal, setOpenEditUserModal] = useState(false);
+  const [dadosUsuario, setDadosUsuario] = useState([]);
+  const [nomeUsuario, setNomeUsuario] = useState(null);
 
   const todasTransacoes = async () => {
     try {
@@ -46,6 +48,30 @@ function App() {
     }, 100);
   }
 
+  async function handleDadosUsuario() {
+    try {
+      const response = await fetch(
+        'https://sistemacontrolefinanceiro.herokuapp.com/usuarios',
+        {
+          method: 'GET',
+          headers: {
+            Authorization: `Bearer ${window.localStorage.getItem("token")}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      const data = await response.json();
+      setDadosUsuario(data);
+      setNomeUsuario(data.nome);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    handleDadosUsuario();
+  }, [])
+
   return (
     <div className="App">
       <UserContext.Provider value={{
@@ -73,7 +99,11 @@ function App() {
         excluir,
         setExcluir,
         openEditUserModal,
-        setOpenEditUserModal
+        setOpenEditUserModal,
+        dadosUsuario,
+        setDadosUsuario,
+        handleDadosUsuario,
+        nomeUsuario
       }}>
         <Rotas />
       </UserContext.Provider>
