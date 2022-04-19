@@ -6,61 +6,72 @@
 }
 
 .modalSair {
-    position: relative;
-    padding: .7rem;
-    margin: 2rem 0 0 4rem;
-    background: #E4F2FD;
-    border-radius: .5rem;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 5px 8px 3px rgba(0, 0, 0, 0.397);
-  }
-  
-  .editarUsuario {
-    box-sizing: border-box;
-    padding: .7rem;
-    margin-bottom: .5rem;
-    width: 100%;
-    border: none;
-    border-radius: .5rem;
-    cursor: pointer;
-    background-color: #FFF;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-  }
-  
-  .editarUsuario:hover {
-    opacity: 0.8;
-  }
-  
-  .buttonSair {
-    box-sizing: border-box;
-    padding: .5rem;
-    width: 100%;
-    border: none;
-    border-radius: .5rem;
-    cursor: pointer;
-    text-decoration: none;
-    text-align: center;
-    background-color: #FFF;
-    display: flex;
-    align-items: center;
-  }
+  position: fixed;
+  padding: 0.5rem;
+  margin: 4rem 8rem 0 0rem;
+  background: #E4F2FD;
+  border-radius: 0.5rem;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 5px 8px 3px rgba(0, 0, 0, 0.397);
+}
 
-  .span{
-    font-family: lato, sans-serif;
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: #000000a8;
-    padding-left: 1.5rem;
-  }
+.editarUsuario {
+  box-sizing: border-box;
+  padding: .7rem;
+  margin-bottom: .5rem;
+  width: 100%;
+  border: none;
+  border-radius: .5rem;
+  cursor: pointer;
+  background-color: #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
 
-  .spanSair{
-    font-family: lato, sans-serif;
-    font-size: 1.5rem;
+.editarUsuario:hover {
+  opacity: 0.8;
+}
+
+.buttonSair {
+  box-sizing: border-box;
+  padding: .5rem;
+  width: 100%;
+  border: none;
+  border-radius: .5rem;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  background-color: #FFF;
+  display: flex;
+  align-items: center;
+}
+
+.span {
+  font-family: lato, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #000000a8;
+  padding-left: 1.5rem;
+}
+
+.spanSair {
+  font-family: lato, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #000000a8;
+  padding-left: 1rem;
+}
+
+/* @media (max-width:760px){
+  .span {
+    font-size: 1.2rem;
     font-weight: 400;
-    color: #000000a8;
-    padding-left: 1rem;
   }
+  .spanSair {
+  font-size: 1.2rem;
+  font-weight: 400;
+  }
+} */

@@ -39,7 +39,7 @@ function ModalUsuario() {
       </button>
 
       <NavLink 
-      to={'/'} 
+      to={'/login'} 
       className="buttonSair"
       onClick={()=>RemoverToken()}
       >

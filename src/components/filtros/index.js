@@ -44,20 +44,22 @@ export default function Filtros() {
           <h3 className=' filtro-titulo'>Dia da semana</h3>
           <ul className='lista-filtroPrimeira'>
             {arrayDias.map((dia, id) => (
-              <li className='container-chip font-normal' key={id}>
-                <span>{dia}</span> <span>+</span>
+              <li className='font-normal container-chipDay' key={id}>
+                <span className='elipsis'>{dia}</span>
+                <span className='elipsis'>+</span>
               </li>
             ))}
           </ul>
         </div>
         <div className="filtro-categoria">
-          <h3 className=' filtro-titulo'>
+          <h3 className='filtro-titulo'>
             Categoria
           </h3>
           <ul className='lista-filtro'>
             {categorias.map(categoria => (
-              <li className='container-chip font-normal' key={categoria}>
-                <span>{categoria}</span> <span>+</span>
+              <li className='align container-chipCategory' key={categoria}>
+                <span className='elipsis'>{categoria}</span>
+                <span>+</span>
               </li>
             ))}
           </ul>

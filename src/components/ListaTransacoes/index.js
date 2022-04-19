@@ -30,47 +30,51 @@ function ListaTransacoes() {
   return (
     <table className='table'>
       <th className='table-head'>
-        <div id='date' className='column-title date'>
+        <div id='date' className='column-titleDate'>
           <span>Data</span>
         </div>
-        <div id='week-day' className='column-title day'>
+        <div id='week-day' className='column-titleDay elipsis'>
           <span>Dia da Semana</span>
         </div>
-        <div className='column-title'>
-          <span>Categoria</span>
+        <div className='column-titleCategory elipsis'>
+          <span className='category'>Categoria</span>
         </div>
-        <div className='column-title description'>
+        <div className='column-titleDescription elipsis'>
           <span>Descrição</span>
         </div>
-        <div id='value' className='column-title value'>
+        <div id='value' className='column-titleValue'>
           <span>Valor</span>
         </div>
-        <div id='editDelete' className='editDelete'>
+        <div id='editDelete' className='column-titleEditDelete'>
           .
         </div>
       </th>
       {(filtrando ? filtrados : transacoes && transacoes).map((transacao) => (
         <tbody className='table-body' key={transacao.id} >
           <tr className='table-line'>
-            <td className='date line-items'>
-              <span>{format(new Date(transacao.data), 'dd/MM/yyy')}</span>
+            <td className='line-items'>
+              <span className='column-titleDate elipsis'>{`
+              ${transacao.data.substr(8, 2)}/
+              ${transacao.data.substr(5, 2)}/
+              ${transacao.data.substr(0, 4)}
+              `}</span>
             </td>
-            <td className='day line-items'>
-              <span className='day'>{transacao.dia_semana}</span>
+            <td className='line-items'>
+              <span className='column-titleDay elipsis'>{transacao.dia_semana}</span>
             </td>
-            <td className='line-items category'>
-              <span>{transacao.categoria}</span>
+            <td className=' line-items'>
+              <span className='column-lineCategory elipsis'>{transacao.categoria}</span>
             </td>
-            <td className='line-items description'>
-              <span>{transacao.descricao}</span>
+            <td className='line-items'>
+              <span className='column-lineDescription elipsis'>{transacao.descricao}</span>
             </td>
             <td
               className='line-items'
               style={{ color: transacao.tipo ? '#7B61FF' : '#FA8C10' }}
-            >
-              <span>{!transacao.tipo && '-'} R$ {transacao.valor / 100}</span>
+              >
+              <span className='column-titleValue'>{!transacao.tipo && '-'} R$ {transacao.valor / 100}</span>
             </td>
-            <td className='editDele'>
+            <td className='editDele respoContainer'>
               <img
                 src={lapis}
                 alt="Editar"
@@ -85,10 +89,8 @@ function ListaTransacoes() {
                   setIdTransacao(transacao.id)
                 }}
               />
+              {excluir && <ConfirmarExclusao />}
             </td>
-            {
-              excluir && <ConfirmarExclusao />
-            }
           </tr>
         </tbody>
       ))}
