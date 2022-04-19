@@ -65,7 +65,6 @@
 .modal-container form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   
   width: 90%;
   /* height: 60%; */
@@ -157,7 +156,7 @@
   background: linear-gradient(91.66deg, #FA8C10 0%, #FF576B 90.32%);
 }
 
-@media (max-width:920px){
+/* @media (max-width:920px){
   .modal-container {
     width: 50vw;
   }
@@ -167,4 +166,4 @@
   .modal-container {
     width: 65vw;
   }
-}
+} */
