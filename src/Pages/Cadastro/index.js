@@ -71,8 +71,8 @@ function Cadastro() {
               className={
                 erroCadastro
                   && erroCadastro.includes('nome')
-                  ? 'erroInput input'
-                  : 'input'
+                  ? 'erroInput inputCadastro'
+                  : 'inputCadastro'
               }
               placeholder='Digite o nome completo'
               onChange={(e) => setNome(e.target.value)}
@@ -92,8 +92,8 @@ function Cadastro() {
               className={
                 erroCadastro
                   && erroCadastro.includes('email')
-                  ? 'erroInput input'
-                  : 'input'
+                  ? 'erroInput inputCadastro'
+                  : 'inputCadastro'
               }
               placeholder='Digite o e-mail'
               onChange={(e) => setEmail(e.target.value)}

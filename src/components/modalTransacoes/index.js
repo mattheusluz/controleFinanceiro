@@ -134,7 +134,7 @@ export default function ModalTransacoes() {
 
   return (
     <div className="backdrop">
-      <div className="modal-container">
+      <div className="modal-containerTransacao">
         <img
           className="close-icon"
           src={CloseIcon}

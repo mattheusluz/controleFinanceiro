@@ -74,7 +74,8 @@
 }
 
 .buttonEntrar:hover {
-  box-shadow: 5px 8px 4px rgba(0, 0, 0, 0.397);
+  opacity: 0.8;
+  box-shadow: 0px 2px 11px rgba(0, 0, 0, 0.4);
 }
 
 .fazerCadastro {
@@ -114,7 +115,8 @@
 }
 
 .buttonConta:hover {
-  box-shadow: 5px 8px 4px rgba(0, 0, 0, 0.397);
+  opacity: 0.8;
+  box-shadow: 0px 2px 11px rgba(0, 0, 0, 0.4);
 }
 
 @media (max-width: 768px) {

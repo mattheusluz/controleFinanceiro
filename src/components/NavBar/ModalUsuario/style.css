@@ -6,7 +6,7 @@
 }
 
 .modalSair {
-  position: fixed;
+  position: absolute;
   padding: 0.5rem;
   margin: 4rem 8rem 0 0rem;
   background: #E4F2FD;
