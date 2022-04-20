@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react';
 import CloseIcon from '../../assets/closeBtn.svg';
+import editIcon from '../../assets/editarUsuario.svg'
 import UserContext from '../../contexts/userContext';
 import './style.css';
 
@@ -50,7 +51,7 @@ export default function ModalUsuario() {
 
   return (
     <div className="backdrop" style={{ display: !openEditUserModal && 'none' }}>
-      <div className="modal-container">
+      <div className="modal-containerEdit">
         <img
           className="close-icon"
           src={CloseIcon}
@@ -58,10 +59,12 @@ export default function ModalUsuario() {
           onClick={() => handleClose()}
         />
 
-        <h2 >Editar Usuario</h2>
+        <h2 >
+          <img className='editIcon' src={editIcon} alt="icone de editar" />
+          Editar Usuario
+        </h2>
 
         <form className='form' onSubmit={editarUsuario}>
-          {/* <h1>ID: <span>{dadosUsuario.id}</span></h1> */}
           <label htmlFor="nome" className='label'>
             Nome:
           </label>
@@ -71,8 +74,8 @@ export default function ModalUsuario() {
             className={
               erroEdicao
                 && erroEdicao.includes('nome')
-                ? 'erroInput input'
-                : 'input'
+                ? 'erroInput inputEdit'
+                : 'inputEdit'
             }
             placeholder='Digite o nome completo'
             onChange={(e) => setDadosUsuario({ ...dadosUsuario, nome: e.target.value })}
@@ -83,7 +86,7 @@ export default function ModalUsuario() {
             && erroEdicao.includes('nome')
             && < span className='spanErro' > {erroEdicao}</span>
           }
-          <label htmlFor="emailCadastro" className='label'>
+          <label htmlFor="emailCadastro" className='labelEdit'>
             E-mail:
           </label>
           <input
@@ -92,8 +95,8 @@ export default function ModalUsuario() {
             className={
               erroEdicao
                 && erroEdicao.includes('email')
-                ? 'erroInput input'
-                : 'input'
+                ? 'erroInput inputEdit'
+                : 'inputEdit'
             }
             placeholder='Digite o e-mail'
             onChange={(e) => setDadosUsuario({ ...dadosUsuario, email: e.target.value })}
@@ -104,7 +107,7 @@ export default function ModalUsuario() {
             && erroEdicao.includes('email')
             && < span className='spanErro' > {erroEdicao}</span>
           }
-          <div className="senhas">
+          <div className="senha">
             <label htmlFor="senha1" className='labelSenhas'>
               Digite sua senha:
             </label>
@@ -114,8 +117,8 @@ export default function ModalUsuario() {
               className={
                 erroEdicao
                   && erroEdicao.includes('senha')
-                  ? 'erroInput inputSenha'
-                  : 'inputSenha'
+                  ? 'erroInput inputSenhaEdit'
+                  : 'inputSenhaEdit'
               }
               placeholder='Digite uma senha'
               onChange={(e) => setDadosUsuario({ ...dadosUsuario, senha: e.target.value })}
@@ -127,8 +130,8 @@ export default function ModalUsuario() {
               && < span className='spanErro' > {erroEdicao}</span>
             }
           </div>
-          <div className="buttons">
-            <button type='submit' className='buttonCadastrar'>Confirmar</button>
+          <div className="buttonEdit">
+            <button type='submit' className='buttonEditUser'>Confirmar</button>
           </div>
         </form>
       </div>
