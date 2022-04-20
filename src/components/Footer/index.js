@@ -18,7 +18,7 @@ function Footer(){
           <span>Matheus Luz</span>
             <div className="linkHub">
               <img src={github} alt="Matheus's gitHub link" />
-              <img src={linkedin} alt="Matheus's linkedin link" />
+              <img src={linkedin} alt="Matheus's linkedin link" to={'http://google.com'} />
             </div>
         </div>
       </div>
