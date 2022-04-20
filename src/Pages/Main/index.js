@@ -6,6 +6,7 @@ import ListaTransacoes from '../../components/ListaTransacoes';
 import ModalTransacoes from '../../components/ModalTransacoes';
 import ModalEditarUsuario from '../../components/ModalEditarUsuario';
 import Resumo from '../../components/Resumo';
+import Footer from '../../components/Footer';
 import UserContext from '../../contexts/userContext';
 import '../../globalStyles/styles.css';
 import './style.css';
@@ -53,6 +54,7 @@ function Main() {
       {
         openModal && <ModalTransacoes />
       }
+    <Footer />
     </div>
   );
 }

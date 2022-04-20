@@ -86,7 +86,7 @@
 }
 
 .buttons {
-  width: 30vw;
+  min-width: 100%;
   align-self: center;
   margin-bottom: 2rem;
 }
