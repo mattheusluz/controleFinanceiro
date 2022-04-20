@@ -1,3 +1,40 @@
 .containerFooter {
   background: linear-gradient(90deg, #05EDE3, #645FFB);
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  flex-direction: column;
+  /* height: 30vh; */
+  padding-top: 10rem;
+  margin-top: -10rem;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  line-height: 2rem;
+  color: #000000de;
   }
+
+.authors{
+  display: flex;
+  width: 35%;
+}
+
+.border{
+  border-right: 1px solid #414141;
+}
+
+.names{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-size: 1.5rem;
+}
+
+.linkHub{
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+  cursor: pointer
+}

@@ -174,7 +174,7 @@ export default function ModalTransacoes() {
                 id='imputValue'
                 title='Valor da transação em reais'
                 type='number'
-                placeholder='99,99'
+                placeholder='RS 00,00'
                 className={
                   erroTransacao
                   && erroTransacao.includes('valor')
@@ -199,7 +199,7 @@ export default function ModalTransacoes() {
                 name='category'
                 id='imputCategory'
                 title='Categoria da transação'
-                placeholder='Mercado'
+                placeholder='EX: Mercado'
                 className={
                   erroTransacao
                   && erroTransacao.includes('categoria')
@@ -224,6 +224,7 @@ export default function ModalTransacoes() {
                 name="date"
                 id="imputDate"
                 title='Data da transação'
+                placeholder='MM/DD/AAAA'
                 className={
                   erroTransacao
                   && erroTransacao.includes('data')
@@ -247,7 +248,7 @@ export default function ModalTransacoes() {
                 name="description"
                 id="imputDescription"
                 title='Descrição da transação'
-                placeholder='Compra de comida'
+                placeholder='Ex: Compra de comida'
                 className={
                   erroTransacao
                   && erroTransacao.includes('descricao')

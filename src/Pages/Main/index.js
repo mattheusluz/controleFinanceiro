@@ -49,14 +49,16 @@ function Main() {
             hidden={hidden}
           />
         </div>
-      </section>
-        <div className="asideMain">
+        {/* <div className="asideMain"> */}
           <ListaTransacoes />
-        </div>
+        {/* </div> */}
       {
         openModal && <ModalTransacoes />
       }
-    <Footer />
+      </section>
+    <Footer 
+    className='footer'
+    />
     </div>
   );
 }

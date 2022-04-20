@@ -4,7 +4,7 @@
   font-size: 1.4rem;
   line-height: 1.7rem;
   width: 73vw;
-  margin-left: 2rem;
+  /* margin-left: 2rem; */
 }
 
 .table-head {
@@ -18,12 +18,12 @@
   font-weight: bold;
   font-size: 14px;
   line-height: 17px;
-
+  margin-top: -19vh;
+  
   color: #000000;
 
   box-shadow: 0px 2px 11px rgba(0, 0, 0, 0.1);
   background-color: #FAFAFA;
-  margin-top: -35vh;
 }
 
 .table-body {

@@ -135,6 +135,9 @@
     width: 50%;
     margin-right: 3rem;
   }
+  .dados{
+    padding: 0;
+  }
 }
 
 @media (max-width:410px){
