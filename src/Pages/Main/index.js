@@ -6,6 +6,7 @@ import ListaTransacoes from '../../components/ListaTransacoes';
 import ModalTransacoes from '../../components/ModalTransacoes';
 import ModalEditarUsuario from '../../components/ModalEditarUsuario';
 import Resumo from '../../components/Resumo';
+import Footer from '../../components/Footer';
 import UserContext from '../../contexts/userContext';
 import '../../globalStyles/styles.css';
 import './style.css';
@@ -30,10 +31,12 @@ function Main() {
       <Header />
       <ModalEditarUsuario />
       <section className='main'>
+        <div className="buttonFilter">
         <span className='open-filters-button' onClick={() => esconderFiltros()}>
           <img src={filtro} alt="Filtro" />
           Filtrar
         </span>
+        </div>
         <Resumo
           openModal={openModal}
           setOpenModal={setOpenModal}
@@ -46,13 +49,16 @@ function Main() {
             hidden={hidden}
           />
         </div>
-        <div className="asideMain">
+        {/* <div className="asideMain"> */}
           <ListaTransacoes />
-        </div>
-      </section>
+        {/* </div> */}
       {
         openModal && <ModalTransacoes />
       }
+      </section>
+    <Footer 
+    className='footer'
+    />
     </div>
   );
 }

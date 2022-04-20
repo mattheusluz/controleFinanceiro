@@ -35,7 +35,7 @@
   margin-top: 1rem;
 }
 
-.input {
+.inputCadastro {
   all: unset;
   font-family: 'Rubik', sans-serif;
   font-weight: 400;
@@ -86,7 +86,7 @@
 }
 
 .buttons {
-  width: 30vw;
+  min-width: 100%;
   align-self: center;
   margin-bottom: 2rem;
 }
@@ -128,11 +128,13 @@
 }
 
 .buttonCadastrar:hover {
-  box-shadow: 5px 8px 3px rgba(0, 0, 0, 0.397);
+  opacity: 0.8;
+  box-shadow: 0px 2px 11px rgba(0, 0, 0, 0.4);
 }
 
 .buttonVoltar:hover {
-  box-shadow: 5px 8px 3px rgba(0, 0, 0, 0.397);
+  opacity: 0.8;
+  box-shadow: 0px 2px 11px rgba(0, 0, 0, 0.4);
 }
 
 @media (max-width: 768px) {

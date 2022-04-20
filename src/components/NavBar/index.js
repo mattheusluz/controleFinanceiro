@@ -6,12 +6,19 @@ import ModalUsuario from '../NavBar/ModalUsuario';
 import './style.css';
 
 function NavBar() {
-  const { popup, setPopup } = useContext(UserContext);
+
+  const {
+    popup,
+    setPopup,
+    nomeUsuario
+  } = useContext(UserContext);
 
   return (
-    <div className={'navBar'}>
+    <div className='navBar'>
       <div className="tituloMenu">
-        <h1 className='nome'>Olá, Pessoa!</h1>
+        <h1 className='nome'>Olá, {nomeUsuario && nomeUsuario}</h1>
+      </div>
+      <div className="displayMenu">
         {popup
           ? <img className='imgModal'
             src={arrowUp}
@@ -24,11 +31,11 @@ function NavBar() {
             onClick={() => setPopup(true)}
           />
         }
+        <ModalUsuario
+          popup={popup}
+          setPopup={setPopup}
+        />
       </div>
-      <ModalUsuario
-        popup={popup}
-        setPopup={setPopup}
-      />
     </div>
   )
 }

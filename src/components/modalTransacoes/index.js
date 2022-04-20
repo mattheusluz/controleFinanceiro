@@ -44,7 +44,12 @@ export default function ModalTransacoes() {
 
   useEffect(() => {
     if (transacaoEditada) {
-      setData(transacaoEditada.data);
+      const dataEdicao = `
+      ${transacaoEditada.data.substr(8, 2)}/
+      ${transacaoEditada.data.substr(5, 2)}/
+      ${transacaoEditada.data.substr(0, 4)}
+      `
+      setData(dataEdicao);
       setValor(transacaoEditada.valor / 100);
       setCategoria(transacaoEditada.categoria);
       setDescricao(transacaoEditada.descricao);
@@ -75,7 +80,7 @@ export default function ModalTransacoes() {
         const resposta = await fetch('https://sistemacontrolefinanceiro.herokuapp.com/transacoes', {
           method: 'POST',
           headers: {
-            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQ5NTEyNDAyfQ.vKMxjFCSoC3NEvQrJ4Pge6TQcIt-dtPBjgTRe5v-OLs`,
+            Authorization: `Bearer ${window.localStorage.getItem('token')}`,
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(dadosBody),
@@ -91,7 +96,7 @@ export default function ModalTransacoes() {
         const resposta = await fetch(`https://sistemacontrolefinanceiro.herokuapp.com/transacoes/${id}`, {
           method: 'PUT',
           headers: {
-            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQ5NTEyNDAyfQ.vKMxjFCSoC3NEvQrJ4Pge6TQcIt-dtPBjgTRe5v-OLs`,
+            Authorization: `Bearer ${window.localStorage.getItem('token')}`,
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(dadosBody),
@@ -129,7 +134,7 @@ export default function ModalTransacoes() {
 
   return (
     <div className="backdrop">
-      <div className="modal-container">
+      <div className="modal-containerTransacao">
         <img
           className="close-icon"
           src={CloseIcon}
@@ -169,7 +174,7 @@ export default function ModalTransacoes() {
                 id='imputValue'
                 title='Valor da transação em reais'
                 type='number'
-                placeholder='99,99'
+                placeholder='RS 00,00'
                 className={
                   erroTransacao
                   && erroTransacao.includes('valor')
@@ -194,7 +199,7 @@ export default function ModalTransacoes() {
                 name='category'
                 id='imputCategory'
                 title='Categoria da transação'
-                placeholder='Mercado'
+                placeholder='EX: Mercado'
                 className={
                   erroTransacao
                   && erroTransacao.includes('categoria')
@@ -219,6 +224,7 @@ export default function ModalTransacoes() {
                 name="date"
                 id="imputDate"
                 title='Data da transação'
+                placeholder='MM/DD/AAAA'
                 className={
                   erroTransacao
                   && erroTransacao.includes('data')
@@ -242,7 +248,7 @@ export default function ModalTransacoes() {
                 name="description"
                 id="imputDescription"
                 title='Descrição da transação'
-                placeholder='Compra de comida'
+                placeholder='Ex: Compra de comida'
                 className={
                   erroTransacao
                   && erroTransacao.includes('descricao')

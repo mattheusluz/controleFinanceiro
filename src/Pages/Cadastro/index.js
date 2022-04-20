@@ -71,8 +71,8 @@ function Cadastro() {
               className={
                 erroCadastro
                   && erroCadastro.includes('nome')
-                  ? 'erroInput input'
-                  : 'input'
+                  ? 'erroInput inputCadastro'
+                  : 'inputCadastro'
               }
               placeholder='Digite o nome completo'
               onChange={(e) => setNome(e.target.value)}
@@ -92,8 +92,8 @@ function Cadastro() {
               className={
                 erroCadastro
                   && erroCadastro.includes('email')
-                  ? 'erroInput input'
-                  : 'input'
+                  ? 'erroInput inputCadastro'
+                  : 'inputCadastro'
               }
               placeholder='Digite o e-mail'
               onChange={(e) => setEmail(e.target.value)}
@@ -152,7 +152,7 @@ function Cadastro() {
               }
             </div>
             <div className="buttons">
-              <NavLink to={'/'} className='buttonVoltar'>Voltar</NavLink>
+              <NavLink to={'/login'} className='buttonVoltar'>Voltar</NavLink>
               <button type='submit' className='buttonCadastrar'>Cadastrar</button>
             </div>
           </form>
