@@ -86,6 +86,7 @@
 }
 
 .buttons {
+  display: flex;
   width: 30vw;
   align-self: center;
   margin-bottom: 2rem;
