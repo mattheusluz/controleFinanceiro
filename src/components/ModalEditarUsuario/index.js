@@ -61,6 +61,7 @@ export default function ModalUsuario() {
         <h2 >Editar Usuario</h2>
 
         <form className='form' onSubmit={editarUsuario}>
+          {/* <h1>ID: <span>{dadosUsuario.id}</span></h1> */}
           <label htmlFor="nome" className='label'>
             Nome:
           </label>
