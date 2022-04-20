@@ -3,8 +3,8 @@
   display: flex;
   padding: 15px 15px 15px 25px;
   border-radius: 10px;
-  margin-bottom: 40vh;
-  margin-top: -39vh;
+  margin-bottom: 20vh;
+  margin-top: -20vh;
   background-color: #FAFAFA;
   box-shadow: 0px 2px 11px rgba(0, 0, 0, 0.1);
 }
@@ -220,6 +220,7 @@
     flex-direction: column-reverse;
     min-width: 73vw;
     margin-top: -38vh;
+    margin-bottom: 20vh;
   }
   .formularios{
     justify-content: space-evenly;
@@ -367,10 +368,15 @@
     width: 16vw;
   }
 }
+@media (max-width:432px){
+  .open-filters-button {
+    margin-top: 5vh;
+  }
+}
 
 @media (max-width:400px){
   .open-filters-button {
-    margin-top: 50%;
+    margin-top: 20vh;
   }
 }
 
@@ -379,7 +385,7 @@
     position: absolute;
     max-width: 15rem;
     margin-bottom: -7vh;
-    margin-top: 60%;
+    margin-top: 40vh;
     margin-left: 2rem;
   }
   .container-chipDay {
