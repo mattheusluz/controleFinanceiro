@@ -7,7 +7,7 @@
 
 .main {
   max-width: 100%;
-  height: calc(100vh - 18rem);
+  /* height: calc(100vh - 18rem); */
   margin-top: -50px;
   padding: 30px 30px 0 20px;
   border-radius: 60px 60px 0 0;
@@ -26,7 +26,7 @@
 }
 
 .filters-table-resume {
-  margin-top: 4vh;
+  margin-top: -2vh;
 }
 
 .btn-add:hover {
@@ -51,5 +51,9 @@
 @media (max-width:960px) {
   .asideMain {
     width: 90vw;
+  }
+  .filters-table-resume {
+    margin-top: -2vh;
+    width:100%
   }
 }

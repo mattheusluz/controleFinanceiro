@@ -1,13 +1,51 @@
 import { useContext, useState } from 'react';
-import UserContext from '../../contexts/userContext';
 import CloseIcon from '../../assets/closeBtn.svg';
+import UserContext from '../../contexts/userContext';
 import './style.css';
 
-export default function ModalUsuario ( ) {
-  const { openEditUserModal, setOpenEditUserModal} = useContext(UserContext);
+export default function ModalUsuario() {
+  const {
+    openEditUserModal,
+    setOpenEditUserModal,
+    dadosUsuario,
+    setDadosUsuario,
+    handleDadosUsuario
+  } = useContext(UserContext);
+
+  const [erroEdicao, setErroEdicao] = useState(null);
+  console.log(dadosUsuario)
 
   function handleClose() {
     setOpenEditUserModal(false);
+  }
+
+  const editarUsuario = async (e) => {
+    e.preventDefault();
+    setErroEdicao(null);
+
+    try {
+      const resposta = await fetch('https://sistemacontrolefinanceiro.herokuapp.com/usuarios', {
+        method: 'PUT',
+        headers: {
+          Authorization: `Bearer ${window.localStorage.getItem("token")}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(dadosUsuario),
+      });
+
+      const data = await resposta.json();
+
+      if (data.erro) {
+        setErroEdicao(data.erro);
+        return
+      }
+
+      handleDadosUsuario();
+      setOpenEditUserModal()
+      setDadosUsuario({ ...dadosUsuario, senha: '' })
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
@@ -22,12 +60,11 @@ export default function ModalUsuario ( ) {
 
         <h2 >Editar Usuario</h2>
 
-        <form className='form'>
-        {/* onSubmit={EditarUsuario} */}
+        <form className='form' onSubmit={editarUsuario}>
           <label htmlFor="nome" className='label'>
-            Nome Completo:
+            Nome:
           </label>
-          {/* <input
+          <input
             id='nome'
             type="text"
             className={
@@ -37,18 +74,18 @@ export default function ModalUsuario ( ) {
                 : 'input'
             }
             placeholder='Digite o nome completo'
-            onChange={(e) => setEditarNome(e.target.value)}
-            value={nome}
+            onChange={(e) => setDadosUsuario({ ...dadosUsuario, nome: e.target.value })}
+            value={dadosUsuario.nome}
           />
           {
             erroEdicao
             && erroEdicao.includes('nome')
             && < span className='spanErro' > {erroEdicao}</span>
-          } */}
+          }
           <label htmlFor="emailCadastro" className='label'>
             E-mail:
           </label>
-          {/* <input
+          <input
             id='emailCadastro'
             type="text"
             className={
@@ -58,19 +95,19 @@ export default function ModalUsuario ( ) {
                 : 'input'
             }
             placeholder='Digite o e-mail'
-            onChange={(e) => setEditarEmail(e.target.value)}
-            value={email}
+            onChange={(e) => setDadosUsuario({ ...dadosUsuario, email: e.target.value })}
+            value={dadosUsuario.email}
           />
           {
             erroEdicao
             && erroEdicao.includes('email')
             && < span className='spanErro' > {erroEdicao}</span>
-          } */}
+          }
           <div className="senhas">
             <label htmlFor="senha1" className='labelSenhas'>
-              Senha:
+              Digite sua senha:
             </label>
-            {/* <input
+            <input
               id='senha1'
               type="password"
               className={
@@ -80,38 +117,14 @@ export default function ModalUsuario ( ) {
                   : 'inputSenha'
               }
               placeholder='Digite uma senha'
-              onChange={(e) => setEditarSenha(e.target.value)}
-              value={senha}
-            /> 
-            {
-              erroEdicao
-              && erroEdicao.includes('senha')
-              && < span className='spanErro' > {erroEdicao}</span>
-            }*/}
-            <label
-              htmlFor="senha2"
-              className='labelSenhas'
-            >
-              Confirmar Senha:
-            </label>
-            {/* <input
-              id='senha2'
-              type="password"
-              className={
-                erroEdicao
-                  && erroEdicao.includes('senha')
-                  ? 'erroInput inputSenha'
-                  : 'inputSenha'
-              }
-              placeholder='Digite novamente'
-              onChange={(e) => setRepetirEditarSenha(e.target.value)}
-              value={repetirEditarSenha}
+              onChange={(e) => setDadosUsuario({ ...dadosUsuario, senha: e.target.value })}
+              value={dadosUsuario.senha}
             />
             {
               erroEdicao
               && erroEdicao.includes('senha')
               && < span className='spanErro' > {erroEdicao}</span>
-            } */}
+            }
           </div>
           <div className="buttons">
             <button type='submit' className='buttonCadastrar'>Confirmar</button>

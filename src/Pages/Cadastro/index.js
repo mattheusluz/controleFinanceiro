@@ -152,7 +152,7 @@ function Cadastro() {
               }
             </div>
             <div className="buttons">
-              <NavLink to={'/'} className='buttonVoltar'>Voltar</NavLink>
+              <NavLink to={'/login'} className='buttonVoltar'>Voltar</NavLink>
               <button type='submit' className='buttonCadastrar'>Cadastrar</button>
             </div>
           </form>

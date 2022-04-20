@@ -31,10 +31,12 @@ function Main() {
       <Header />
       <ModalEditarUsuario />
       <section className='main'>
+        <div className="buttonFilter">
         <span className='open-filters-button' onClick={() => esconderFiltros()}>
           <img src={filtro} alt="Filtro" />
           Filtrar
         </span>
+        </div>
         <Resumo
           openModal={openModal}
           setOpenModal={setOpenModal}
@@ -47,10 +49,10 @@ function Main() {
             hidden={hidden}
           />
         </div>
+      </section>
         <div className="asideMain">
           <ListaTransacoes />
         </div>
-      </section>
       {
         openModal && <ModalTransacoes />
       }

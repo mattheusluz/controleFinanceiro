@@ -2,8 +2,7 @@
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  padding-top: 3vh;
-  padding-left: 5vw;
+  padding: 3vh 5vw 0 5vw;
   height: 18rem;
   background: linear-gradient(90deg, #05EDE3, #645FFB);
   }
@@ -22,7 +21,7 @@
     color: #FFFFFF;
   }
 
-  @media (max-width:450px){
+  @media (max-width:750px){
     .container-header{
       display: flex;
       flex-direction: column;

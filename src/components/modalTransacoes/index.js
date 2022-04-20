@@ -44,7 +44,12 @@ export default function ModalTransacoes() {
 
   useEffect(() => {
     if (transacaoEditada) {
-      setData(transacaoEditada.data);
+      const dataEdicao = `
+      ${transacaoEditada.data.substr(8, 2)}/
+      ${transacaoEditada.data.substr(5, 2)}/
+      ${transacaoEditada.data.substr(0, 4)}
+      `
+      setData(dataEdicao);
       setValor(transacaoEditada.valor / 100);
       setCategoria(transacaoEditada.categoria);
       setDescricao(transacaoEditada.descricao);
@@ -75,7 +80,7 @@ export default function ModalTransacoes() {
         const resposta = await fetch('https://sistemacontrolefinanceiro.herokuapp.com/transacoes', {
           method: 'POST',
           headers: {
-            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQ5NTEyNDAyfQ.vKMxjFCSoC3NEvQrJ4Pge6TQcIt-dtPBjgTRe5v-OLs`,
+            Authorization: `Bearer ${window.localStorage.getItem('token')}`,
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(dadosBody),
@@ -91,7 +96,7 @@ export default function ModalTransacoes() {
         const resposta = await fetch(`https://sistemacontrolefinanceiro.herokuapp.com/transacoes/${id}`, {
           method: 'PUT',
           headers: {
-            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQ5NTEyNDAyfQ.vKMxjFCSoC3NEvQrJ4Pge6TQcIt-dtPBjgTRe5v-OLs`,
+            Authorization: `Bearer ${window.localStorage.getItem('token')}`,
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(dadosBody),
