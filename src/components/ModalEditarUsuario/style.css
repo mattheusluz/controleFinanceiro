@@ -2,14 +2,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
   bottom: 0;
   z-index: 1;
-  
+
   width: 100vw;
   height: 100vh;
 
@@ -40,7 +40,7 @@
   background-color: #fefefe;
 }
 
-.editIcon{
+.editIcon {
   margin-right: 1rem;
 }
 
@@ -52,21 +52,21 @@
   width: 90%;
 }
 
-.inputEdit{
+.inputEdit {
   padding: 10px 15px;
-  margin: 5px 0 15px 0;
+  margin: 5px 0;
 
-  font-family: 'Rubik' sans-serif;
+  font-family: 'Rubik', sans-serif;
   font-size: 1.4rem;
   line-height: 1.8rem;
-  
+
   color: #000000;
 }
 
 .modal-containerEdit form {
   display: flex;
   flex-direction: column;
-  
+
   width: 90%;
   /* height: 60%; */
 }
@@ -74,7 +74,7 @@
 
 .modal-containerEdit .labelEdit {
   width: 90%;
-  
+
   font-family: 'Rubik', sans-serif;
   font-weight: 500;
   font-size: 1.7rem;
@@ -82,20 +82,20 @@
   text-align: left;
 }
 
-.inputSenhaEdit{
+/* .inputSenhaEdit {
   display: flex;
   width: 100%;
   padding: 10px 15px;
   margin: 5px 0 15px 0;
 
-  font-family: 'Rubik' sans-serif;
+  font-family: 'Rubik', sans-serif;
   font-size: 1.4rem;
   line-height: 1.8rem;
-  
-  color: #000000;
-}
 
-.buttonEdit{
+  color: #000000;
+} */
+
+.buttonEdit {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -124,6 +124,7 @@
   opacity: 0.8;
   box-shadow: 0px 2px 11px rgba(0, 0, 0, 0.4);
 }
+
 /* .container-btn-insert {
   display: flex;
   justify-content: center;
@@ -181,19 +182,19 @@
   border-radius: 0px 10px 10px 0px;
 } */
 
-@media (max-width:920px){
+@media (max-width:920px) {
   .modal-containerEdit {
     width: 50vw;
   }
 }
 
-@media (max-width:620px){
+@media (max-width:620px) {
   .modal-containerEdit {
     width: 65vw;
   }
 }
 
-@media (max-width:400px){
+@media (max-width:400px) {
   .modal-containerEdit {
     width: 75vw;
   }
