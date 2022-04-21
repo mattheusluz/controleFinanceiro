@@ -14,7 +14,6 @@ export default function ModalUsuario() {
   } = useContext(UserContext);
 
   const [erroEdicao, setErroEdicao] = useState(null);
-  console.log(dadosUsuario)
 
   function handleClose() {
     setOpenEditUserModal(false);
