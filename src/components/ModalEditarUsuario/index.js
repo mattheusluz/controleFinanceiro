@@ -14,7 +14,6 @@ export default function ModalUsuario() {
   } = useContext(UserContext);
 
   const [erroEdicao, setErroEdicao] = useState(null);
-  console.log(dadosUsuario)
 
   function handleClose() {
     setOpenEditUserModal(false);
@@ -43,7 +42,6 @@ export default function ModalUsuario() {
 
       handleDadosUsuario();
       setOpenEditUserModal()
-      setDadosUsuario({ ...dadosUsuario, senha: '' })
     } catch (error) {
       console.log(error);
     }
@@ -107,7 +105,7 @@ export default function ModalUsuario() {
             && erroEdicao.includes('email')
             && < span className='spanErro' > {erroEdicao}</span>
           }
-          <div className="senha">
+          {/* <div className="senha">
             <label htmlFor="senha1" className='labelSenhas'>
               Digite sua senha:
             </label>
@@ -129,7 +127,7 @@ export default function ModalUsuario() {
               && erroEdicao.includes('senha')
               && < span className='spanErro' > {erroEdicao}</span>
             }
-          </div>
+          </div> */}
           <div className="buttonEdit">
             <button type='submit' className='buttonEditUser'>Confirmar</button>
           </div>
