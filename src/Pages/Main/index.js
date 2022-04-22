@@ -3,6 +3,7 @@ import filtro from '../../assets/filtro.svg';
 import Filtros from '../../components/Filtros';
 import Header from '../../components/Header';
 import ListaTransacoes from '../../components/ListaTransacoes';
+import ConfirmarExclusao from '../../components/ConfirmarExclusao';
 import ModalTransacoes from '../../components/ModalTransacoes';
 import ModalEditarUsuario from '../../components/ModalEditarUsuario';
 import Resumo from '../../components/Resumo';
@@ -13,6 +14,7 @@ import './style.css';
 
 function Main() {
   const {
+    excluir,
     openModal,
     setOpenModal,
     transacoes,
@@ -20,10 +22,15 @@ function Main() {
     setFiltrando,
     hidden,
     setHidden,
+    setTransacoes
   } = useContext(UserContext);
 
   const esconderFiltros = () => {
     return hidden ? setHidden(false) : setHidden(true);
+  }
+
+  function handleOrderTransactions(newTransactions){
+    setTransacoes(newTransactions);
   }
 
   return (
@@ -50,11 +57,17 @@ function Main() {
           />
         </div>
         {/* <div className="asideMain"> */}
-          <ListaTransacoes />
+          <ListaTransacoes 
+          transacoes = {transacoes}
+          handleOrderTransactions={handleOrderTransactions}/>
         {/* </div> */}
-      {
-        openModal && <ModalTransacoes />
-      }
+        {
+          openModal && <ModalTransacoes />
+        }
+        {
+        excluir && <ConfirmarExclusao 
+        excluir={excluir}/>
+        }
       </section>
     <Footer 
     className='footer'

@@ -32,10 +32,22 @@
   font-size: 1.5rem;
 }
 
+names .span{
+  width: 100%;
+  text-align: center;
+}
+
 .linkHub{
   width: 50%;
   display: flex;
   justify-content: space-around;
   margin-bottom: 1rem;
   cursor: pointer
+}
+
+@media (max-width:560px){
+  .authors{
+    display: flex;
+    width: 70vw;
+  }
 }

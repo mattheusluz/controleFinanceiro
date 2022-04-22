@@ -28,22 +28,24 @@ function ConfirmarExclusao() {
   }
 
   return (
-    <div className='container-confirm-delete'>
-      <div className="arrow-up">
+    <div className="paginaModal">
+      <div className='container-confirm-delete'>
+        <span>Apagar item?</span>
+        <div className="selectButton">
+          <button
+            className="btn-actions-confirm-delete sim"
+            onClick={() => deletarTransacao(idTransacao)}
+            >
+            Sim
+          </button>
+          <button
+            className="btn-actions-confirm-delete nao"
+            onClick={() => setExcluir(false)}
+            >
+            Não
+          </button>
+        </div>
       </div>
-      <span>Apagar item?</span>
-      <button
-        className="btn-actions-confirm-delete sim"
-        onClick={() => deletarTransacao(idTransacao)}
-      >
-        Sim
-      </button>
-      <button
-        className="btn-actions-confirm-delete nao"
-        onClick={() => setExcluir(false)}
-      >
-        Não
-      </button>
     </div>
   )
 }

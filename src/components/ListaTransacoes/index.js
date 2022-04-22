@@ -1,21 +1,34 @@
 import { useContext } from 'react';
 import lapis from '../../assets/lapis.svg';
 import lixeira from '../../assets/lixeira.svg';
+import orderUp from '../../assets/orderUp.svg';
+import orderDown from '../../assets/orderDown.svg';
+import {orderColumnAsc, orderColumnDesc} from './utils';
 import UserContext from '../../contexts/userContext';
 import ConfirmarExclusao from '../ConfirmarExclusao';
+import {
+  capitalizarUpperCase
+} from '../../utils/formatters';
+import {useState, useEffect} from 'react';
 import './style.css';
 
-function ListaTransacoes() {
+function ListaTransacoes({handleOrderTransactions}) {
   const {
     transacoes,
     setOpenModal,
     setEditar,
     filtrando,
+    setFiltrando,
     filtrados,
     excluir,
     setExcluir,
     setIdTransacao,
-    setTransacaoEditada
+    setTransacaoEditada,
+    filter,
+    setFilter,
+    handleChangeFilter,
+    order,
+    setOrder
   } = useContext(UserContext);
 
   const editarTransacao = (transacao) => {
@@ -24,12 +37,52 @@ function ListaTransacoes() {
     setIdTransacao(transacao.id);
     setTransacaoEditada(transacao);
   }
+  
+  useEffect(() => {
+      console.log(filter);
+      console.log(order);
+      console.log(filtrando);
+      console.log(...filtrados);
+
+      if(order === 'desc') {
+        orderAllTransactionsByDesc();
+        setFiltrando(true);
+        return;
+    }
+
+    orderAllTransactionsByAsc();
+    setFiltrando(false);
+  },[filter, order]);
+
+  function orderAllTransactionsByAsc() {
+      const localTransactions = [...filtrados];
+
+      localTransactions.sort((a, b) => orderColumnAsc(a, b, filter));
+
+      handleOrderTransactions(localTransactions);
+  }
+
+  function orderAllTransactionsByDesc() {
+      const localTransactions = [...filtrados];
+
+      localTransactions.sort((a, b) => orderColumnDesc(a, b, filter));
+
+      handleOrderTransactions(localTransactions);
+  }
 
   return (
     <table className='table'>
       <th className='table-head'>
-        <div id='date' className='column-titleDate'>
+        <div id='date' className='column-titleDate'
+        onClick={() => handleChangeFilter('date')}>
           <span>Data</span>
+          {/* { filter === 'date' && */}
+            <img 
+              src={order === 'asc' ? orderUp : orderDown} 
+              alt="apply filter" 
+              onClick={()=>{}}
+            />
+           {/* } */}
         </div>
         <div id='week-day' className='column-titleDay elipsis'>
           <span>Dia da Semana</span>
@@ -40,8 +93,17 @@ function ListaTransacoes() {
         <div className='column-titleDescription elipsis'>
           <span>Descrição</span>
         </div>
-        <div id='value' className='column-titleValue'>
+        <div 
+        id='value' 
+        className='column-titleValue'
+        onClick={() => handleChangeFilter('date')}>
           <span>Valor</span>
+          {/* { filter === 'value' && */}
+            <img 
+              src={order === 'asc' ? orderUp : orderDown} 
+              alt="apply filter" 
+            />
+          {/* } */}
         </div>
         <div id='editDelete' className='column-titleEditDelete'>
           .
@@ -61,10 +123,10 @@ function ListaTransacoes() {
               <span className='column-titleDay elipsis'>{transacao.dia_semana}</span>
             </td>
             <td className=' line-items'>
-              <span className='column-lineCategory elipsis'>{transacao.categoria}</span>
+              <span className='column-lineCategory elipsis'>{capitalizarUpperCase(transacao.categoria)}</span>
             </td>
             <td className='line-items'>
-              <span className='column-lineDescription elipsis'>{transacao.descricao}</span>
+              <span className='column-lineDescription elipsis'>{capitalizarUpperCase(transacao.descricao)}</span>
             </td>
             <td
               className='line-items'
@@ -87,7 +149,6 @@ function ListaTransacoes() {
                   setIdTransacao(transacao.id)
                 }}
               />
-              {excluir && <ConfirmarExclusao />}
             </td>
           </tr>
         </tbody>

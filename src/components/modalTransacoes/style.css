@@ -36,7 +36,7 @@
   padding: 0 15px;
   width: 30vw;
   height: 75vh;
-
+  box-shadow: 5px 8px 3px rgba(0, 0, 0, 0.397);
   background-color: #fefefe;
 }
 

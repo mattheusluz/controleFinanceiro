@@ -1,34 +1,56 @@
-.container-confirm-delete {
-  position: absolute;
-  top: 100%;
+.paginaModal{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(61, 61, 61, 0.48);
+  position: fixed;
+  top: 0;
   right: 0;
-  width: 120px;
-  height: 70px;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.container-confirm-delete {
+  width: 320px;
+  height: 150px;
   padding: 7px;
-  margin: 5px;
-  background: #E4F2FD;
+  background: #FFF;
   border-radius: 4px;
   z-index: 1;
+  box-shadow: 5px 8px 3px rgba(102, 99, 99, 0.397);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.selectButton{
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .container-confirm-delete span {
   display: block;
-  font-size: 10px;
+  font-size: 1.7rem;
   font-family: 'Rubik';
-  font-weight: 300;
+  font-weight: 400;
   margin: 8px;
 }
 
 .btn-actions-confirm-delete {
   margin: 0px 3px 0px 3px;
   padding: 5px;
-  width: 40px;
+  width: 90px;
   border: none;
   border-radius: 7px;
 
   cursor: pointer;
-
-  font-size: 9px;
+  font-family: 'Rubik';
+  font-size: 1.4rem;
   font-weight: 500;
   color: #ffffff;
 }
@@ -45,16 +67,13 @@
   background-color: #FF576B;
 }
 
-.arrow-up {
-  position: absolute;
-  top: -10px;
-  width: 0;
-  height: 0;
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-bottom: 10px solid #E4F2FD;
-}
-
 .hidden {
   display: none;
+}
+
+@media (max-width:440px){
+  .container-confirm-delete {
+    width: 60vw;
+    height: 30vh;
+  }
 }
