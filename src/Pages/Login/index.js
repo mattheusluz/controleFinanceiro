@@ -2,6 +2,9 @@ import { useContext, useState } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import HeaderLogin from '../../components/HeaderLogin';
 import UserContext from '../../contexts/userContext';
+import { 
+  capitalizarLowerCase 
+} from '../../utils/formatters';
 import '../../globalStyles/styles.css';
 import './style.css';
 
@@ -73,7 +76,7 @@ function Login() {
                   : 'inputLogin'
               }
               placeholder='Digite um e-mail válido'
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => capitalizarLowerCase(setEmail(e.target.value))}
               value={email}
             />
             {
@@ -94,7 +97,7 @@ function Login() {
                   : 'inputLogin'
               }
               placeholder='Digite a senha'
-              onChange={(e) => setSenha(e.target.value)}
+              onChange={(e) => capitalizarLowerCase(setSenha(e.target.value))}
               value={senha}
             />
             {

@@ -3,6 +3,9 @@ import arrowDown from '../../assets/arrowDown.svg';
 import arrowUp from '../../assets/arrowUp.png';
 import UserContext from '../../contexts/userContext';
 import ModalUsuario from '../NavBar/ModalUsuario';
+import { 
+  capitalizarUpperCase 
+} from '../../utils/formatters';
 import './style.css';
 
 function NavBar() {
@@ -16,17 +19,17 @@ function NavBar() {
   return (
     <div className='navBar'>
       <div className="tituloMenu">
-        <h1 className='nome'>Olá, {nomeUsuario && nomeUsuario}</h1>
+        <h1 className='nome'>Olá, {nomeUsuario && capitalizarUpperCase(nomeUsuario)}</h1>
       </div>
       <div className="displayMenu">
         {popup
           ? <img className='imgModal'
-            src={arrowUp}
+            src={arrowDown}
             alt='Menu fechado'
             onClick={() => setPopup(false)}
           />
           : <img className='imgModal'
-            src={arrowDown}
+            src={arrowUp}
             alt='Menu Aberto'
             onClick={() => setPopup(true)}
           />
