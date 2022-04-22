@@ -1,8 +1,16 @@
 import { useContext } from 'react';
 import lapis from '../../assets/lapis.svg';
 import lixeira from '../../assets/lixeira.svg';
+import orderUp from '../../assets/orderUp.svg';
+import orderDown from '../../assets/orderDown.svg';
+import {orderColumnAsc, orderColumnDesc} from './utils';
 import UserContext from '../../contexts/userContext';
 import ConfirmarExclusao from '../ConfirmarExclusao';
+import {
+  capitalizarUpperCase, 
+  capitalizarLowerCase 
+} from '../../utils/formatters';
+import {useState, useEffect} from 'react';
 import './style.css';
 
 function ListaTransacoes() {
@@ -18,6 +26,8 @@ function ListaTransacoes() {
     setTransacaoEditada
   } = useContext(UserContext);
 
+  const[order, setOrder] = useState('asc');
+
   const editarTransacao = (transacao) => {
     setOpenModal(true);
     setEditar(true);
@@ -25,11 +35,26 @@ function ListaTransacoes() {
     setTransacaoEditada(transacao);
   }
 
+  useEffect(() => {
+    console.log(order);
+
+    if(order === 'desc') {
+        // orderAllTransactionsByDesc();
+        return;
+    }
+
+    // orderAllTransactionsByAsc();
+},[ order]);
+
   return (
     <table className='table'>
       <th className='table-head'>
         <div id='date' className='column-titleDate'>
           <span>Data</span>
+          <img 
+            src={order === 'asc' ? orderUp : orderDown} 
+            alt="apply filter" 
+          />
         </div>
         <div id='week-day' className='column-titleDay elipsis'>
           <span>Dia da Semana</span>
@@ -42,6 +67,10 @@ function ListaTransacoes() {
         </div>
         <div id='value' className='column-titleValue'>
           <span>Valor</span>
+          <img 
+            src={order === 'asc' ? orderUp : orderDown} 
+            alt="apply filter" 
+          />
         </div>
         <div id='editDelete' className='column-titleEditDelete'>
           .
@@ -61,10 +90,10 @@ function ListaTransacoes() {
               <span className='column-titleDay elipsis'>{transacao.dia_semana}</span>
             </td>
             <td className=' line-items'>
-              <span className='column-lineCategory elipsis'>{transacao.categoria}</span>
+              <span className='column-lineCategory elipsis'>{capitalizarUpperCase(transacao.categoria)}</span>
             </td>
             <td className='line-items'>
-              <span className='column-lineDescription elipsis'>{transacao.descricao}</span>
+              <span className='column-lineDescription elipsis'>{capitalizarUpperCase(transacao.descricao)}</span>
             </td>
             <td
               className='line-items'
