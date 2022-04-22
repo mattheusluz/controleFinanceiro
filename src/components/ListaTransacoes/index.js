@@ -150,7 +150,6 @@ function ListaTransacoes({handleOrderTransactions}) {
                 }}
               />
             </td>
-              {excluir && <ConfirmarExclusao />}
           </tr>
         </tbody>
       ))}
