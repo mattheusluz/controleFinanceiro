@@ -7,26 +7,29 @@ import {orderColumnAsc, orderColumnDesc} from './utils';
 import UserContext from '../../contexts/userContext';
 import ConfirmarExclusao from '../ConfirmarExclusao';
 import {
-  capitalizarUpperCase, 
-  capitalizarLowerCase 
+  capitalizarUpperCase
 } from '../../utils/formatters';
 import {useState, useEffect} from 'react';
 import './style.css';
 
-function ListaTransacoes() {
+function ListaTransacoes({handleOrderTransactions}) {
   const {
     transacoes,
     setOpenModal,
     setEditar,
     filtrando,
+    setFiltrando,
     filtrados,
     excluir,
     setExcluir,
     setIdTransacao,
-    setTransacaoEditada
+    setTransacaoEditada,
+    filter,
+    setFilter,
+    handleChangeFilter,
+    order,
+    setOrder
   } = useContext(UserContext);
-
-  const[order, setOrder] = useState('asc');
 
   const editarTransacao = (transacao) => {
     setOpenModal(true);
@@ -34,27 +37,52 @@ function ListaTransacoes() {
     setIdTransacao(transacao.id);
     setTransacaoEditada(transacao);
   }
-
+  
   useEffect(() => {
-    console.log(order);
+      console.log(filter);
+      console.log(order);
+      console.log(filtrando);
+      console.log(...filtrados);
 
-    if(order === 'desc') {
-        // orderAllTransactionsByDesc();
+      if(order === 'desc') {
+        orderAllTransactionsByDesc();
+        setFiltrando(true);
         return;
     }
 
-    // orderAllTransactionsByAsc();
-},[ order]);
+    orderAllTransactionsByAsc();
+    setFiltrando(false);
+  },[filter, order]);
+
+  function orderAllTransactionsByAsc() {
+      const localTransactions = [...filtrados];
+
+      localTransactions.sort((a, b) => orderColumnAsc(a, b, filter));
+
+      handleOrderTransactions(localTransactions);
+  }
+
+  function orderAllTransactionsByDesc() {
+      const localTransactions = [...filtrados];
+
+      localTransactions.sort((a, b) => orderColumnDesc(a, b, filter));
+
+      handleOrderTransactions(localTransactions);
+  }
 
   return (
     <table className='table'>
       <th className='table-head'>
-        <div id='date' className='column-titleDate'>
+        <div id='date' className='column-titleDate'
+        onClick={() => handleChangeFilter('date')}>
           <span>Data</span>
-          <img 
-            src={order === 'asc' ? orderUp : orderDown} 
-            alt="apply filter" 
-          />
+          {/* { filter === 'date' && */}
+            <img 
+              src={order === 'asc' ? orderUp : orderDown} 
+              alt="apply filter" 
+              onClick={()=>{}}
+            />
+           {/* } */}
         </div>
         <div id='week-day' className='column-titleDay elipsis'>
           <span>Dia da Semana</span>
@@ -65,12 +93,17 @@ function ListaTransacoes() {
         <div className='column-titleDescription elipsis'>
           <span>Descrição</span>
         </div>
-        <div id='value' className='column-titleValue'>
+        <div 
+        id='value' 
+        className='column-titleValue'
+        onClick={() => handleChangeFilter('date')}>
           <span>Valor</span>
-          <img 
-            src={order === 'asc' ? orderUp : orderDown} 
-            alt="apply filter" 
-          />
+          {/* { filter === 'value' && */}
+            <img 
+              src={order === 'asc' ? orderUp : orderDown} 
+              alt="apply filter" 
+            />
+          {/* } */}
         </div>
         <div id='editDelete' className='column-titleEditDelete'>
           .
@@ -116,8 +149,8 @@ function ListaTransacoes() {
                   setIdTransacao(transacao.id)
                 }}
               />
-              {excluir && <ConfirmarExclusao />}
             </td>
+              {excluir && <ConfirmarExclusao />}
           </tr>
         </tbody>
       ))}

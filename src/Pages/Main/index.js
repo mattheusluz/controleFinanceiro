@@ -20,10 +20,15 @@ function Main() {
     setFiltrando,
     hidden,
     setHidden,
+    setTransacoes
   } = useContext(UserContext);
 
   const esconderFiltros = () => {
     return hidden ? setHidden(false) : setHidden(true);
+  }
+
+  function handleOrderTransactions(newTransactions){
+    setTransacoes(newTransactions);
   }
 
   return (
@@ -50,7 +55,9 @@ function Main() {
           />
         </div>
         {/* <div className="asideMain"> */}
-          <ListaTransacoes />
+          <ListaTransacoes 
+          transacoes = {transacoes}
+          handleOrderTransactions={handleOrderTransactions}/>
         {/* </div> */}
       {
         openModal && <ModalTransacoes />

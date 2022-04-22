@@ -19,6 +19,8 @@ function App() {
   const [openEditUserModal, setOpenEditUserModal] = useState(false);
   const [dadosUsuario, setDadosUsuario] = useState([]);
   const [nomeUsuario, setNomeUsuario] = useState(null);
+  const [filter, setFilter] = useState('date');
+  const [order, setOrder] = useState('asc');
 
   const todasTransacoes = async () => {
     try {
@@ -72,6 +74,14 @@ function App() {
     handleDadosUsuario();
   }, [])
 
+  function handleChangeFilter(type) {
+
+    if(filter === type){
+        setOrder(order === 'asc'? 'desc' : 'asc');
+        return; 
+    }
+    setFilter(type);
+}
   return (
     <div className="App">
       <UserContext.Provider value={{
@@ -103,7 +113,12 @@ function App() {
         dadosUsuario,
         setDadosUsuario,
         handleDadosUsuario,
-        nomeUsuario
+        nomeUsuario,
+        order,
+        setOrder,
+        filter,
+        setFilter,
+        handleChangeFilter
       }}>
         <Rotas />
       </UserContext.Provider>

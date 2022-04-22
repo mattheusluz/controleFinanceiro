@@ -81,6 +81,11 @@
 .column-titleDate {
   width: 10vw;
   text-align: center;
+  cursor: pointer;
+}
+
+.column-titleDate span{
+margin-right: 1rem;
 }
 
 .column-titleDay {
@@ -100,6 +105,10 @@
   width: 10vw;
   text-align: center;
 }
+
+.column-titleValue span{
+  margin-right: 1rem;
+  }
 
 .column-titleEditDelete {
   width: 12vw;
