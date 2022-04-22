@@ -70,3 +70,10 @@
 .hidden {
   display: none;
 }
+
+@media (max-width:440px){
+  .container-confirm-delete {
+    width: 60vw;
+    height: 30vh;
+  }
+}

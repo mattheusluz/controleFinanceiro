@@ -24,12 +24,12 @@ function NavBar() {
       <div className="displayMenu">
         {popup
           ? <img className='imgModal'
-            src={arrowUp}
+            src={arrowDown}
             alt='Menu fechado'
             onClick={() => setPopup(false)}
           />
           : <img className='imgModal'
-            src={arrowDown}
+            src={arrowUp}
             alt='Menu Aberto'
             onClick={() => setPopup(true)}
           />
