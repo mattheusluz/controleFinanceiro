@@ -5,13 +5,18 @@ import UserContext from '../../contexts/userContext';
 import { 
   capitalizarLowerCase 
 } from '../../utils/formatters';
+import hidepass from '../../assets/hidepass.svg';
+import showpass from '../../assets/showpass.svg';
 import '../../globalStyles/styles.css';
 import './style.css';
 
 function Login() {
   const [email, setEmail] = useState('');
-  const [senha, setSenha] = useState('');
   const [erroLogin, setErroLogin] = useState(null);
+  const [senha, setSenha] = useState({
+    password: "",
+    showPassword: false,
+  });
 
   const { setToken } = useContext(UserContext);
 
@@ -54,6 +59,18 @@ function Login() {
     }
   }
 
+  const clickShowPassword = () => {
+    setSenha({ ...senha, showPassword: !senha.showPassword });
+  };
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+
+  const handleChange = (prop) => (event) => {
+    capitalizarLowerCase(setSenha({ ...senha, [prop]: event.target.value }));
+  };
+
   return (
     <>
       <HeaderLogin className='header' />
@@ -78,7 +95,8 @@ function Login() {
               placeholder='Digite um e-mail válido'
               onChange={(e) => capitalizarLowerCase(setEmail(e.target.value))}
               value={email}
-            />
+            >
+            </input>
             {
               erroLogin
               && erroLogin.includes('email')
@@ -87,19 +105,38 @@ function Login() {
             <label htmlFor="senha" className='labelLogin'>
               Senha:
             </label>
-            <input
-              id='senha'
-              type="password"
-              className={
-                erroLogin
+            <div className="containerPass">
+              <input
+                id='senha'
+                type={senha.showPassword ? "text" : "password"} 
+                className={
+                  erroLogin
                   && erroLogin.includes('senha')
                   ? 'erroInput inputLogin'
                   : 'inputLogin'
-              }
-              placeholder='Digite a senha'
-              onChange={(e) => capitalizarLowerCase(setSenha(e.target.value))}
-              value={senha}
-            />
+                }
+                maxlength="20"
+                placeholder='Digite a senha'
+                onChange={handleChange("password")}
+                value={senha.password}
+              />
+              {!senha.showPassword 
+              ? <img 
+                  src={hidepass} 
+                  alt="Show password" 
+                  className='showPassword'    
+                  onClick={clickShowPassword}
+                  onMouseDown={handleMouseDownPassword}        
+                />
+              : 
+                <img 
+                  src={showpass} 
+                  alt="Show password" 
+                  className='showPassword' 
+                  onClick={clickShowPassword}
+                  onMouseDown={handleMouseDownPassword}              
+                />}
+            </div>
             {
               erroLogin
               && erroLogin.includes('senha')
